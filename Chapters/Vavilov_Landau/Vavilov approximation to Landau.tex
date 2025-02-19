@@ -1,0 +1,273 @@
+    
+% \maketitle
+    
+\begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np} \PY{c+c1}{\PYZsh{} NumPy}
+\PY{k+kn}{from} \PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{optimize} \PY{k+kn}{import} \PY{n}{fsolve} 
+\PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k+kn}{import} \PY{n}{Image}
+\PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd} \PY{c+c1}{\PYZsh{} Pandas}
+\PY{n}{pd}\PY{o}{.}\PY{n}{options}\PY{o}{.}\PY{n}{display}\PY{o}{.}\PY{n}{float\PYZus{}format} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}:5,.4E\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{calculating-the-factor-the-determines-if-the-vavilov-distribution-can-be-approximated-by-a-landau}{%
+\section{Calculating the factor the determines if the Vavilov
+distribution can be approximated by a
+Landau}\label{calculating-the-factor-the-determines-if-the-vavilov-distribution-can-be-approximated-by-a-landau}}
+
+Bethe-Bloch mean energy loss: \[
+\left\langle-\frac{dE}{dx} \right\rangle \frac{1}{\rho} =  K z_0^2 \frac{1}{\beta^2} \frac{Z}{A M_u} \cdot\left[\frac{1}{2}\ln \left(\frac{2m_e c^2 \beta^2 W_{max}}{I^2 \cdot (1-\beta^2)}\right) - \beta^2\right]
+\]
+
+\[
+K/M_u = 4 \pi N_A r_e^2 m_e c^2 /M_u = 0.307075\space \text{MeV g}^{-1} \text{cm}^2
+\]
+
+\[
+r_e  = \frac{e^2}{4\pi\varepsilon_0 m_e c^2} \\
+M_u = 1 \frac{g}{mol} \quad z_0=1 \\
+\left( W_{max} \equiv \epsilon_{max} \right)
+\]
+
+For \textbf{silicon}: \[
+Z = 14 \\
+A = 28.085 \\ 
+\rho = 2.329085 \text{  g cm}^{-3}\\
+I = 173 \text{ eV} % \quad \text{(mean excitation energy)}
+\]
+
+\hypertarget{calculating-beta-for-a-proton-of-energy-e_k}{%
+\subsubsection{\texorpdfstring{Calculating \(\beta\) for a proton of
+energy
+\(E_k\)}{Calculating \textbackslash beta for a proton of energy E\_k}}\label{calculating-beta-for-a-proton-of-energy-e_k}}
+
+\[
+E_k = (\gamma - 1) m_o c^2 \\
+\gamma = \frac{E_k + m_o c^2}{m_o c^2} \\
+\beta^2 = 1 - \left(\frac{m_o c^2}{E_k +m_o c^2} \right)^2
+\]
+
+for a proton of energy \(E_k=120\space \text{GeV}\),
+\(m_0 = 938.272\space \text{MeV/c}^2\)
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{energy} \PY{o}{=} \PY{l+m+mf}{120e3} \PY{c+c1}{\PYZsh{} MeV  (120 GeV)}
+\PY{c+c1}{\PYZsh{} m\PYZus{}particle = 938.272088 \PYZsh{} MeV/c\PYZca{}2  protons }
+\PY{n}{m\PYZus{}particle} \PY{o}{=} \PY{l+m+mf}{938.213} \PY{c+c1}{\PYZsh{} MeV/c\PYZca{}2     protons (older value)}
+
+\PY{n}{gamma} \PY{o}{=} \PY{p}{(}\PY{n}{energy} \PY{o}{+} \PY{n}{m\PYZus{}particle}\PY{p}{)}\PY{o}{/}\PY{n}{m\PYZus{}particle}
+\PY{n}{beta\PYZus{}2} \PY{o}{=} \PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{m\PYZus{}particle}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{/}\PY{p}{(}\PY{n}{m\PYZus{}particle} \PY{o}{+} \PY{n}{energy}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ gamma: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{gamma}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{beta²: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{beta\PYZus{}2}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+ gamma:  128.90272571367058
+ beta²:  0.999939816727599
+    \end{Verbatim}
+
+    from https://academic.oup.com/book/43645/chapter/365027598\#404941541 :
+
+The parameter \(\kappa\) of the Vavilov distribution determines if it
+becomes close to a Landau (\(\kappa\rightarrow0\)) or a Gaussian
+(\(\kappa 10\)).
+
+To calculate \(\kappa\): 
+\[
+\kappa = \frac{\xi}{\epsilon_{max}}
+\]
+
+where: \[
+\xi = \frac{1}{2} K \frac{Z}{A} \frac{s} {\beta^2}
+\]
+
+\(s = \Delta x \cdot \rho\)
+
+and from https://nap.nationalacademies.org/read/20066/chapter/10\#188 :
+\[
+\epsilon_{max} = \frac{2m_e c^2 \beta^2}{1-\beta^2}\left[ 1 + \frac{2m_e}{M}\frac{1}{\sqrt{1-\beta^2}} + \left(\frac{m_e}{M}\right)^2 \right]^{-1}
+\]
+
+where \(M\) is the mass of the incoming particle.
+
+Also written as:
+
+\[
+\epsilon_{max} = \frac{2m_e c^2 \beta^2 \gamma^2} { 1 + \frac{2\gamma m_e}{M} + \left(\frac{m_e}{M}\right)^2}
+\]
+
+    \hypertarget{applying-this-to-a-thin-silicon-layer-50mu-textm}{%
+\subsubsection{\texorpdfstring{Applying this to a thin silicon layer
+(50\(\mu \text{m}\))}{Applying this to a thin silicon layer (50\textbackslash mu \textbackslash text\{m\})}}\label{applying-this-to-a-thin-silicon-layer-50mu-textm}}
+
+(The masses are either multiplied by \(c^2\) or in a ratio, the mass
+units used are \(\text{MeV}/c^2\))
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} variables values}
+\PY{n}{m\PYZus{}electron} \PY{o}{=} \PY{l+m+mf}{0.51099895} \PY{c+c1}{\PYZsh{} MeV/c\PYZca{}2}
+\PY{n}{z\PYZus{}0} \PY{o}{=} \PY{l+m+mi}{1} \PY{c+c1}{\PYZsh{} electric charge of incoming particle}
+\PY{n}{delta\PYZus{}x} \PY{o}{=} \PY{l+m+mf}{5e\PYZhy{}3} \PY{c+c1}{\PYZsh{} cm  (50um)}
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} silicon}
+\PY{n}{Z} \PY{o}{=} \PY{l+m+mi}{14}   \PY{c+c1}{\PYZsh{} atomic number}
+\PY{n}{A} \PY{o}{=} \PY{l+m+mf}{28.085}  \PY{c+c1}{\PYZsh{} atomic weight}
+\PY{n}{density} \PY{o}{=} \PY{l+m+mf}{2.329085} \PY{c+c1}{\PYZsh{} g cm\PYZca{}\PYZhy{}3}
+\PY{n}{mean\PYZus{}excitation} \PY{o}{=} \PY{l+m+mf}{173e\PYZhy{}6} \PY{c+c1}{\PYZsh{} MeV  (mean excitation energy of Silicon: 173 eV)}
+
+\PY{n}{s} \PY{o}{=} \PY{n}{delta\PYZus{}x} \PY{o}{*} \PY{n}{density} \PY{c+c1}{\PYZsh{} g cm\PYZca{}\PYZhy{}2}
+\PY{n}{K} \PY{o}{=} \PY{l+m+mf}{0.307075} \PY{c+c1}{\PYZsh{} MeV g\PYZca{}\PYZhy{}1 cm\PYZca{}2}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{xi\PYZus{}func}\PY{p}{(}\PY{n}{energy}\PY{p}{)}\PY{p}{:}
+    \PY{n}{beta\PYZus{}2} \PY{o}{=} \PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{m\PYZus{}particle}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{/}\PY{p}{(}\PY{n}{m\PYZus{}particle} \PY{o}{+} \PY{n}{energy}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+    \PY{k}{return} \PY{p}{(}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2} \PY{o}{*} \PY{n}{K}\PY{p}{)} \PY{o}{*} \PY{p}{(}\PY{n}{Z} \PY{o}{/} \PY{n}{A}\PY{p}{)} \PY{o}{*} \PY{p}{(}\PY{n}{s} \PY{o}{/} \PY{n}{beta\PYZus{}2}\PY{p}{)}
+
+\PY{k}{def} \PY{n+nf}{eps\PYZus{}max\PYZus{}func}\PY{p}{(}\PY{n}{energy}\PY{p}{)}\PY{p}{:}
+    \PY{n}{gamma} \PY{o}{=} \PY{p}{(}\PY{n}{energy} \PY{o}{+} \PY{n}{m\PYZus{}particle}\PY{p}{)}\PY{o}{/}\PY{n}{m\PYZus{}particle}
+    \PY{n}{beta\PYZus{}2} \PY{o}{=} \PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{m\PYZus{}particle}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{/}\PY{p}{(}\PY{n}{m\PYZus{}particle} \PY{o}{+} \PY{n}{energy}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+    \PY{k}{return} \PY{p}{(}\PY{l+m+mi}{2} \PY{o}{*} \PY{n}{m\PYZus{}electron} \PY{o}{*} \PY{n}{beta\PYZus{}2} \PY{o}{*} \PY{n}{gamma}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{1} \PY{o}{+} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{gamma}\PY{o}{*}\PY{n}{m\PYZus{}electron}\PY{o}{/}\PY{n}{m\PYZus{}particle} \PY{o}{+} \PY{p}{(}\PY{n}{m\PYZus{}electron}\PY{o}{/}\PY{n}{m\PYZus{}particle}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{c+c1}{\PYZsh{} MeV}
+
+\PY{k}{def} \PY{n+nf}{kappa\PYZus{}func}\PY{p}{(}\PY{n}{energy}\PY{p}{,} \PY{n}{kappa\PYZus{}value}\PY{o}{=}\PY{l+m+mf}{0.01}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}kappa as a function of the energy (to find the zeros for k=kappa\PYZus{}value)\PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{n}{gamma} \PY{o}{=} \PY{p}{(}\PY{n}{energy} \PY{o}{+} \PY{n}{m\PYZus{}particle}\PY{p}{)}\PY{o}{/}\PY{n}{m\PYZus{}particle}
+    \PY{n}{beta\PYZus{}2} \PY{o}{=} \PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{m\PYZus{}particle}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{/}\PY{p}{(}\PY{n}{m\PYZus{}particle} \PY{o}{+} \PY{n}{energy}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+    \PY{k}{return} \PY{n}{xi\PYZus{}func}\PY{p}{(}\PY{n}{energy}\PY{p}{)} \PY{o}{/} \PY{n}{eps\PYZus{}max\PYZus{}func}\PY{p}{(}\PY{n}{energy}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{kappa\PYZus{}value}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{xi} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2} \PY{o}{*} \PY{n}{K}\PY{p}{)} \PY{o}{*} \PY{p}{(}\PY{n}{Z} \PY{o}{/} \PY{n}{A}\PY{p}{)} \PY{o}{*} \PY{p}{(}\PY{n}{s} \PY{o}{/} \PY{n}{beta\PYZus{}2}\PY{p}{)} \PY{c+c1}{\PYZsh{} MeV}
+
+\PY{n}{epsilon\PYZus{}max} \PY{o}{=} \PY{n}{eps\PYZus{}max\PYZus{}func}\PY{p}{(}\PY{n}{energy}\PY{p}{)} \PY{c+c1}{\PYZsh{} MeV}
+
+\PY{n}{kappa} \PY{o}{=} \PY{n}{xi} \PY{o}{/} \PY{n}{epsilon\PYZus{}max}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{k =}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{kappa}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+k = 5.98637846070628e-08
+    \end{Verbatim}
+
+    \hypertarget{comparison-with-calculations-from-httpsnap.nationalacademies.orgread20066chapter10189}{%
+\subsection{Comparison with calculations from \cite{NAP20066} }\label{comparison-with-calculations-from-httpsnap.nationalacademies.orgread20066chapter10189}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{Image}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{epsilon and xi formulas.png}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{width}\PY{o}{=}\PY{l+m+mi}{1000}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{6}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Chapters/Vavilov_Landau/output_10_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    Then follows a table with the values calculated for different energies:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{Image}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Table of k and xi values.png}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{width}\PY{o}{=}\PY{l+m+mi}{800}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{7}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Chapters/Vavilov_Landau/output_12_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    Comparison of these values with my previous calculations
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Values from 100 MeV to 10 GeV}
+\PY{n}{energy\PYZus{}array} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{150}\PY{p}{,}\PY{l+m+mi}{200}\PY{p}{,}\PY{l+m+mi}{300}\PY{p}{,}\PY{l+m+mi}{400}\PY{p}{,}\PY{l+m+mi}{500}\PY{p}{,}\PY{l+m+mi}{600}\PY{p}{,}\PY{l+m+mi}{800}\PY{p}{,}\PY{l+m+mi}{1000}\PY{p}{,}\PY{l+m+mi}{1500}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{,}\PY{l+m+mi}{3000}\PY{p}{,}\PY{l+m+mi}{4000}\PY{p}{,}\PY{l+m+mi}{5000}\PY{p}{,}\PY{l+m+mi}{6000}\PY{p}{,}\PY{l+m+mi}{8000}\PY{p}{,}\PY{l+m+mi}{10000}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{table\PYZus{}data} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{vstack}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{m\PYZus{}particle}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{/} \PY{p}{(}\PY{n}{m\PYZus{}particle}\PY{o}{+}\PY{n}{energy\PYZus{}array}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{,}
+              \PY{n}{eps\PYZus{}max\PYZus{}func}\PY{p}{(}\PY{n}{energy\PYZus{}array}\PY{p}{)}\PY{p}{,}
+              \PY{n}{A}\PY{o}{/}\PY{n}{Z} \PY{o}{*} \PY{n}{xi\PYZus{}func}\PY{p}{(}\PY{n}{energy\PYZus{}array}\PY{p}{)} \PY{o}{/} \PY{n}{s}\PY{p}{,}
+              \PY{n}{A}\PY{o}{/}\PY{n}{Z} \PY{o}{*} \PY{n}{kappa\PYZus{}func}\PY{p}{(}\PY{n}{energy\PYZus{}array}\PY{p}{,}\PY{n}{kappa\PYZus{}value}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)} \PY{o}{/} \PY{n}{s}\PY{p}{)}\PY{p}{)}
+
+\PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{n}{table\PYZus{}data}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdl{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s2}{beta \PYZca{}2\PYZdl{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdl{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{epsilon\PYZus{}}\PY{l+s+si}{\PYZob{}max\PYZcb{}}\PY{l+s+s2}{\PYZdl{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdl{}A/Z*}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s2}{xi/s\PYZdl{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdl{}A/Z*}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{kappa/s\PYZdl{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+\PY{n}{df}\PY{o}{.}\PY{n}{insert}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Energy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{energy\PYZus{}array}\PY{p}{,}\PY{n}{dtype}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{int\PYZus{}}\PY{p}{)}\PY{p}{)}
+
+\PY{n}{display}\PY{p}{(}\PY{n}{df}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+    Energy  \$\textbackslash{}beta \^{}2\$  \$\textbackslash{}epsilon\_\{max\}\$  \$A/Z*\textbackslash{}xi/s\$  \$A/Z*\textbackslash{}kappa/s\$
+0      100  1.8336E-01        2.2919E-01   8.3735E-01      3.6534E+00
+1      150  2.5668E-01        3.5247E-01   5.9816E-01      1.6971E+00
+2      200  3.2055E-01        4.8153E-01   4.7898E-01      9.9471E-01
+3      300  4.2587E-01        7.5699E-01   3.6053E-01      4.7627E-01
+4      400  5.0847E-01        1.0556E+00   3.0196E-01      2.8607E-01
+5      500  5.7444E-01        1.3773E+00   2.6728E-01      1.9407E-01
+6      600  6.2798E-01        1.7221E+00   2.4450E-01      1.4198E-01
+7      800  7.0866E-01        2.4809E+00   2.1666E-01      8.7329E-02
+8     1000  7.6569E-01        3.3321E+00   2.0052E-01      6.0178E-02
+9     1500  8.5193E-01        5.8636E+00   1.8022E-01      3.0736E-02
+10    2000  8.9804E-01        8.9708E+00   1.7097E-01      1.9059E-02
+11    3000  9.4324E-01        1.6908E+01   1.6278E-01      9.6272E-03
+12    4000  9.6390E-01        2.7135E+01   1.5929E-01      5.8701E-03
+13    5000  9.7504E-01        3.9646E+01   1.5747E-01      3.9719E-03
+14    6000  9.8171E-01        5.4431E+01   1.5640E-01      2.8733E-03
+15    8000  9.8898E-01        9.0793E+01   1.5525E-01      1.7099E-03
+16   10000  9.9264E-01        1.3616E+02   1.5468E-01      1.1360E-03
+    \end{Verbatim}
+
+    
+    \hypertarget{at-what-energy-gamma-the-value-kappa-0.01}{%
+\subsection{\texorpdfstring{At what energy (\(\gamma\)) the value
+\(\kappa = 0.01\)}{At what energy (\textbackslash gamma) the value \textbackslash kappa = 0.01}}\label{at-what-energy-gamma-the-value-kappa-0.01}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{kappa\PYZus{}value} \PY{o}{=} \PY{l+m+mf}{0.01}
+
+\PY{n}{target\PYZus{}energy} \PY{o}{=} \PY{n}{fsolve}\PY{p}{(}\PY{n}{kappa\PYZus{}func}\PY{p}{,} \PY{n}{x0}\PY{o}{=}\PY{l+m+mi}{500}\PY{p}{,} \PY{n}{args}\PY{o}{=}\PY{p}{(}\PY{n}{kappa\PYZus{}value}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{target\PYZus{}energy}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{MeV}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+148.80746742515953 MeV
+    \end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+

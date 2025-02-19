@@ -1,0 +1,80 @@
+% biber main
+% pdflatex main.tex
+
+\documentclass{report} %article or report
+\usepackage{nameref} % to get the name of the section to reference
+\usepackage{hyperref} % hyperlinks to references
+\usepackage{graphicx} % Required for inserting images
+\usepackage{xcolor} % For text colors
+\usepackage{wrapfig}  % to wrap text around images
+\usepackage[rightcaption]{sidecap}  % caption to the side of the image
+% \usepackage{svg} % for .svg images
+\usepackage{subfig} % for more figures together
+\usepackage{amsmath} % math things ?
+\usepackage[skip=10pt plus1pt, indent=0pt]{parskip}
+\usepackage{titlesec} % improve chapter titles
+% \usepackage{todonotes} % adds notes to the side, actually these slow down the compilation by a ton
+\usepackage{tabularx}
+% \usepackage{rotating}   % rotating tables? 
+\usepackage{lscape}    % rotating tables????
+% \usepackage{adjustbox}  % I use it to rotate a table
+\usepackage{makecell}  % to make two line elemenents in a cell
+\usepackage[symbol]{footmisc} % to use symbols for footnotes (https://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers)
+\usepackage{siunitx}  % SI units
+\usepackage[backend=biber, sorting=none, maxnames=2, style=nature]{biblatex} %Imports biblatex package
+\usepackage{xcolor} % For text colors
+\usepackage{tablefootnote}  % footnotes in tables don't appear otherwise
+
+% \usepackage{biblatex} %Imports biblatex package
+%THIS TO INCLUDE THE VAVILOV_LANDAU LATEX FILE
+% \usepackage{Vavilov_packages}
+
+% \newcommand{\specialcell}[2][c]{%
+%   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\addbibresource{bibliography.bib} %Import the bibliography file
+
+\title{TestBeam analysis for HGTD}
+\author{Marcello Pozzessere}
+\date{January 2025}
+
+\begin{document}
+
+\maketitle
+% \renewcommand{\thesection}{\arabic{section}}
+% \titleformat{\chapter}{\bfseries\huge}{\thechapter.}{20pt}{\huge\it}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\,\textcolor{gray}{|}\,}{0pt}{\Huge\bfseries}
+
+\tableofcontents
+
+\include{Chapters/Introduction.tex}
+
+\include{Chapters/LGADs.tex}
+
+\include{Chapters/Literature_review}
+
+\include{Chapters/TestBeam_setup.tex}
+
+\include{Chapters/Methods.tex}
+
+\chapter{Results}
+\marginpar{file to be created}
+
+\chapter{Conclusions}
+\marginpar{file to make}
+
+\appendix
+
+\include{Chapters/Appendix.tex}
+
+\printbibliography
+
+\end{document}

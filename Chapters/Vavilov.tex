@@ -1,0 +1,61 @@
+The theoretical distribution of the energy loss of heavy particles hitting a thin target has been solved rigorously by Vavilov in \cite{vavilov_1957}. The namesake distribution is a generalization of the Landau distribution but its evaluation is more difficult, as it is expressed as an integral over some complicated functions \cite[Eq.(4)]{vavilov_1957}. Fortunately, it can be approximated by more straightforward distributions depending on the value of a parameter $\kappa$ (Eq.\eqref{eq:kappa_definition}): for $\kappa\rightarrow0$ the Vavilov distribution can be approximated by a Langau, for $\kappa>>1$ by a Gaussian. 
+In this section we have replicated the calculations done in \cite{NAP20066} applied to our specific case to ensure that the Landau approximation is valid.
+
+% \subsection{The \(\kappa\) factor}
+\subsection{Vavilov approximation parameter} % remove $\kappa$ because of hyperref for now
+
+The parameter \(\kappa\) is defined as:
+
+\begin{equation}\label{eq:kappa_definition}
+    \kappa = \frac{\xi}{\epsilon_{max}}
+\end{equation}
+
+where $\xi$ and $\epsilon_{max}$ \cite[Eq.(1)]{NAP20066} are:
+
+\begin{equation*}
+    \xi = \frac{1}{2} K \frac{Z}{A} \frac{s} {\beta^2}; \qquad s = \Delta x \cdot \rho
+\end{equation*}
+
+\begin{equation*}
+\epsilon_{max} = \frac{2m_e c^2 \beta^2}{1-\beta^2}\left[ 1 + \frac{2m_e}{M}\frac{1}{\sqrt{1-\beta^2}} + \left(\frac{m_e}{M}\right)^2 \right]^{-1}
+\end{equation*}
+
+
+% \subsection[Vavilov distribution factor]{Calculating the $\kappa$ factor}\label{vavilov_distribution_factor}
+The parameters just mentioned are the same that appear in the Bethe-Bloch mean energy loss:
+\begin{equation*}
+    \left\langle-\frac{dE}{dx} \right\rangle \frac{1}{\rho} =  K z_0^2 \frac{1}{\beta^2} \frac{Z}{A M_u} \cdot\left[\frac{1}{2}\ln \left(\frac{2m_e c^2 \beta^2 W_{max}}{I^2 \cdot (1-\beta^2)}\right) - \beta^2\right]
+\end{equation*}
+
+And they have the following values:
+
+\begin{equation*}
+    \frac{K}{M_u} = 4 \pi N_A r_e^2 m_e c^2 /M_u = 0.307075 \si{MeV.g^{-1}.cm^2}
+\end{equation*}
+
+
+\begin{equation*}
+r_e = \frac{e^2}{4\pi\varepsilon_0 m_e c^2}; \qquad
+M_u = 1 \frac{\si{g}}{\si{mol}}; \qquad z_0=1; \qquad
+\left( W_{max} \equiv \epsilon_{max} \right)
+\end{equation*}
+
+For the case of \textbf{silicon}:
+\begin{equation*}
+    Z = 14; \qquad
+    A = 28.085; \qquad
+    \rho = 2.329085 \si{g.cm^{-3}}; \qquad
+    I = 173 \si{eV} \footnote[1]{Mean excitation nergy}
+\end{equation*}
+
+Finally, for a Pion ($M=139.570\si{MeV/c^2}$) with energy $E=120\si{GeV}$ ($\gamma=860.78$ and $\beta^2=0.99999865$) and the thin layer ($50\si{\micro\meter}$) of an LGAD sensor, we obtained a value:
+
+\begin{equation}\label{eq:kappa_value}
+    \kappa = \num{8.5959e-09}
+\end{equation}
+
+well within the Landau approximation.
+
+Reversing the calculation and fixing $\kappa=0.01$, which is approximately the lower limit of validity, the energy of the particle should be below: $491.9\si{MeV}$. 
+
+
