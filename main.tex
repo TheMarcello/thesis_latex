@@ -1,10 +1,11 @@
-% biber main
-% pdflatex main.tex
 
 \documentclass{report} %article or report
+\usepackage[margin=1in]{geometry}
 \usepackage{nameref} % to get the name of the section to reference
 \usepackage{hyperref} % hyperlinks to references
-\usepackage{graphicx} % Required for inserting images
+\usepackage{graphicx,caption} % Required for inserting images
+\usepackage{float} % specifying image position?
+
 \usepackage{xcolor} % For text colors
 \usepackage{wrapfig}  % to wrap text around images
 \usepackage[rightcaption]{sidecap}  % caption to the side of the image
@@ -21,7 +22,7 @@
 \usepackage{makecell}  % to make two line elemenents in a cell
 \usepackage[symbol]{footmisc} % to use symbols for footnotes (https://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers)
 \usepackage{siunitx}  % SI units
-\usepackage[backend=biber, sorting=none, maxnames=2, style=nature]{biblatex} %Imports biblatex package
+\usepackage[backend=biber, sorting=none, maxnames=2, style=ieee]{biblatex} %Imports biblatex package, style=nature/ieee/apsrev?
 \usepackage{xcolor} % For text colors
 \usepackage{tablefootnote}  % footnotes in tables don't appear otherwise
 
@@ -31,6 +32,7 @@
 
 % \newcommand{\specialcell}[2][c]{%
 %   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\DeclareSIUnit{\barn}{b}
 
 \hypersetup{
     colorlinks,
@@ -41,6 +43,8 @@
 }
 
 \addbibresource{bibliography.bib} %Import the bibliography file
+\setlength\bibitemsep{\baselineskip}
+
 
 \title{TestBeam analysis for HGTD}
 \author{Marcello Pozzessere}
@@ -58,8 +62,6 @@
 \include{Chapters/Introduction.tex}
 
 \include{Chapters/LGADs.tex}
-
-\include{Chapters/Literature_review}
 
 \include{Chapters/TestBeam_setup.tex}
 
