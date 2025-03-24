@@ -54,7 +54,7 @@ Additionally, there are several other experiments part of the CERN complex, incl
     \label{fig:integrated_luminosity}
 \end{figure}
 
-One of the most important parameters of a collider, along with the beam energy, is the luminosity. It is used to quantify the amount of interactions that will occur and, therefore, the expected rate of events produced by the collisions. For two bunches\footnote{\label{footnote:particle_beam_bunches} The particles in the LHC beam do not travel uniformly distributed, rather they are grouped in many bunches, synchronized to intersect at the center of each main detector (Section \nameref{subsec:LHC_main_experiments}).} colliding head-on with frequency $f_{coll}$, the luminosity can be calculated by:
+One of the most important parameters of a collider, along with the beam energy, is the luminosity. It is used to quantify the amount of interactions that will occur and, therefore, the expected rate of events produced by the collisions. For two bunches\footnote{\label{footnote:particle_beam_bunches} The particles in the LHC beam do not travel uniformly distributed, rather they are grouped in many \textit{bunches}, synchronized to intersect at the center of each main detector (Section \nameref{subsec:LHC_main_experiments}).} colliding head-on with frequency $f_{coll}$, the luminosity can be calculated by:
 
 \begin{equation}
     \mathcal{L} = f_{coll}\frac{N_1 N_2}{4\pi \sigma_x \sigma_y} \mathcal{F} \, \left[\unit{cm^{-2}.s^{-1}}\right] \, .
@@ -171,50 +171,10 @@ Using magnets, the trajectories of charged particles can be bent, allowing the c
     \item Two End-cap Toroids, placed at each end of the experiment. They extend the magnetic field to particles escaping the detector close to the beam pipe.
 \end{itemize}
 
-\subsection{The upgrades}
+\subsection{The upgrades}\label{subsec:ATLAS_upgrades}
+
 Short overview of the changes that ATLAS will undergo, most importantly:
 
 - ITk replacing the Inner Detector
 - new HGTD installed
 
-\section{The High Granularity Time Detector}\label{sec:HGTD}
-
-As mentioned before in \nameref{subsec:high_luminosity_upgrade}, the HL-LHC will see an increase in the number of collisions per bunch\footref{footnote:particle_beam_bunches}, with heightened pile-up effects (when a collision happens very close to one or more other events, thus complicating track reconstruction.) 
- 
-A new way to mitigate this effect will be "\textit{to use high-precision timing information to distinguish between collisions occurring very close in space but well-separated in time}" \cite{CERN-LHCC-2020-007}. This is set to be accomplished by the High Granularity Time Detector (HGTD).
-
-% picture of HGTD
-\begin{figure}[!ht]
-    \centering
-    \subfloat[Location]{
-        \includegraphics[width=.6\linewidth]{Images/intro/HGTD_position_and_layout.png}
-        \label{fig:HGTD_location}}
-    \hfill
-    \centering
-    \subfloat[Schema]{
-        \includegraphics[width=.35\linewidth]{Images/intro/HGTD_schema.jpg}
-        \label{fig:HGTD_schema}}
-    \caption{Location and schema of the HGTD inside ATLAS}
-\end{figure}
-
-\subsection{Detector layout}\label{subsec:HGTD_layout}
-
-The detector consists of two thin disks that will be placed outside the ITk (Inner Tracker)\marginpar{\flushleft maybe I need to talk about ITk as well? and what it will be replacing?}, in front of the end-caps and forward calorimeters, as shown in Figure \ref{fig:HGTD_location}.
-% eta=2.4 -> theta=10.367°      eta=4 -> theta=2.0986°
-The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ \footnote{the pseudorapity is $\eta=-\ln \tan(\theta/2)$ where $\theta$ is the polar angle from the $z$ axis, i.e. the beam direction.} (so an incident angle roughly between 2° and 10°), complementing the ITk which has worse resolution in this forward region. %%% I could put plot with the simulation of z resolution vs \eta of ITk
-
-\begin{figure}
-    \centering
-    \includegraphics[width=.7\linewidth]{Images/intro/HGTD_disks_alignment.png}
-\end{figure}
-% The luminous region in the nominal scenario for Run 3 will see a Gaussian spread of approximately 50mm along the $z$ axis and a width of 175$\si{ps}$ in time %(Figure \ref{fig:events_pileup}).
-
-
-HGTD will provide time information of charged particles with a time resolution of 30ps (up to 50ps at the end of life) which will greatly improve the reconstruction of the primary vertex of collision.
-
-% \begin{figure}[!hb]
-%     \centering
-%     \includegraphics[width=.8\textwidth]{Images/intro/events_pileup_HL_LHC.jpg}
-%     \caption{Visualization of the pile-up of events inside ATLAS, using simulation data (PUT SOURCE AND MORE EXPLANATIONS (what is HS?))}
-%     \label{fig:events_pileup}
-% \end{figure}

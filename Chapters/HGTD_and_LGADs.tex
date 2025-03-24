@@ -3,9 +3,48 @@
 %%% requirements for the detector
 %%% other studies 
 %%% expected results
-\chapter{LGADs} 
+\chapter{LGADs}\label{chap:LGADs}
 
+\section{The High Granularity Time Detector}\label{sec:HGTD}
+
+As mentioned before in \nameref{subsec:high_luminosity_upgrade}, the HL-LHC will see an increase in the number of collisions per bunch\footref{footnote:particle_beam_bunches}, with heightened pile-up effects (when a collision happens very close to one or more other events, thus complicating track reconstruction.) 
+ 
+A new way to mitigate this effect will be "\textit{to use high-precision timing information to distinguish between collisions occurring very close in space but well-separated in time}" \cite{CERN-LHCC-2020-007}. This is set to be accomplished by the High Granularity Time Detector (HGTD).
+ 
+% eta=2.4 -> theta=10.367°      eta=4 -> theta=2.0986°
+The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ \footnote{the pseudorapity is $\eta=-\ln \tan(\theta/2)$ where $\theta$ is the polar angle from the $z$ axis, i.e. the beam direction.} (so an incident angle roughly between 2° and 10°), complementing the ITk (Inner Tracker)\marginpar{\flushleft I need to talk about ITk and what it will be replacing \nameref{subsec:ATLAS_upgrades}} which has worse resolution in this forward region. %%% I could put plot with the simulation of z resolution vs \eta of ITk
+% picture of HGTD
+\begin{figure}[!ht]
+    \centering
+    \subfloat[The detector will be placed outside the volume of the future Inner Tracker, between the Barrel ande Forward Calorimeters]{
+        \includegraphics[width=.6\linewidth]{Images/intro/HGTD_position_and_layout.png}
+        \label{fig:HGTD_location}}
+    \hfill
+    \centering
+    \subfloat[The overlap between modules on the front and the back was optimized to give an approximately uniform performance (as a function of radius) \cite{CERN-LHCC-2020-007}.]{
+        \includegraphics[width=.35\linewidth]{Images/intro/HGTD_disks_alignment.png}
+        \label{fig:HGTD_schema}}
+    \caption{Location (\ref{fig:HGTD_location}) and of the HGTD inside ATLAS and orientation (\ref{fig:HGTD_schema})of the two faces on each disk. From \cite{cernTechnicalDesign}.}
+\end{figure}
+
+\subsection{Detector layout}\label{subsec:HGTD_layout}
+
+The detector consists of two thin disks with that will be placed outside the ITk , as shown in Figure \ref{fig:HGTD_location}. The detector is divided into three concentric active regions, as can be seen Figures \ref{fig:HGTD_location} and \ref{fig:pulseHeight_cut}, ranging: \qty{120}{\milli\meter} - \qty{230}{\milli\meter}, \qty{230}{\milli\meter} - \qty{470}{\milli\meter} and  \qty{470}{\milli\meter} - \qty{640}{\milli\meter} \cite{CERN-LHCC-2020-007}. Beyond the last region aret the peripheral electronics. The two disks are covered by 8032 modules in total, each module containing two silicon sensors and two ASICs (Application-Specific Integrated Circuit). Each sensor features 15x15 pads of Low Gain Avalanche Detectors (LGADs, discussed in the next Chapter \ref{chap:LGADs}).
+
+The radiation that the components will withstand depends strongly on the radius. Due to electronics and sensors specifications, a minimum charge of \qty{4}{\femto\coulomb} is required. This is achievable up to radiation damage of \qty{2.5e15}{\neutroneq\centi\meter^{-2}}\footnote{The radiation damage equivalent to neutrons at \qty{1}{\mega\electronvolt} }; as a result, the sensor and electronics within the smallest ring will be replaced after each \qty{1000}{\femto\barn^{-1}} and the ones within the middle ring will be replaced at half of the data-taking (\qty{20000}{\femto\barn^{-1}}). 
+
+% The luminous region in the nominal scenario for Run 3 will see a Gaussian spread of approximately 50mm along the $z$ axis and a width of 175$\si{ps}$ in time %(Figure \ref{fig:events_pileup}).
+
+HGTD will provide time information of charged particles with a time resolution of 30ps (up to 50ps at the end of life) which will greatly improve the reconstruction of the primary vertex of collision. 
+
+% \begin{figure}[!hb]
+%     \centering
+%     \includegraphics[width=.8\textwidth]{Images/intro/events_pileup_HL_LHC.jpg}
+%     \caption{Visualization of the pile-up of events inside ATLAS, using simulation data (PUT SOURCE AND MORE EXPLANATIONS (what is HS?))}
+%     \label{fig:events_pileup}
+% \end{figure}
 \marginpar{\flushleft Add other image/photo of LGAD}
+
 
 \section{Working principles of silicon sensors}
 
@@ -48,48 +87,11 @@ A particular type of silicon sensors are Low Gain Avalanche Detectors (LGAD), an
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.9\linewidth]{Images/LGADs/1-s2.0-S0168900214007128-gr1_lrg.jpg}
-    \caption{description of LGAD}
+    \includegraphics[width=.9\linewidth]{Images/LGADs/LGADs_schema_of_work.png}
+    \caption{Cut view of an LGAD, not to scale.}
     \label{fig:LGADs_schema}
 \end{figure}
 
-\section{The sensors}
-There were several samples that were tested, divided into three main categories of design:
-\begin{itemize}
-    \item USTC, from the University of Science and Technology of China
-    \item IHEP, from the Institute of High Energy Physics, China
-    \item CNM, from the Centro National de Microelectronica, Barcelona, Spain
-\end{itemize}
-
-the first two designs have both been manufactured by the IME (Institute of Microelectronics) of the Chinese Academy of Sciences. The two CNM sensors (labeled CNM-W4 and CNM-W5) were used to measure the time resolution of another device, the MCP (Section \ref{sec:MCP_description}), which was used as a time reference for all of the time measurements of the other LGADs. Table \ref{tab:devices_tested} provides the list of the devices that were characterized, for more detailed descriptions see Table in \nameref{chap:appendix}.
-
-\begin{table}[!ht]
-    \centering
-    \caption{Summary of the tested devices}
-    \label{tab:devices_tested}
-    \scriptsize
-    % \makebox[1\textwidth][c]{
-    \begin{tabularx}{1\textwidth}{|l|l|l|l|l|X|}
-    \hline %%% I NEED TO TRY TO USE TABULAR INSTEAD OF SHORTSTACK
-        \textbf{Sevice name} & \textbf{Vendor} & \begin{tabular}{@{}l@{}}\textbf{Pads,} \\ \textbf{used channels}\end{tabular} & \begin{tabular}{@{}l@{}}\textbf{Fluence} \\ $[n_{eq}/\si{cm^2}]$ \end{tabular} & \begin{tabular}{@{}l@{}} \textbf{Radiation} \\ \textbf{type} \end{tabular} & \textbf{Notes} \\
-        \hline
-        CNM-W4  & CNM & single & 0 & - & reference \\ 
-        CNM-W5  & CNM & single & 0 & - & reference \\ 
-        CNM-W5-1.5E15  & CNM & single & $\num{1.50E+15}$ & neutron &  \\ 
-        CNM-W3-2.5E15  & CNM & single & $\num{2.50E+15}$ & neutron &  \\ 
-        USTC2.1-W17 & USTC & 2x2, 2 channels  & 0 & - &  \\ 
-        USTC2.1-W17-2E14 & USTC & 2x2, 1 channel & 0 & - & missing \\ 
-        IMEv3-W12-2x2  & IHEP & 2x2, 2 channels  & 0 & - &  \\ 
-        IMEv3-W12-1x3  & IHEP & 1x3, 2 channels  & 0 & - &  \\ 
-        IMEv3-W12  & IHEP & 2x2, 3 channels  & $\num{1.50E+15}$ & neutron &  \\ 
-        IMEv3-W16  & IHEP & 1x3, 1 channel  & $\num{1.50E+15}$ & neutron &  \\ 
-        IMEv2-W7-1E14  & IHEP & single & $\num{1.00E+14}$ & proton &  \\ 
-        IMEv2-W7-6.5E14  & IHEP & single & $\num{6.50E+14}$ & proton &  \\ 
-        IMEv3-W16-8E14  & IHEP & single & $\num{8.00E+14}$ & proton &  \\
-        IMEv3-W16-2.5E15  & IHEP & single & $\num{2.50E+15}$ & neutron &  \\ 
-        \hline
-    \end{tabularx}
-\end{table}
 
 
 
