@@ -91,14 +91,15 @@ ATLAS (\textbf{A} \textbf{T}oroidal \textbf{L}HC \textbf{A}pparatu\textbf{S}) is
     %     \label{fig:ATLAS_inner_detector_radial}}
     % \hfill
     \centering
-    \subfloat[The Inner Detector and its three components: the Pixel Detector, the Semiconducor Tracker and the Transition Radiation Tracker. From \cite{atlasInnerDetector}]{
+    \subfloat[The Inner Detector and its three components: the Pixel Detector, the Semiconducor Tracker and the Transition Radiation Tracker. From \cite{atlasInnerDetector}.]{
         \includegraphics[width=.45\linewidth]{Images/intro/ATLAS_inner_detector.jpg}
         \label{fig:ATLAS_inner_detector}}
     \hfill
     \centering
-    \subfloat[The Calorimeters: the Liquid Argon Calorimeter (LAr) and Tile Hadronic Calorimeter]{
+    \subfloat[The Calorimeters: the Liquid Argon Calorimeter (LAr) and Tile Hadronic Calorimeter. From \cite{atlasCalorimeter}.]{
         \includegraphics[width=.45\linewidth]{Images/intro/ATLAS_calorimeter_description.jpg}
         \label{fig:ATLAS_calorimeter}}
+    \caption{Cutaway views of the ATLAS Inner Detector (left) and Calorimeter system (right).}
 \end{figure}
 
 
@@ -141,11 +142,7 @@ In the first group there are:
     \item Resistive Plate Chambers (RPCs), surrouding the central region of ATLAS. They are pairs of parallel plates at an electric potential difference, separated by gas.
     \item Thin Gap Chambers (TGCs), found at the ends of ATLAS. They consist of \qty{30}{\micro\meter} parallel wires in a gas mixture.
 \end{itemize}
-Both of these detectors measure the electric signals of particles as they ionize the gas. Additionally, there two dectors\cite{KOULOURIS2020162757} specially designed for the High Luminosity upgrade, to be placed on either side of the detector, very close to the beam pipe:
-\begin{itemize}
-    \item Micromegas (MicroMEsh GAseous Structure), which will serve as primary tracking detector.
-    \item Small-Strip Thin-Gap Chambers (sTGCs), which will function as primary trigger detector.
-\end{itemize}
+Both of these detectors measure the electric signals of particles as they ionize the gas.
 
 Finally, for the role of Precision Detectors, Monitored Drift Tube (MDTs) are able to determine the position of a muon to an accuracy of \qty{100}{\micro\meter}. They are consituted by more than \num{380000} aluminium tubes with a wire at the tube's center and filled with a gas mixture. They are stacked up over several layers, to precisely trace the path of each muon.
 
@@ -173,8 +170,13 @@ Using magnets, the trajectories of charged particles can be bent, allowing the c
 
 \subsection{The upgrades}\label{subsec:ATLAS_upgrades}
 
-Short overview of the changes that ATLAS will undergo, most importantly:
+As part of the \nameref{subsec:high_luminosity_upgrade}, the ATLAS detector will undergo several changes, including (not exhaustive) \cite{MANGHI2024169917}:
 
-- ITk replacing the Inner Detector
-- new HGTD installed
+\begin{itemize}
+    \item Inner Tracker (ITk): a new all-silicon tracker will replace the \nameref{sec:ATLAS_inner_detector}. It will be composed of outer Si strip sensors (4 barrel layers and 6 end-cap disks) and inner Si pixel sensors (5 barrel layers and end-cap rings). The new pixel system will cover an area of about \qty{13}{\meter^2}, a significant increase compared to \qty{1.9}{\meter^2} of the current pixel detector. The pseudorapity range will also increase from $\eta=2.5$ to $\eta=4$ \cite{BUTTAR2025169978}.
+    \item Calorimeter electronics: both calorimeters will see the replacement of all electronics to comply with a new Trigger and Data Acquisition architecture, which will provide improved precision and granularity. 
+    \item Muon spectrometer: two new chamber technology systems \cite{2106380} will be installed on the New Small Wheel \cite{Kawamoto:2013udg}. Micromegas (MicroMEsh GAseous Structure), which will serve as primary tracking detector, and Small-Strip Thin-Gap Chambers (sTGCs), which will function as primary trigger detector.
+    \item HGTD: a new silicon pixel detector that will provide timing information in the forward region, to improve vertex reconstruction. The design of the detector and its modules are described in more detail in the next chapter (\nameref{chap:HGTD_LGADs}.)
+\end{itemize}
 
+\marginpar{\flushleft there is also LUCID-3 in \cite{MANGHI2024169917}, PMTs for luminosity measurements.}
