@@ -5,13 +5,13 @@
 %%% expected results
 \chapter{HGTD and LGADs}\label{chap:HGTD_LGADs}
 
-This chapter describes the general layout, goal and requirements of the HGTD detector and of the silicon sensors utilized.
+As mentioned before in \nameref{subsec:high_luminosity_upgrade}, the HL-LHC will see an increase in the number of collisions per bunch\footref{footnote:particle_beam_bunches}, with heightened pile-up effects (when a collision happens very close to one or more others, thus complicating track reconstruction).
+
+A new way to mitigate this effect for higher pseudorapity values will be "\textit{to use high-precision timing information to distinguish between collisions occurring very close in space but well-separated in time}" \cite{CERN-LHCC-2020-007}. This is set to be accomplished by the High Granularity Time Detector (HGTD).
+
+Moreover, HGTD will be able to provide luminosity measurements, contributing to the ATLAS goal of 1\% uncertainty of luminosity, which is the largest source of uncertainty in many analyses, such as for the Higgs boson\cite{CERN-LHCC-2020-007}.
 
 \section{The High Granularity Time Detector}\label{sec:HGTD}
-
-As mentioned before in \nameref{subsec:high_luminosity_upgrade}, the HL-LHC will see an increase in the number of collisions per bunch\footref{footnote:particle_beam_bunches}, with heightened pile-up effects (when a collision happens very close to one or more others, thus complicating track reconstruction.) 
- 
-A new way to mitigate this effect will be "\textit{to use high-precision timing information to distinguish between collisions occurring very close in space but well-separated in time}" \cite{CERN-LHCC-2020-007}. This is set to be accomplished by the High Granularity Time Detector (HGTD).
  
 % eta=2.4 -> theta=10.367°      eta=4 -> theta=2.0986°
 The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ \footnote{the pseudorapity is $\eta=-\ln \tan(\theta/2)$ where $\theta$ is the polar angle from the $z$ axis, i.e. the beam direction.} (so an incident angle roughly between 2° and 10°), complementing the ITk (Inner Tracker)\marginpar{\flushleft I need to talk about ITk and what it will be replacing \nameref{subsec:ATLAS_upgrades}} which has worse resolution in this forward region. %%% I could put plot with the simulation of z resolution vs \eta of ITk
@@ -33,7 +33,7 @@ The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ \footnote{the
 
 The detector consists of two thin disks with that will be placed outside the ITk , as shown in Figure \ref{fig:HGTD_location}. The detector is divided into three concentric active regions, as can be seen Figures \ref{fig:HGTD_location} and \ref{fig:pulseHeight_cut}, ranging: \qty{120}{\milli\meter} - \qty{230}{\milli\meter}, \qty{230}{\milli\meter} - \qty{470}{\milli\meter} and  \qty{470}{\milli\meter} - \qty{640}{\milli\meter} \cite{CERN-LHCC-2020-007}. Beyond the last region aret the peripheral electronics. The two disks are covered by 8032 modules in total, each module containing two silicon sensors and two ASICs (Application-Specific Integrated Circuit). Each sensor features 15x15 pads of Low Gain Avalanche Detectors (LGADs, discussed in the next Chapter \ref{chap:HGTD_LGADs}).
 
-The radiation that the components will withstand depends strongly on the radius. Due to electronics and sensors specifications, a minimum charge of \qty{4}{\femto\coulomb} is required. This is achievable up to radiation damage of \qty{2.5e15}{\neutroneq\centi\meter^{-2}}\footnote{The radiation damage equivalent to neutrons at \qty{1}{\mega\electronvolt} }; as a result, the sensor and electronics within the smallest ring will be replaced after each \qty{1000}{\femto\barn^{-1}} and the ones within the middle ring will be replaced at half of the data-taking (\qty{20000}{\femto\barn^{-1}}). 
+The radiation that the components will withstand depends strongly on the radius. Due to electronics and sensors specifications, a minimum charge of \qty{4}{\femto\coulomb} is required. This is achievable up to radiation damage of \qty{2.5e15}{\neutroneq\centi\meter^{-2}}\footnote{The radiation damage equivalent to neutrons at \qty{1}{\mega\electronvolt} }; as a result, the sensor and electronics within the smallest ring will be replaced after each \qty{1000}{\femto\barn^{-1}} and the ones within the middle ring will be replaced at half of the data-taking (\qty{20000}{\femto\barn^{-1}}).
 
 % The luminous region in the nominal scenario for Run 3 will see a Gaussian spread of approximately 50mm along the $z$ axis and a width of 175$\si{ps}$ in time %(Figure \ref{fig:events_pileup}).
 
@@ -51,15 +51,14 @@ HGTD will provide time information of charged particles with a time resolution o
 
 \marginpar{\flushleft Add other image/photo of LGAD}
 
-These type of silicon sensors were chosen due to their radiation hardness and their small thickness, minimizing the total material budget. \marginpar{\flushleft can be improved}
+To provide accurate timing information, silicon detectors were chosen as the active element for HGTD.
 
 \subsection{Working principles of silicon sensors}
 
-The core of a silicon sensor consists of a junction between two differently doped layers, which means that small concentrations of impurities with either higher atomic number ($n$-type) or lower ($p$-type) are introduced inside the crystals.
+The core of a silicon sensor consists of a junction between two differently doped layers (Figure \ref{fig:p-n_junction_reverse_bias_voltage}), which means that small concentrations of impurities with either higher atomic number ($n$-type) or lower ($p$-type) are introduced inside the crystals.
 This forms a $pn$-junction and when a voltage is applied with positive potential on the $n$-side and negative on the $p$-side (reverse bias) the volume between the two layers is depleted of mobile charges and becomes an insulator with an internal electric field.
 
-
-%%% FIGURE WITH MINIPAGE
+%%% FIGURE WITH MINIPAGE (for side caption)
 \begin{figure}[!h]
     \begin{minipage}[c]{.25\linewidth}
         \includegraphics[width=1\linewidth]{Images/LGADs/p-n junction with voltage.png}
@@ -69,23 +68,31 @@ This forms a $pn$-junction and when a voltage is applied with positive potential
         \caption{\\Top: adjacent regions of $p$-doping (left) and $n$-doping (right) forming a $pn$-junction.\\
         Middle: the circled mobile charges (holes for $p$-type and electrons for $n$-type) balanced by the charge of atomic cores.\\
         Bottom: When an external (reverse) voltage is applied to the junction an electric field builds up in the central region \cite{10.1093/acprof:oso/9780198527848.003.0001}.}
+        \label{fig:p-n_junction_reverse_bias_voltage}
     \end{minipage}
-    \label{fig:p-n_junction_reverse_bias_voltage}
 \end{figure} 
 
-When a charged particle traverses this depletion layer it frees up electron-hole pairs, which move to the electrodes and can be measured as a pulse in the electric potential. 
+When a charged particle traverses this depletion layer it frees up electron-hole pairs, which move to the electrodes and can be measured as a pulse in the electric potential.
 
+Generally, silicon detectors provide some advantages over other type of detectors. Due to the lower energy required to produce electron-hope pairs the energy resolution improves. Compared to gas detectors, for example, silicon has a much higher density, allowing detectors to take measurements in considerably thin layers.
+
+On the other hand, this type of device has typically higher manufacturing costs and suffers more considerably from radiation damage.
 
 \subsection{LGADs}
 
 \begin{figure}[!ht]
-    \centering
-    \includegraphics[width=.9\linewidth]{Images/LGADs/LGADs_schema_of_work.png}
-    \caption{Cut view of an LGAD, not to scale. The depletion layer makes the majority of the volume of the sensor, and above it, lies the avalanche region. On the left of the picture there is a qualitative plot of the electric field along the vertical axis of the sensor. From \cite{cernTechnicalDesign}.}
-    \label{fig:LGADs_schema}
-\end{figure}
+    \begin{minipage}[c]{.45\linewidth}
+        \includegraphics[width=1\linewidth]{Images/LGADs/LGADs_schema_of_work.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{.4\linewidth}
+        \caption{Cutaway view of an LGAD, not to scale. The depletion region makes the majority of the volume of the sensor, and above it, lies the avalanche region. On the left of the picture there is a qualitative plot of the electric field along the vertical axis of the sensor. From \cite{cernTechnicalDesign}.}
+        \label{fig:LGADs_schema}
+    \end{minipage}
+\end{figure} 
 
-A particular type of silicon sensors are Low Gain Avalanche Detectors (LGAD), an example is shown is shown in Figure \ref{fig:LGADs_schema}. The major innovation is an additional $p$-type layer below the $n+$ electrode, this creates a high electric field region which leads to an avalanche effect\footnote[2]{When electrons acquire enough energy they can create new electron-hole pairs ('impact ionization'), which can themselves create new pairs and initialize a multiplication chain that leads to an enhanced signal} of the electrons. This effect produces a gain of around $~10$ \marginpar{\flushleft source} 
+A particular type of silicon sensors are Low Gain Avalanche Detectors (LGAD), an example is shown in Figure \ref{fig:LGADs_schema}. The major innovation over "standard" silicon sensors is an additional $p$-type layer below the $n+$ electrode. This creates a high electric field region which leads to an avalanche effect\footnote[2]{When electrons acquire enough energy they can create new electron-hole pairs ('impact ionization'), which can themselves create new pairs and initialize a multiplication chain that leads to an enhanced signal} of the electrons. This effect produces a gain of around $~10$ \marginpar{\flushleft source} 
+
 
 
 
