@@ -5,16 +5,41 @@
 %%% expected results
 \chapter{HGTD and LGADs}\label{chap:HGTD_LGADs}
 
-As mentioned before in \nameref{subsec:high_luminosity_upgrade}, the HL-LHC will see an increase in the number of collisions per bunch\footref{footnote:particle_beam_bunches}, with heightened pile-up effects (when a collision happens very close to one or more others, thus complicating track reconstruction).
+% As mentioned before in \nameref{subsec:ATLAS_upgrades} a new detector will be added to the ATLA experiment
+In this chapter we explain the main reasons behind the construction of HGTD and its general layout. Furthermore, the silicon sensors (LGADs) employed in the detector are explained in detail.
+
+\section{The High Granularity Time Detector}\label{sec:HGTD}
+
+One of the most significant updates to the ATLAS detector will be the installation of the new ITk, extending the pseudorapidity range [for tracking] up to $\eta=4$. While this extention will improve the reconstruction of physics objects, it will bring some difficulties too. 
+
+As $\eta$ increases, tracks become more parallel to the beam and are subject to multiple scattering effects due to increased material compared to the central barrel region. This problem will be made worse by the high luminosity, as the density of collisions will grow significantly (Figure~\ref{fig:pileup_densities}) and the spacial resolution of ITk worsens at higher pseudrapidities (Figure~\ref{fig:ITk_spacial_resolution}).
+
+\begin{figure}[!ht]
+    \centering
+    \subfloat[Simulation of the local pileup vertex densities for two values of $<\mu>$ (average number of collisions per bunch crossing). From~\cite{cernTechnicalDesign}.]{
+        \includegraphics[width=.45\linewidth]{Images/intro/pileup_density_simulation.png}
+        \label{fig:pileup_densities}}
+    \hfill
+    \centering
+    \subfloat[The overlap between modules on the front and the back was optimized to give an approximately uniform performance (as a function of radius) \cite{CERN-LHCC-2020-007}.]{
+        \includegraphics[width=.46\linewidth]{Images/intro/ITk_z_resolution_for_eta.pdf}
+        \label{fig:ITk_spacial_resolution}}
+    \caption{blah blah blah}
+\end{figure}
+
+As mentioned before in \nameref{subsec:high_luminosity_upgrade}, the HL-LHC will see an increase in the number of collisions per bunch\footref{footnote:particle_beam_bunches} and, as a direct consequence, an increase in the average density of hard-scatter verteces. 
+
+While the Inner Detector is currently able to reconstruct charged particles with high precision up to $\eta=4$, the aforementioned effects will
+
+with heightened pile-up effects (when a collision happens very close to one or more others, thus complicating track reconstruction).
 
 A new way to mitigate this effect for higher pseudorapity values will be "\textit{to use high-precision timing information to distinguish between collisions occurring very close in space but well-separated in time}" \cite{CERN-LHCC-2020-007}. This is set to be accomplished by the High Granularity Time Detector (HGTD).
 
-Moreover, HGTD will be able to provide luminosity measurements, contributing to the ATLAS goal of 1\% uncertainty of luminosity, which is the largest source of uncertainty in many analyses, such as for the Higgs boson\cite{CERN-LHCC-2020-007}.
+Moreover, HGTD will be able to provide luminosity measurements, contributing to the ATLAS goal of 1\% uncertainty of luminosity, which is the largest source of uncertainty in many analyses, such as for the Higgs boson~\cite{CERN-LHCC-2020-007}.
 
-\section{The High Granularity Time Detector}\label{sec:HGTD}
- 
+
 % eta=2.4 -> theta=10.367°      eta=4 -> theta=2.0986°
-The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ \footnote{the pseudorapity is $\eta=-\ln \tan(\theta/2)$ where $\theta$ is the polar angle from the $z$ axis, i.e. the beam direction.} (so an incident angle roughly between 2° and 10°), complementing the ITk (Inner Tracker)\marginpar{\flushleft I need to talk about ITk and what it will be replacing \nameref{subsec:ATLAS_upgrades}} which has worse resolution in this forward region. %%% I could put plot with the simulation of z resolution vs \eta of ITk
+The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ \footnote{the pseudorapity is $\eta=-\ln \tan(\theta/2)$ where $\theta$ is the polar angle from the $z$ axis, i.e. the beam direction.} (so an incident angle roughly between 2° and 10°), complementing the ITk (Inner Tracker) which has worse resolution in this forward region. %%% I could put plot with the simulation of z resolution vs \eta of ITk
 % picture of HGTD
 \begin{figure}[!ht]
     \centering
@@ -28,8 +53,6 @@ The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ \footnote{the
         \label{fig:HGTD_schema}}
     \caption{Location (\ref{fig:HGTD_location}) and of the HGTD inside ATLAS and orientation (\ref{fig:HGTD_schema})of the two faces on each disk. From \cite{cernTechnicalDesign}.}
 \end{figure}
-
-\subsection{Detector layout}\label{subsec:HGTD_layout}
 
 The detector consists of two thin disks with that will be placed outside the ITk , as shown in Figure \ref{fig:HGTD_location}. The detector is divided into three concentric active regions, as can be seen Figures \ref{fig:HGTD_location} and \ref{fig:pulseHeight_cut}, ranging: \qty{120}{\milli\meter} - \qty{230}{\milli\meter}, \qty{230}{\milli\meter} - \qty{470}{\milli\meter} and  \qty{470}{\milli\meter} - \qty{640}{\milli\meter} \cite{CERN-LHCC-2020-007}. Beyond the last region aret the peripheral electronics. The two disks are covered by 8032 modules in total, each module containing two silicon sensors and two ASICs (Application-Specific Integrated Circuit). Each sensor features 15x15 pads of Low Gain Avalanche Detectors (LGADs, discussed in the next Chapter \ref{chap:HGTD_LGADs}).
 
@@ -51,7 +74,7 @@ HGTD will provide time information of charged particles with a time resolution o
 
 \marginpar{\flushleft Add other image/photo of LGAD}
 
-To provide accurate timing information, silicon detectors were chosen as the active element for HGTD.
+To provide accurate timing information, silicon detectors were chosen as the active element for the HGTD.
 
 \subsection{Working principles of silicon sensors}
 
@@ -78,6 +101,11 @@ Generally, silicon detectors provide some advantages over other type of detector
 
 On the other hand, this type of device has typically higher manufacturing costs and suffers more considerably from radiation damage.
 
+
+\subsection{Signal generation by charged particles}
+
+some explanation of the charge distribution that is expected: Landau distribution (appendix)
+
 \subsection{LGADs}
 
 \begin{figure}[!ht]
@@ -91,7 +119,17 @@ On the other hand, this type of device has typically higher manufacturing costs 
     \end{minipage}
 \end{figure} 
 
-A particular type of silicon sensors are Low Gain Avalanche Detectors (LGAD), an example is shown in Figure \ref{fig:LGADs_schema}. The major innovation over "standard" silicon sensors is an additional $p$-type layer below the $n+$ electrode. This creates a high electric field region which leads to an avalanche effect\footnote[2]{When electrons acquire enough energy they can create new electron-hole pairs ('impact ionization'), which can themselves create new pairs and initialize a multiplication chain that leads to an enhanced signal} of the electrons. This effect produces a gain of around $~10$ \marginpar{\flushleft source} 
+A particular type of silicon sensors are Low Gain Avalanche Detectors (LGAD), an example is shown in Figure \ref{fig:LGADs_schema}. The major innovation over "standard" silicon sensors is an additional $p$-type layer below the $n+$ electrode. This creates a high electric field region which leads to an avalanche effect\footnote[2]{When electrons acquire enough energy they can create new electron-hole pairs ('impact ionization'), which can themselves create new pairs and initialize a multiplication chain that leads to an enhanced signal} of the electrons. This effect produces a gain of around $~10$. \marginpar{\flushleft source} 
+
+The intrinsic multiplication inside LGADs can mitigate the signal degradation caused by radiation damage, however, 
+
+\subsubsection{Time Resolution}
+
+Major factors determining the time resolution of the sensors.
+
+\begin{equation}
+    \sigma^2 = \sigma_{TimeWalk}^2 + \sigma_{Jitter}^2 + \sigma_{Landau}^2
+\end{equation}
 
 
 
