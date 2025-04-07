@@ -6,13 +6,22 @@
 \chapter{HGTD and LGADs}\label{chap:HGTD_LGADs}
 
 % As mentioned before in \nameref{subsec:ATLAS_upgrades} a new detector will be added to the ATLA experiment
-In this chapter we explain the main reasons behind the construction of HGTD and its general layout. Furthermore, the silicon sensors (LGADs) employed in the detector are explained in detail.
+%%% chapter intro
+In this chapter we motivate the construction of HGTD, illustrate its general layout and describe the specific type of silicon sensors (LGADs) that constitute the active components of the detector.
 
 \section{The High Granularity Time Detector}\label{sec:HGTD}
+%%% ITk
+One of the updates to the ATLAS detector will be the installation of the new ITk, which will improve the tracking\footnote{Generally, tracking refers to the process of reconstructing the paths of charged particles as they fly through a detector. From the curvature the momentum, and the charge can be inferred. It is a fundamental part of event reconstruction.} and will extend the pseudorapidity range up to $\eta=4$. While this extension will improve the reconstruction of physics objects, it will bring some difficulties too. 
 
-One of the most significant updates to the ATLAS detector will be the installation of the new ITk, extending the pseudorapidity range [for tracking] up to $\eta=4$. While this extention will improve the reconstruction of physics objects, it will bring some difficulties too. 
+%%% event reconstruction
+Event reconstruction relies strongly on the precise assignment of a track to the location of the first collision (primary vertex).% (track-to-vertex association).
+Generally, a track is associated to a vertex if the track's origin is compatible with the vertex, this compatibility can be determined with:
 
-As $\eta$ increases, tracks become more parallel to the beam and are subject to multiple scattering effects due to increased material compared to the central barrel region. This problem will be made worse by the high luminosity, as the density of collisions will grow significantly (Figure~\ref{fig:pileup_densities}) and the spacial resolution of ITk worsens at higher pseudrapidities (Figure~\ref{fig:ITk_spacial_resolution}).
+\begin{equation}
+    \frac{\left|z_0 - z_{vertex}\right|}{\sigma_{z_0}} < s \,.
+\end{equation}
+ 
+Where $z_0$ is the longitudinal impact parameter, $z_{vertex}$ is the vertex position, $\sigma_{z_0}$ is the spacial resolution and $s$ is a significant cut (typically 2.5 or 3)\cite{cernTechnicalDesign}. 
 
 \begin{figure}[!ht]
     \centering
@@ -21,25 +30,36 @@ As $\eta$ increases, tracks become more parallel to the beam and are subject to 
         \label{fig:pileup_densities}}
     \hfill
     \centering
-    \subfloat[The overlap between modules on the front and the back was optimized to give an approximately uniform performance (as a function of radius) \cite{CERN-LHCC-2020-007}.]{
+    \subfloat[Simulation of the longitudinal resolution of ITk as a function of $\eta$, for muons with $p_T=\qty{1}{\giga\electronvolt}$ and $p_T=\qty{10}{\giga\electronvolt}$ From~\cite{cernTechnicalDesign}.]{
         \includegraphics[width=.46\linewidth]{Images/intro/ITk_z_resolution_for_eta.pdf}
         \label{fig:ITk_spacial_resolution}}
     \caption{blah blah blah}
 \end{figure}
 
-As mentioned before in \nameref{subsec:high_luminosity_upgrade}, the HL-LHC will see an increase in the number of collisions per bunch\footref{footnote:particle_beam_bunches} and, as a direct consequence, an increase in the average density of hard-scatter verteces. 
+%%% difficulties/problems
+Firstly, as $\eta$ increases, tracks become more parallel to the beam and are subject to multiple scattering effects due to increased material compared to the central barrel region. Secondly, the HL-LHC will see an increase in the number of collisions per bunch\footref{footnote:particle_beam_bunches} and, as a direct consequence, an increase in the average density of hard-scatter verteces (Figure~\ref{fig:pileup_densities}). Lastly, the resolution of ITk in the z direction (i.e. the beam direction) worsens considerably at higher pseudrapidities, as shown in the simulation in Figure~\ref{fig:ITk_spacial_resolution} for two values of $p_T$\footnote{$p_T$ is the transverse momentum, so the component of the momentum perpendicular to the beam line.}.
 
-While the Inner Detector is currently able to reconstruct charged particles with high precision up to $\eta=4$, the aforementioned effects will
+%%% HGTD as a solution 
+A new way to mitigate these effects for higher pseudorapity values will be "\textit{to use high-precision timing information to distinguish between collisions occurring very close in space but well-separated in time}" \cite{CERN-LHCC-2020-007}. This is set to be accomplished by the High Granularity Time Detector (HGTD).
 
-with heightened pile-up effects (when a collision happens very close to one or more others, thus complicating track reconstruction).
+%%% 
+HGTD will provide time information of charged particles with a time resolution of 30ps (up to 50ps at the end of life). This will enhance the physics capabilities of ATLAS in three main ways:
+\begin{itemize}
+    \item Improving object reconstruction, for example forward jets and leptons, is key in many 
+\end{itemize}
 
-A new way to mitigate this effect for higher pseudorapity values will be "\textit{to use high-precision timing information to distinguish between collisions occurring very close in space but well-separated in time}" \cite{CERN-LHCC-2020-007}. This is set to be accomplished by the High Granularity Time Detector (HGTD).
+%%% HGTD provides time measurements
+, which will greatly improve the reconstruction of the primary vertex of collision. 
 
+%%% more selection on vertex association
+
+%%% time window compatibility (formula) t-t_0 / sigma < s
+
+%%% HGTD measures luminosity 
 Moreover, HGTD will be able to provide luminosity measurements, contributing to the ATLAS goal of 1\% uncertainty of luminosity, which is the largest source of uncertainty in many analyses, such as for the Higgs boson~\cite{CERN-LHCC-2020-007}.
 
-
 % eta=2.4 -> theta=10.367°      eta=4 -> theta=2.0986°
-The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ \footnote{the pseudorapity is $\eta=-\ln \tan(\theta/2)$ where $\theta$ is the polar angle from the $z$ axis, i.e. the beam direction.} (so an incident angle roughly between 2° and 10°), complementing the ITk (Inner Tracker) which has worse resolution in this forward region. %%% I could put plot with the simulation of z resolution vs \eta of ITk
+The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ \footnote{the pseudorapity is $\eta=-\ln \tan(\theta/2)$ where $\theta$ is the polar angle from the $z$ axis, i.e. the beam direction.} (so an incident angle roughly between 2° and 10°), complementing the ITk (Inner Tracker).
 % picture of HGTD
 \begin{figure}[!ht]
     \centering
@@ -51,16 +71,18 @@ The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ \footnote{the
     \subfloat[The overlap between modules on the front and the back was optimized to give an approximately uniform performance (as a function of radius) \cite{CERN-LHCC-2020-007}.]{
         \includegraphics[width=.35\linewidth]{Images/intro/HGTD_disks_alignment.png}
         \label{fig:HGTD_schema}}
-    \caption{Location (\ref{fig:HGTD_location}) and of the HGTD inside ATLAS and orientation (\ref{fig:HGTD_schema})of the two faces on each disk. From \cite{cernTechnicalDesign}.}
+    \caption{Location (left) of HGTD inside ATLAS and orientation (right) of the two faces on each disk. From \cite{cernTechnicalDesign}.}
 \end{figure}
 
-The detector consists of two thin disks with that will be placed outside the ITk , as shown in Figure \ref{fig:HGTD_location}. The detector is divided into three concentric active regions, as can be seen Figures \ref{fig:HGTD_location} and \ref{fig:pulseHeight_cut}, ranging: \qty{120}{\milli\meter} - \qty{230}{\milli\meter}, \qty{230}{\milli\meter} - \qty{470}{\milli\meter} and  \qty{470}{\milli\meter} - \qty{640}{\milli\meter} \cite{CERN-LHCC-2020-007}. Beyond the last region aret the peripheral electronics. The two disks are covered by 8032 modules in total, each module containing two silicon sensors and two ASICs (Application-Specific Integrated Circuit). Each sensor features 15x15 pads of Low Gain Avalanche Detectors (LGADs, discussed in the next Chapter \ref{chap:HGTD_LGADs}).
+%%% detector layout
+The detector consists of two thin disks with that will be placed outside the ITk , as shown in Figure \ref{fig:HGTD_location}. The detector is divided into three concentric active regions, as can be seen Figures \ref{fig:HGTD_location} and \ref{fig:pulseHeight_cut}, ranging: \qty{120}{\milli\meter} - \qty{230}{\milli\meter}, \qty{230}{\milli\meter} - \qty{470}{\milli\meter} and  \qty{470}{\milli\meter} - \qty{640}{\milli\meter} \cite{CERN-LHCC-2020-007}. Beyond the last region aret the peripheral electronics. The two disks are covered by 8032 modules in total, each module containing two silicon sensors and two ASICs (Application-Specific Integrated Circuit). Each sensor features 15x15 pads of Low Gain Avalanche Detectors %(LGADs, discussed in the next Chapter \ref{chap:HGTD_LGADs}).
 
+%%% radiation damage and replacement
 The radiation that the components will withstand depends strongly on the radius. Due to electronics and sensors specifications, a minimum charge of \qty{4}{\femto\coulomb} is required. This is achievable up to radiation damage of \qty{2.5e15}{\neutroneq\centi\meter^{-2}}\footnote{The radiation damage equivalent to neutrons at \qty{1}{\mega\electronvolt} }; as a result, the sensor and electronics within the smallest ring will be replaced after each \qty{1000}{\femto\barn^{-1}} and the ones within the middle ring will be replaced at half of the data-taking (\qty{20000}{\femto\barn^{-1}}).
 
-% The luminous region in the nominal scenario for Run 3 will see a Gaussian spread of approximately 50mm along the $z$ axis and a width of 175$\si{ps}$ in time %(Figure \ref{fig:events_pileup}).
+%%% the modules
 
-HGTD will provide time information of charged particles with a time resolution of 30ps (up to 50ps at the end of life) which will greatly improve the reconstruction of the primary vertex of collision. 
+% The luminous region in the nominal scenario for Run 3 will see a Gaussian spread of approximately 50mm along the $z$ axis and a width of 175$\si{ps}$ in time %(Figure \ref{fig:events_pileup}).
 
 % \begin{figure}[!hb]
 %     \centering
