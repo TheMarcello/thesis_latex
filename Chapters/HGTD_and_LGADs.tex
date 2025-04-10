@@ -91,7 +91,6 @@ The two disks are covered by 8032 modules in total, each module containing two s
 %%% radiation damage and replacement
 The radiation that the components will withstand depends strongly on the radius. Due to electronics and sensors specifications, a minimum charge of \qty{4}{\femto\coulomb} is required. This is achievable up to radiation damage of \qty{2.5e15}{\neutroneq\centi\meter^{-2}}\footnote{The radiation damage equivalent to neutrons at \qty{1}{\mega\electronvolt}}; as a result, the sensor and electronics within the smallest ring will be replaced after each \qty{1000}{\femto\barn^{-1}} and the ones within the middle ring will be replaced at half of the data-taking (\qty{20000}{\femto\barn^{-1}}).
 
-
 % The luminous region in the nominal scenario for Run 3 will see a Gaussian spread of approximately 50mm along the $z$ axis and a width of 175$\si{ps}$ in time %(Figure \ref{fig:events_pileup}).
 
 % \begin{figure}[!hb]
@@ -168,9 +167,20 @@ It can be seen that the lowest jitter and time walk errors are achieved with hig
 
 \subsection{Signal generation by charged particles}
 
-some explanation of the charge distribution that is expected: Landau distribution (appendix)
+The theoretical distribution of the energy loss of heavy particles hitting a thin target has been solved rigorously by Vavilov in \cite{vavilov_1957}. The namesake distribution is a generalization of the Landau distribution but its evaluation is more difficult, as it is expressed as an integral over some complicated functions \cite[Eq.(4)]{vavilov_1957}. Fortunately, it can be approximated by more straightforward distributions depending on the value of a parameter $\kappa$ (for a full explanation see \nameref{sec:vavilov_vs_landau_distribution}): for $\kappa\rightarrow0$ the Vavilov distribution can be approximated by a Langau, for $\kappa>>1$ by a Gaussian.
 
+the kappa parameter is well below the limit, so the landau distribution is a good approximation
+expression of the landau distribution? maybe qualitative description of the function.
 
+Additionally, due to a combination of theoretical corrections \cite{PhysRevA.11.1286} (due to the atomic binding of the electrons) and statistical errors on the measurements, the final distribution of energy deposit follows more accurately the convolution of a Gaussian and a Landau distributions (Figure~\ref{fig:langau_convolution_plot}).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.6\linewidth]{Images/charge_plots/charge_data_all_cuts_401_S1_3_Charge_fit_ROOT_single_plot.png}
+    \captionsetup{width=.8\linewidth}
+    \caption{Distribution of the deposited charge following quite precisely the expected Landau x Gaussian convolution (probably I'll put a different plot later)}
+    \label{fig:langau_convolution_plot}
+\end{figure}
 
 %%% NOT UPDATED ANYMORE, LOOK AT THE EXCEL FILE, I MIGHT DELETE THIS LATER
 %%% I have to reorganize these and associate them with the more accurate descriptions
