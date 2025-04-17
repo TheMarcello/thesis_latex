@@ -167,18 +167,21 @@ It can be seen that the lowest jitter and time walk errors are achieved with hig
 
 \subsection{Signal generation by charged particles}
 
-The theoretical distribution of the energy loss of heavy particles hitting a thin target has been solved rigorously by Vavilov in \cite{vavilov_1957}. The namesake distribution is a generalization of the Landau distribution but its evaluation is more difficult, as it is expressed as an integral over some complicated functions \cite[Eq.(4)]{vavilov_1957}. Fortunately, it can be approximated by more straightforward distributions depending on the value of a parameter $\kappa$ (for a full explanation see \nameref{sec:vavilov_vs_landau_distribution}): for $\kappa\rightarrow0$ the Vavilov distribution can be approximated by a Langau, for $\kappa>>1$ by a Gaussian.
+The theoretical probability distribution of the energy loss of heavy particles hitting a thin target has been solved rigorously by Vavilov in \cite{vavilov_1957}. The namesake distribution is a generalization of the Landau distribution but its evaluation is more difficult, as it is expressed as an integral over some complicated functions \cite[Eq.(4)]{vavilov_1957}. Fortunately, it can be approximated by more straightforward functions depending on the value of a parameter $\kappa$ (for a more detailed explanation see \nameref{sec:vavilov_vs_landau_distribution}): for $\kappa\rightarrow0$ the Vavilov distribution can be approximated by a Landau, for $\kappa>>1$ by a Gaussian.
 
-the kappa parameter is well below the limit, so the landau distribution is a good approximation
-expression of the landau distribution? maybe qualitative description of the function.
+For the conditions of the tests studied in this  $\kappa\simeq \num{1e-8}$, well below the limit, thus the Landau function is a good approximation. It can be expressed by \cite{KOLBIG198497}:
+
+\begin{equation}\label{eq:landau}
+    \Phi (\lambda) = \frac{1}{\pi} \int_{0}^{\infty} e^{-\lambda u} u^{-u} \sin (\pi u ) \mathrm{d}u
+\end{equation}
 
 Additionally, due to a combination of theoretical corrections \cite{PhysRevA.11.1286} (due to the atomic binding of the electrons) and statistical errors on the measurements, the final distribution of energy deposit follows more accurately the convolution of a Gaussian and a Landau distributions (Figure~\ref{fig:langau_convolution_plot}).
 
 \begin{figure}
     \centering
-    \includegraphics[width=.6\linewidth]{Images/charge_plots/charge_data_all_cuts_401_S1_3_Charge_fit_ROOT_single_plot.png}
+    \includegraphics[width=.6\linewidth]{Images/LGADs/Landau_Gauss_convolution.png}
     \captionsetup{width=.8\linewidth}
-    \caption{Distribution of the deposited charge following quite precisely the expected Landau x Gaussian convolution (probably I'll put a different plot later)}
+    \caption{Plot of Landau function and the Landau x Gaussian convolution. Normalized to 1}
     \label{fig:langau_convolution_plot}
 \end{figure}
 
