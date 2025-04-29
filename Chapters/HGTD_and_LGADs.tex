@@ -5,13 +5,20 @@
 %%% expected results
 \chapter{HGTD and LGADs}\label{chap:HGTD_LGADs}
 
-% As mentioned before in \nameref{subsec:ATLAS_upgrades} a new detector will be added to the ATLA experiment
-%%% chapter intro
-In this chapter we motivate the construction of HGTD, illustrate its general layout and describe the specific type of silicon sensors (LGADs) that constitute the active components of the detector.
+%%% I have to put an actual "summary" of the chapter
+
+% In this chapter we motivate the construction of HGTD, illustrate its general layout and describe the specific type of silicon sensors (LGADs) that constitute the active components of the detector.
+The upcoming High-Luminosity phase has the goal of increasing the integrated luminosity by a factor $10$, enhancing the potential of new physics discoveries. However, it will also bring a variety of new complications, most importantly the increase in pileup interactions\footnote{Multiple collisions happening during the same bunch crossing, on top of a main event of interest.}.
+%%% HGTD as a solution 
+A new way to mitigate this effect for higher pseudorapidity values will be "\textit{to use high-precision timing information to distinguish between collisions occurring very close in space but well-separated in time}" \cite{CERN-LHCC-2020-007}. This is set to be accomplished by the High Granularity Time Detector (HGTD).
+HGTD will improve the object reconstruction capabilities of ATLAS, complementing ITk. This, in turn, will help study a variety of processes that rely on the precise identification and measurement of the physics objects produced during $p-p$ collisions, such as jets and leptons.
+The detector's active elements will be silicon sensors, which will provide precise timing information and will withstand the additional radiation of the HL.
+
+In this chapter we describe the general design of HGTD, its benefits to object reconstruction and the special type of silicon sensors (LGAD) that will form its basic components.
 
 \section{The High Granularity Time Detector}\label{sec:HGTD}
 %%% ITk
-One of the updates to the ATLAS detector will be the installation of the new ITk, which will improve the tracking\footnote{Tracking refers to the process of reconstructing the paths of charged particles as they fly through a detector. From the curvature the momentum and the charge can be inferred. It is a fundamental part of event reconstruction.} and will extend the pseudorapidity range up to $\eta=4$. While this extension will improve the reconstruction of physics objects, it will bring some difficulties too. 
+One of the updates to the ATLAS detector will be the installation of the new ITk, which will improve the tracking\footnote{Tracking refers to the process of reconstructing the paths of charged particles as they fly through a detector. From the curvature of the track the momentum and the charge can be inferred. It is a fundamental part of event reconstruction.} and will extend the pseudorapidity range up to $\eta=4$. While this extension will improve the reconstruction of physics objects, it will bring some difficulties too.
 
 %%% event reconstruction
 Event reconstruction relies strongly on the precise assignment of a track to the location of the first collision (primary vertex).% (track-to-vertex association).
@@ -25,7 +32,7 @@ Where $z_0$ is the longitudinal impact parameter, $z_{vertex}$ is the vertex pos
 
 \begin{figure}[!ht]
     \centering
-    \subfloat[Simulation of the local pileup vertex densities for two values of $<\mu>$ (average number of collisions per bunch crossing). From~\cite{cernTechnicalDesign}.]{
+    \subfloat[Simulation of the local pileup vertex densities for two values of $<\mu>$ (average number of collisions per bunch crossing), indicative of the current and future collision rates. From~\cite{cernTechnicalDesign}.]{
         \includegraphics[width=.45\linewidth]{Images/intro/pileup_density_simulation.png}
         \label{fig:pileup_densities}}
     \hfill
@@ -33,19 +40,20 @@ Where $z_0$ is the longitudinal impact parameter, $z_{vertex}$ is the vertex pos
     \subfloat[Simulation of the longitudinal resolution of ITk as a function of $\eta$, for muons with $p_T=\qty{1}{\giga\electronvolt}$ and $p_T=\qty{10}{\giga\electronvolt}$ From~\cite{cernTechnicalDesign}.]{
         \includegraphics[width=.46\linewidth]{Images/intro/ITk_z_resolution_for_eta.pdf}
         \label{fig:ITk_spacial_resolution}}
-    \caption{blah blah blah}
+    \caption{Simulations of the pileup densities (left) and the ITk spacial resolution (right).}
 \end{figure}
 
 %%% difficulties/problems
 Some problems arise. 
-Firstly, as $\eta$ increases, tracks become more parallel to the beam and are subject to multiple scattering effects due to increased material compared to the central barrel region. Secondly, the HL-LHC will see an increase in the number of collisions per bunch\footref{footnote:particle_beam_bunches} and, as a direct consequence, an increase in the average density of hard-scatter verteces (Figure~\ref{fig:pileup_densities}). Lastly, the resolution of ITk in the z direction (i.e. the beam direction) worsens considerably at higher pseudrapidities, as shown in the simulation in Figure~\ref{fig:ITk_spacial_resolution} for two values of $p_T$\footnote{$p_T$ is the transverse momentum, so the component of the momentum perpendicular to the beam line.}.
+Firstly, as $\eta$ increases, tracks become more parallel to the beam and are subject to multiple scattering effects due to more material compared to the central barrel region. Secondly, the HL-LHC will see a rise in the number of collisions per bunch%\footref{footnote:particle_beam_bunches} %%% this footnote is from the previous chapter, so it gives the wrong number
+ and, as a direct consequence, an increase in the average density of hard-scatter verteces (Figure~\ref{fig:pileup_densities}). Lastly, the resolution of ITk in the z direction (i.e. the beam direction) worsens considerably at higher pseudrapidities, as shown in the simulation in Figure~\ref{fig:ITk_spacial_resolution} for two values of $p_T$\footnote{$p_T$ is the transverse momentum: the component of the momentum perpendicular to the beam line.}.
 
-%%% HGTD as a solution 
-A new way to mitigate these effects for higher pseudorapity values will be "\textit{to use high-precision timing information to distinguish between collisions occurring very close in space but well-separated in time}" \cite{CERN-LHCC-2020-007}. This is set to be accomplished by the High Granularity Time Detector (HGTD).
+%%% check if I mention how these problems will be solved
 
 %%% HGTD provides time measurements
 HGTD will provide time information of charged particles with a time resolution of 30ps (up to 50ps at the end of life). %This will enhance the physics capabilities of ATLAS in three main ways:
 This will improve object reconstruction, for example of forward jets and leptons, which is key in many processes, like VBF (vector bosons fusion) and VBS (vector bosons scatter). % where interesting events must be separated from the background.
+
 The most powerful way to utilise this timing information is to require each track to satisfy:
 
 %%% time window compatibility (formula) t-t_0 / sigma < s
@@ -55,7 +63,7 @@ The most powerful way to utilise this timing information is to require each trac
 
 %%% other advantages
 where $t_0$ is the time of the primary vertex, $t_{track}$ is the time of the track, $\sigma_t$ is the combined error and $s$ is a significant cut, analogously to Eq~\ref{eq:compatibility_vertex}. % It should be noted, however that the experimental challenges of the determination of $t_0$ will limit the full power of this approach \cite{cernTechnicalDesign}.
-The detector will also introuduce new timing information to the data, independent of other detector measurements. And finally, HGTD will provide an additional, precise way to measure luminosity both online (instanteous, during operations) and offline (calculated after data taking), contributing to the ATLAS goal of 1\% uncertainty on luminosity, which is the largest source of uncertainty in many analyses, such as for the Higgs boson~\cite{CERN-LHCC-2020-007}.
+The detector will also introuduce new timing information to the data, independent of other detector measurements. And finally, HGTD will provide an additional, precise way to measure luminosity both online (instanteous, during operations) and offline (calculated after data taking), contributing to the ATLAS goal of 1\% uncertainty on luminosity, which is the largest source of uncertainty in many analyses, such as for precision measurements of the Higgs boson~\cite{CERN-LHCC-2020-007}.
 
 % %%% I put these points above
 % \begin{itemize}
@@ -67,7 +75,7 @@ The detector will also introuduce new timing information to the data, independen
 
 %%% detector layout
 % eta=2.4 -> theta=10.367°      eta=4 -> theta=2.0986°
-The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ \footnote{the pseudorapity is $\eta=-\ln \tan(\theta/2)$ where $\theta$ is the polar angle from the $z$ axis, i.e. the beam direction.} (so an incident angle roughly between 2° and 10°), complementing the ITk (Inner Tracker).
+The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ (so an incident angle roughly between 2° and 10°), complementing the ITk (Inner Tracker).
 % picture of HGTD
 \begin{figure}[!ht]
     \centering
