@@ -1,5 +1,5 @@
-
 \documentclass{report} %article or report
+
 \usepackage[margin=1in]{geometry}
 \usepackage{nameref} % to get the name of the section to reference
 \usepackage{hyperref} % hyperlinks to references
@@ -8,7 +8,7 @@
 \usepackage{xcolor} % For text colors
 \usepackage{wrapfig}  % to wrap text around images
 \usepackage[rightcaption]{sidecap}  % caption to the side of the image
-% \usepackage{svg} % for .svg images
+% \usepackage{svg} % for .svg images this is actually not useful because it just converts it to pdf anyways
 \usepackage{subfig} % for more figures together
 \usepackage{amsmath} % math things ?
 \usepackage[skip=10pt plus1pt, indent=0pt]{parskip}
@@ -16,15 +16,16 @@
 % \usepackage{todonotes} % adds notes to the side, actually these slow down the compilation by a ton
 \usepackage{tabularx}
 % \usepackage{rotating}   % rotating tables? 
-\usepackage{lscape}    % rotating tables????
+% \usepackage{lscape}    % rotating tables????
 % \usepackage{adjustbox}  % I use it to rotate a table
 \usepackage{makecell}  % to make two line elemenents in a cell
 % \usepackage[symbol]{footmisc} % to use symbols for footnotes (https://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers)
 \usepackage{siunitx}  % SI units
 \usepackage{derivative}
 \usepackage[backend=biber, sorting=none, maxnames=2, style=ieee]{biblatex} %Imports biblatex package, style=nature/ieee/apsrev?
-\usepackage{xcolor} % For text colors
 \usepackage{tablefootnote}  % footnotes in tables don't appear otherwise
+\usepackage{lineno}  % line numbers
+\linenumbers
 
 % \usepackage{biblatex} %Imports biblatex package
 %THIS TO INCLUDE THE VAVILOV_LANDAU LATEX FILE
@@ -47,7 +48,7 @@
 \setlength\bibitemsep{\baselineskip}
 
 
-\title{TestBeam analysis for HGTD}
+\title{Test Beam analysis for HGTD}
 \author{Marcello Pozzessere}
 \date{January 2025}
 
@@ -70,8 +71,8 @@
 
 \include{Chapters/Methods.tex}
 
-\chapter{Results}
-\marginpar{file to be created}
+\include{Chapters/Results}
+
 
 \chapter{Conclusions}
 \marginpar{file to make}
