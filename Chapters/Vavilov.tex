@@ -1,5 +1,7 @@
-The theoretical distribution of the energy loss of heavy particles hitting a thin target has been solved rigorously by Vavilov in \cite{vavilov_1957}. The namesake distribution is a generalization of the Landau distribution but its evaluation is more difficult, as it is expressed as an integral over some complicated functions \cite[Eq.(4)]{vavilov_1957}. Fortunately, it can be approximated by more straightforward distributions depending on the value of a parameter $\kappa$ (Eq.\eqref{eq:kappa_definition}): for $\kappa\rightarrow0$ the Vavilov distribution can be approximated by a Langau, for $\kappa>>1$ by a Gaussian. 
-In this section we have replicated the calculations done in \cite{NAP20066} applied to our specific case to ensure that the Landau approximation is valid.
+%%% I need to replace the \si with \qty or \num or \unit
+
+The theoretical distribution of the energy loss of heavy particles hitting a thin target has been solved rigorously by Vavilov in \cite{vavilov_1957}. The namesake distribution is a generalization of the Landau distribution, but its evaluation is more difficult, as it is expressed as an integral over some complicated functions \cite[Eq.(4)]{vavilov_1957}. Fortunately, it can be approximated by more straightforward distributions depending on the value of a parameter $\kappa$ (Eq. \eqref{eq:kappa_definition}): for $\kappa\rightarrow0$ the Vavilov distribution can be approximated by a Langau, for $\kappa>>1$ by a Gaussian. 
+In this section we have replicated the calculations done in \cite{NAP20066} applied to our specific case to ensure that the Landau approximation is valid. \marginpar{\flushleft I copied this part into the LGADs part, I will rewrite this.}
 
 % \subsection{The \(\kappa\) factor}
 \subsection{Vavilov approximation parameter} % remove $\kappa$ because of hyperref for now
@@ -54,7 +56,7 @@ Finally, for a Pion ($M=139.570\si{MeV/c^2}$) with energy $E=120\si{GeV}$ ($\gam
     \kappa = \num{8.5959e-09}
 \end{equation}
 
-well within the Landau approximation.
+Well within the Landau approximation.
 
 Reversing the calculation and fixing $\kappa=0.01$, which is approximately the lower limit of validity, the energy of the particle should be below: $491.9\si{MeV}$. 
 
