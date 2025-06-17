@@ -4,6 +4,7 @@
 \usepackage{nameref} % to get the name of the section to reference
 \usepackage{hyperref} % hyperlinks to references
 \usepackage{graphicx,caption} % Required for inserting images
+\usepackage{placeins} % specify some float barrier for better float position
 % \usepackage{float} % specifying image position?
 \usepackage{xcolor} % For text colors
 \usepackage{wrapfig}  % to wrap text around images
@@ -35,6 +36,21 @@
 %   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 \DeclareSIUnit{\barn}{b}
 \DeclareSIUnit{\neutroneq}{n_{eq}}
+
+\newcommand{\captionwidth}{.9\linewidth}
+
+%%% trying to adjust floats settings
+\renewcommand{\topfraction}{.85} % .7
+\renewcommand{\bottomfraction}{.7} % .3
+\renewcommand{\textfraction}{.15} % .2
+\renewcommand{\floatpagefraction}{.66} % .5
+% \renewcommand{\dbltopfraction}{.66} % .7
+% \renewcommand{\dblfloatpagefraction}{.66} % .5
+\setcounter{topnumber}{9} % 2
+\setcounter{bottomnumber}{9} % 1
+\setcounter{totalnumber}{20} % 3
+% \setcounter{dbltopnumber}{9} % 2
+\setlength{\floatsep}{4pt}
 
 \hypersetup{
     colorlinks,
@@ -75,7 +91,7 @@
 
 
 \chapter{Conclusions}
-\marginpar{file to make}
+\marginpar{File to make}
 
 \appendix
 
