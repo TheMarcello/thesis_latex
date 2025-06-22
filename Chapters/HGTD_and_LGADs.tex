@@ -10,12 +10,12 @@
 The upcoming High-Luminosity phase has the goal of increasing the integrated luminosity by a factor $10$, enhancing the potential of new physics discoveries. However, it will also bring a variety of new complications, most importantly the increase in pileup interactions\footnote{Multiple collisions happening during the same bunch crossing, on top of a main event of interest.}.
 %%% HGTD as a solution 
 A new way to mitigate this effect for higher pseudorapidity values will be "\textit{to use high-precision timing information to distinguish between collisions occurring very close in space but well-separated in time}" \cite{CERN-LHCC-2020-007}. This is set to be accomplished by the High Granularity Time Detector (HGTD).
-HGTD will improve the object reconstruction capabilities of ATLAS, complementing ITk. This, in turn, will help study a variety of processes that rely on the precise identification and measurement of the physics objects produced during $p-p$ collisions, such as jets and leptons.
-The detector's active elements will be silicon sensors, which will provide precise timing information and will withstand the additional radiation of the HL. To achieve HGTD's preicison goal of \qty{30}{\pico\second} (\qty{50}{\pico\second}) at start life (end life), the sensors will need to have a time resolution per hit of \qty{35}{\pico\second} (\qty{70}{\pico\second}). Additionally, a hit efficiency above $95\%$ and %a due to the electronics' spefications,
+The HGTD will improve the object reconstruction capabilities of ATLAS, complementing ITk. This, in turn, will help study a variety of processes that rely on the precise identification and measurement of the physics objects produced during $p-p$ collisions, such as jets and leptons.
+The detector's active elements will be silicon sensors, which will provide precise timing information and will withstand the additional radiation of the HL. To achieve the HGTD's preicison goal of \qty{30}{\pico\second} (\qty{50}{\pico\second}) at start life (end life), the sensors will need to have a time resolution per hit of \qty{35}{\pico\second} (\qty{70}{\pico\second}). Additionally, a hit efficiency above $95\%$ and %a due to the electronics' spefications,
 a minimum collected charge of \qty{4}{\femto\coulomb} will also be required.
 % I need to add the sensor requirements: time resolution, charge and efficiency 
 
-In this chapter we describe the general design of HGTD, its benefits to object reconstruction and the special type of silicon sensors (LGAD) that will form its basic components.
+In this chapter we describe the general design of the HGTD, its benefits to object reconstruction and the special type of silicon sensors (LGAD) that will form its basic components.
 
 \section{The High Granularity Time Detector}\label{sec:HGTD}
 %%% ITk
@@ -52,7 +52,7 @@ Firstly, as $\eta$ increases, tracks become more parallel to the beam and are su
 %%% check if I mention how these problems will be solved
 
 %%% HGTD provides time measurements
-HGTD will provide time information of charged particles with a time resolution of 30ps (up to 50ps at the end of life). %This will enhance the physics capabilities of ATLAS in three main ways:
+The HGTD will provide time information of charged particles with a time resolution of 30ps (up to 50ps at the end of life). %This will enhance the physics capabilities of ATLAS in three main ways:
 This will improve object reconstruction, for example of forward jets and leptons, which is key in many processes, like VBF (vector bosons fusion) and VBS (vector bosons scatter). % where interesting events must be separated from the background.
 
 The most powerful way to utilise this timing information is to require each track to satisfy:
@@ -64,7 +64,7 @@ The most powerful way to utilise this timing information is to require each trac
 
 %%% other advantages
 Where $t_0$ is the time of the primary vertex, $t_{track}$ is the time of the track, $\sigma_t$ is the combined error and $s$ is a significant cut, analogously to Eq~\ref{eq:compatibility_vertex}. % It should be noted, however that the experimental challenges of the determination of $t_0$ will limit the full power of this approach \cite{cernTechnicalDesign}.
-The detector will also introduce new timing information to the data, independent of other detector measurements. And finally, HGTD will provide an additional, precise way to measure luminosity both online (instantanous, during operations) and offline (calculated after data taking), contributing to the ATLAS goal of 1\% uncertainty on luminosity, which is the largest source of uncertainty in many analyses, such as for precision measurements of the Higgs boson~\cite{CERN-LHCC-2020-007}.
+The detector will also introduce new timing information to the data, independent of other detector measurements. And finally, the HGTD will provide an additional, precise way to measure luminosity both online (instantanous, during operations) and offline (calculated after data taking), contributing to the ATLAS goal of 1\% uncertainty on luminosity, which is the largest source of uncertainty in many analyses, such as for precision measurements of the Higgs boson~\cite{CERN-LHCC-2020-007}.
 
 % %%% I put these points above
 % \begin{itemize}
@@ -89,7 +89,7 @@ The detector will cover pseudrapidities between $2.4 < \eta < 4.0$ (so an incide
         \includegraphics[width=.35\linewidth]{Images/intro/HGTD_disks_alignment.png}
         \label{fig:HGTD_schema}}
     \captionsetup{width=\captionwidth}
-    \caption{Location (left) of HGTD inside ATLAS and orientation (right) of the two faces on each disk. From \cite{cernTechnicalDesign}.}
+    \caption{Location (left) of the HGTD inside ATLAS and orientation (right) of the two faces on each disk. From \cite{cernTechnicalDesign}.}
 \end{figure}
 
 %%% detector layout
@@ -173,7 +173,7 @@ Three major effects determine the time resolution of the sensors: time walk from
 
 \begin{itemize}
     \item $\sigma_{TimeWalk} = \left[ \frac{V_{th}}{S/t_{rise}}\right]_{RMS}$ where $V_{th}$ is the threshold voltage, S is the signal (proportional to the gain) and $t_{rise}$ is the time taken by a signal to go from 10\% to 90\% of the maximum amplitude.
-    \item $\sigma_{Jitter} = \frac{N}{dV/dt} \simeq \frac{t_{rise}}{S/N}$ where $S/N$ is the signal-over-noise ratio.
+    \item $\sigma_{Jitter} = \frac{N}{dV/dt} \approx \frac{t_{rise}}{S/N}$ where $S/N$ is the signal-over-noise ratio.
     \item $\sigma_{Landau}$ depends on the thickness of the sensor (thinner is better) and the setting of the threshold voltage.
 \end{itemize}
 
@@ -183,7 +183,7 @@ It can be noticed that the lowest jitter and time walk errors are achieved with 
 %%% To find the gain of the sensors we have to first look at the charge deposited on a normal silicon sensor (without gain).
 The theoretical probability distribution of the energy loss of heavy particles hitting a thin target (such as the active volume of a silicon sensor) has been solved rigorously by Vavilov in \cite{vavilov_1957}. The namesake distribution is a generalization of the Landau distribution, but its evaluation is more difficult, as it is expressed as an integral over some complicated functions \cite[Eq.(4)]{vavilov_1957}. Fortunately, it can be approximated by more straightforward functions depending on the value of a parameter $\kappa$ (for a more detailed explanation see \ref{sec:vavilov_vs_landau_distribution}): for $\kappa\rightarrow0$ the Vavilov distribution can be approximated by a Landau, for $\kappa>>1$ by a Gaussian.
 
-For the conditions of the tests studied in this thesis $\kappa\simeq \num{1e-8}$, well below the limit, thus the Landau function is a good approximation. It can be expressed by \cite{KOLBIG198497}:
+For the conditions of the tests studied in this thesis $\kappa\approx \num{1e-8}$, well below the limit, thus the Landau function is a good approximation. It can be expressed by \cite{KOLBIG198497}:
 
 \begin{equation}\label{eq:landau}
     \Phi (\lambda) = \frac{1}{\pi} \int_{0}^{\infty} e^{-\lambda u} u^{-u} \sin (\pi u ) \mathrm{d}u \, .
