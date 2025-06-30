@@ -1,50 +1,130 @@
 %%% APPENDIX
 \chapter{Appendix}\label{chap:appendix}
 
-Additional explanations:
-\marginpar{\flushleft make into actual Appendix type}
-\section{Complete list of DUTs}
+\section{Table of results}
 
-\begin{landscape}
+Here are reported the tables containing the all the results, divided by sensor
 
-\begin{table}[h]
-    \caption{Complete list of the tested devices with additional details}
-    \label{tab:full_devices_tested}
-    \footnotesize
-        \begin{tabularx}{\textheight}{|l|l|l|l|l|l|l|l|X|}
-            \hline
-            \textbf{Device name} & \textbf{Vendor} & \textbf{Sensor ID} &  \begin{tabular}{@{}l@{}}\textbf{Pads,} \\ \textbf{used channels}\end{tabular} & \begin{tabular}{@{}l@{}}\textbf{Fluence} \\ $[n_{eq}/\si{cm^2}]$ \end{tabular} &\begin{tabular}{@{}l@{}} \textbf{Radiation} \\ \textbf{type} \end{tabular} & \textbf{Board name} & \begin{tabular}{@{}l@{}}\textbf{Board} \\ \textbf{channels} \end{tabular} & \textbf{Notes} \\
-            \hline
-            CNM-W4 & CNM & CNM-R15973-W4-D168 & single & 0 & - & JSI-B12 & - & reference \\ 
-            CNM-W5 & CNM & CNM-R15973-W5-D138 & single & 0 & - & JSI-B14 & - & reference \\ 
-            CNM-W5-1.5E15 & CNM & CNM-R15973-W5-D29 & single & $\num{1.50E+15}$ & neutron & JSI-B5 & - & \\ 
-            CNM-W3-2.5E15 & CNM & CNM-R15973-W3-D29 & single & $\num{2.50E+15}$ & neutron & JSI-PP1 & - & \\
-            USTC2.1-W17 & USTC & USTC2.1-W17-P6-A-2x2 & 2x2, 2 channels & 0 & - & CERN-3 & Ch1,Ch2 & \\
-            USTC2.1-W19 & USTC & USTC2.1-W19-P5-A-1x1 & single & 0 & - & CERN-3 & - & not tested \\
-            USTC2.1-W17-2E14 & USTC & USTC2.1-W17-P6-A-2x2 & 2x2, 1 channel & 0 & - & JSI-B2 & - & missing \\ 
-            IMEv3-W12-2x2 & IHEP & IMEv3-W12-C2-2-2 & 2x2, 2 channels & 0 & - & CERN-1 & Ch1,Ch2 &  \\ 
-            IMEv3-W12-1x3 & IHEP & IMEv3-W12-C3-1-4(and5) & 1x3, 2 channels & 0 & - & CERN-1 & Ch3,Ch4 &  \\ 
-            IMEv3-W12-2x2-1.5E15 & IHEP & IMEv3-W12-B2-2-9-1 & 2x2, 3 channels & $\num{1.50E+15}$ & neutron & CERN-2 & Ch0,Ch1,Ch2 &  \\ 
-            IMEv3-W16-1x3-1.5E15 & IHEP & IMEv3-W16-Q4-D4-1-4 & 1x3, 1 channel & $\num{1.50E+15}$ & neutron & CERN-2 & Ch3 &  \\ 
-            IMEv2-W7-1E14 & IHEP & W7-II-C2-1-7IMEv2-W7Q2 & single & $\num{1.00E+14}$ & proton & JSI-B6 & - &  \\ 
-            IMEv2-W7-6.5E14 & IHEP & W7-II-C2-1-7IMEv2-W7Q2 & single & $\num{6.50E+14}$ & proton & JSI-PP4 & - &  \\ 
-            IMEv3-W16-8E14 & IHEP & IHEP-IMEv3-W16-Q4-D3-1-4 & single & $\num{8.00E+14}$ & proton & JSI-B7 & - &  \\ 
-            IMEv3-W16-2.5E15 & IHEP & IHEP-IMEv3-W16-Q4-E3-1-4 & single & $\num{2.50E+15}$ & neutron & JSI-B13 & - &  \\ 
-            \hline
-        \end{tabularx}
-\end{table}
-\end{landscape}
-
-
-\section{Empty vertical line}
-Due to one dead column of pixels of a MIMOSA \marginpar{\flushleft add plots of the DATA showing the vertical line, or link/ref to it} some batches presented an empty vertical line. The cause of this was found in one of the MIMOSA planes, which had a dead column of pixels and interfered with the track reconstruction. This problem turned out to be inconsequential for the analysis, except for the very low statistics in that very small region.
-\begin{figure}[!ht]
+%% All the tables with the results:
+%%% CNM-W4
+\begin{table}[htbp]
+    \small
     \centering
-    \includegraphics[width=.9\linewidth]{Images/appendix/hits_MIMOSA4.png}
-    \caption{The hits heatmap of the MIMOSA plane n°4, which shows clearly the source of the "empty line" that appeared in the data.}
-    \label{fig:MIMOSA4_hits}
-\end{figure}
+    \caption{Summary of the results from the sensor: CNM-W4.}
+    \label{tab:results_CNM-W4}
+    \input{Chapters/Results_tables/table_results_CNM-W4}
+\end{table}
 
+%%% CNM-W5
+\begin{table}[htbp]
+    \small
+    \centering
+    \caption{Summary of the results from the sensor: CNM-W5.}
+    \label{tab:results_CNM-W5}
+    \input{Chapters/Results_tables/table_results_CNM-W5}
+\end{table}
+
+%%% CNM-W5-1.5E15
+\begin{table}[htbp]
+    \small
+    \centering
+    \caption{CNM-W5-1.5E15.}
+    \label{tab:results_CNM-W5-1.5E15}
+    \input{Chapters/Results_tables/table_results_CNM-W5-1.5E15}
+\end{table}
+
+%%% CNM-W3-2.5E15
+\begin{table}[htbp]
+    \small
+    \centering
+    \caption{Summary of the results from the sensor: CNM-W3-2.5E15.}
+    \label{tab:results_CNM-W3-2.5E15}
+    \input{Chapters/Results_tables/table_results_CNM-W3-2.5E15}
+\end{table}
+
+%%% USTC2.1-W17
+\begin{table}[htbp]
+    \small
+    \centering
+    \caption{Summary of the results from the sensor: USTC2.1-W17.}
+    \label{tab:results_USTC2.1-W17}
+    \input{Chapters/Results_tables/table_results_USTC2.1-W17}
+\end{table}
+
+%%% IMEv3-W12-2x2
+\begin{table}[htbp]
+    \small
+    \centering
+    \caption{Summary of the results from the sensor: IMEv3-W12-2x2.}
+    \label{tab:results_IMEv3-W12-2x2}
+    \input{Chapters/Results_tables/table_results_IMEv3-W12-2x2}
+\end{table}
+
+
+%%% IMEv3-W12-1x3
+\begin{table}[htbp]
+    \small
+    \centering
+    \caption{IMEv3-W12-1x3}
+    \label{tab:results_IMEv3-W12-1x3}
+    \input{Chapters/Results_tables/table_results_IMEv3-W12-1x3}
+\end{table}
+
+%%% IMEv2-W7-6.5E14
+\begin{table}[htbp]
+    \small
+    \centering
+    \caption{IMEv2-W7-6.5E14}
+    \label{tab:results_IMEv2-W7-6.5E14}
+    \input{Chapters/Results_tables/table_results_IMEv2-W7-6.5E14}
+\end{table}
+
+%%% IMEv3-W16-8E14
+\begin{table}[htbp]
+    \small
+    \centering
+    \caption{IMEv3-W16-8E14}
+    \label{tab:results_IMEv3-W16-8E14}
+    \input{Chapters/Results_tables/table_results_IMEv3-W16-8E14}
+\end{table}
+
+%%% IMEv3-W16-2.5E15
+\begin{table}[htbp]
+    \small
+    \centering
+    \caption{IMEv3-W16-2.5E15}
+    \label{tab:results_IMEv3-W16-2.5E15}
+    \input{Chapters/Results_tables/table_results_IMEv3-W16-2.5E15}
+\end{table}
+
+%%% IMEv2-W7-1E14
+\begin{table}[htbp]
+    \small
+    \centering
+    \caption{IMEv2-W7-1E14}
+    \label{tab:results_IMEv2-W7-1E14}
+    \input{Chapters/Results_tables/table_results_IMEv2-W7-1E14}
+\end{table}
+
+%%% IMEv3-W12-2x2-1.5E15
+\begin{table}[htbp]
+    \small
+    \centering
+    \caption{IMEv3-W12-2x2-1.5E15}
+    \label{tab:results_IMEv3-W12-2x2-1.5E15}
+    \input{Chapters/Results_tables/table_results_IMEv3-W12-2x2-1.5E15}
+\end{table}
+
+% %%% IMEv3-W16-1x3-1.5E15  this one only has one good batch, it was excluded
+% \begin{table}[htbp]
+%     \small
+%     \centering
+%     \caption{IMEv3-W16-1x3-1.5E15}
+%     \label{tab:results_IMEv3-W16-1x3-1.5E15}
+%     \input{Chapters/Results_tables/table_results_IMEv3-W16-1x3-1.5E15}
+% \end{table}
+
+\FloatBarrier
 
 \section[Vavilov vs Landau distribution]{On the Vavilov distribution approximation}\label{sec:vavilov_vs_landau_distribution}
 
@@ -52,11 +132,55 @@ Due to one dead column of pixels of a MIMOSA \marginpar{\flushleft add plots of 
 % \input{Chapters/Vavilov_Landau/Vavilov approximation to Landau.tex}
 \input{Chapters/Vavilov.tex}
 
+\section{Complete list of DUTs}
+
+% \begin{landscape}
+
+% \begin{table}[h]
+%     \caption{Complete list of the tested devices with additional details}
+%     \label{tab:full_devices_tested}
+%     \footnotesize
+%         \begin{tabularx}{\textheight}{|l|l|l|l|l|l|l|l|X|}
+%             \hline
+%             \textbf{Device name} & \textbf{Vendor} & \textbf{Sensor ID} &  \begin{tabular}{@{}l@{}}\textbf{Pads,} \\ \textbf{used channels}\end{tabular} & \begin{tabular}{@{}l@{}}\textbf{Fluence} \\ \([n_{eq}/\si{cm^2}]\) \end{tabular} &\begin{tabular}{@{}l@{}} \textbf{Radiation} \\ \textbf{type} \end{tabular} & \textbf{Board name} & \begin{tabular}{@{}l@{}}\textbf{Board} \\ \textbf{channels} \end{tabular} & \textbf{Notes} \\
+%             \hline
+%             CNM-W4 & CNM & CNM-R15973-W4-D168 & single & 0 & - & JSI-B12 & - & reference \\ 
+%             CNM-W5 & CNM & CNM-R15973-W5-D138 & single & 0 & - & JSI-B14 & - & reference \\ 
+%             CNM-W5-1.5E15 & CNM & CNM-R15973-W5-D29 & single & \(\num{1.50E+15}\) & neutron & JSI-B5 & - & \\ 
+%             CNM-W3-2.5E15 & CNM & CNM-R15973-W3-D29 & single & \(\num{2.50E+15}\) & neutron & JSI-PP1 & - & \\
+%             USTC2.1-W17 & USTC & USTC2.1-W17-P6-A-2x2 & 2x2, 2 channels & 0 & - & CERN-3 & Ch1,Ch2 & \\
+%             USTC2.1-W19 & USTC & USTC2.1-W19-P5-A-1x1 & single & 0 & - & CERN-3 & - & not tested \\
+%             USTC2.1-W17-2E14 & USTC & USTC2.1-W17-P6-A-2x2 & 2x2, 1 channel & 0 & - & JSI-B2 & - & missing \\ 
+%             IMEv3-W12-2x2 & IHEP & IMEv3-W12-C2-2-2 & 2x2, 2 channels & 0 & - & CERN-1 & Ch1,Ch2 &  \\ 
+%             IMEv3-W12-1x3 & IHEP & IMEv3-W12-C3-1-4(and 5) & 1x3, 2 channels & 0 & - & CERN-1 & Ch3,Ch4 &  \\ 
+%             IMEv3-W12-2x2-1.5E15 & IHEP & IMEv3-W12-B2-2-9-1 & 2x2, 3 channels & \(\num{1.50E+15}\) & neutron & CERN-2 & Ch0,Ch1,Ch2 &  \\ 
+%             IMEv3-W16-1x3-1.5E15 & IHEP & IMEv3-W16-Q4-D4-1-4 & 1x3, 1 channel & \(\num{1.50E+15}\) & neutron & CERN-2 & Ch3 &  \\ 
+%             IMEv2-W7-1E14 & IHEP & W7-II-C2-1-7IMEv2-W7Q2 & single & \(\num{1.00E+14}\) & proton & JSI-B6 & - &  \\ 
+%             IMEv2-W7-6.5E14 & IHEP & W7-II-C2-1-7IMEv2-W7Q2 & single & \(\num{6.50E+14}\) & proton & JSI-PP4 & - &  \\ 
+%             IMEv3-W16-8E14 & IHEP & IHEP-IMEv3-W16-Q4-D3-1-4 & single & \(\num{8.00E+14}\) & proton & JSI-B7 & - &  \\ 
+%             IMEv3-W16-2.5E15 & IHEP & IHEP-IMEv3-W16-Q4-E3-1-4 & single & \(\num{2.50E+15}\) & neutron & JSI-B13 & - &  \\ 
+%             \hline
+%         \end{tabularx}
+% \end{table}
+% \end{landscape}
+
+
+\section{Empty vertical line}
+Due to one dead column of pixels of a MIMOSA \marginpar{\flushleft add plots of the DATA showing the vertical line, or link/ref to it} some batches presented an empty vertical line. The cause of this was found in one of the MIMOSA planes, which had a dead column of pixels and interfered with the track reconstruction. This problem turned out to be inconsequential for the analysis, except for the very low statistics in that very small region.
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=.9\linewidth]{Images/appendix/hits_MIMOSA4.png}
+    \caption{The hits heatmap of the MIMOSA plane n°4, which shows clearly the source of the "empty line" that appeared in the data.}
+    \label{fig:MIMOSA4_hits}
+\end{figure}
+
+
+
 \section{Additonal plots}\label{sec:additional_plots}
 
-\begin{figure}[!ht]
+\begin{figure}[h!tbp]
     \centering
-    \subfloat[Using pulseHeight cut]{
+    \subfloat[Using pulse height cut]{
         \includegraphics[width=.48\textwidth]{Images/appendix/2D_Tracks_401_S1 highlight geometry cut (using pulseHeight).png}
         \label{fig:geometry_cut_using_pulseHeight}}
     \hfill
@@ -68,7 +192,7 @@ Due to one dead column of pixels of a MIMOSA \marginpar{\flushleft add plots of 
     \label{fig:geometry_cut_comparison}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[h!tbp]
     \centering
     \includegraphics[width=0.7\linewidth]{Images/appendix/Charge_distribution_different_cuts_batch_401_S1_DUTs_3.png}
     \caption{The different quality cuts applied and their individual effect on the charge distribution}
