@@ -5,11 +5,11 @@ A typical way to test the performance of sensors for High-Energy Physics applica
 
 The HGTD collaboration has run many test beam campaigns, mainly at CERN and at DESY (Deutsches Elektronen-Synchrotron). The focus of this analysis is the test beam campaign of May 2023, conducted at CERN using a beam of \qty{120}{\giga\electronvolt} pions, provided by SPS.
 
-\begin{figure}[!ht]
+\begin{figure}[h!tbpt]
     \centering
     \includegraphics[width=.95\linewidth]{Images/TestBeam_setup/TestBeam_setup_redrawn.png}
     \captionsetup{width=\captionwidth}
-    \caption{The components of the TestBeam setup: six MIMOSA planes, the FE-I4, the MCP and the cooling box containing the DUTs}
+    \caption{The components of the test beam setup: six MIMOSA planes, the FE-I4, the MCP and the cooling box containing the DUTs}
     \label{fig:testbeam_setup}
 \end{figure}
 
@@ -37,14 +37,14 @@ The experimental setup of this campaign included:
 
 The Trigger Logic Unit provides a trigger whenever a particle is detected. This trigger in turn instructs various components (in this case the oscilloscopes, the MIMOSA planes) to initiate data acquisition. More specifically the TLU takes input from a scintillator and the FE-i4 to create a trigger.
 
-The FE-i4 (Front-End-Iteration 4) is a pixel readout chip with a planar silicon sensor bump bonded to it. It has a configurable sensitive area of up to $\num{16.8} \times \qty{20}{\milli\meter^2}$ made up of 80 columns (\qty{250}{\micro\meter} pitch) and 336 rows (\qty{50}{\micro\meter}) \cite{Obermann:2014goa}. 
+The FE-i4 (Front-End-Iteration 4) is a pixel readout chip with a planar silicon sensor bump bonded to it. It has a configurable sensitive area of up to \(\num{16.8} \times \qty{20}{\milli\meter^2}\) made up of 80 columns (\qty{250}{\micro\meter} pitch) and 336 rows (\qty{50}{\micro\meter}) \cite{Obermann:2014goa}. 
 
-Selecting a specific ROI allowed excluding areas outside the DUTs surface and reduce sources of noise (e.g. noisy pixels of MIMOSA planes). It should be noted that in some occasions, due to erroneous ROI selection or due to small positional shifts caused by temperature fluctuations, the DUTs fell outside said ROI and the analysis was negatively impacted. (Example in Appendix, later)
+Selecting a specific ROI allowed excluding the areas outside the DUTs surface and reducing sources of noise (e.g. noisy pixels of MIMOSA planes). It should be noted that in some occasions, due to erroneous ROI selection or due to small positional shifts caused by temperature fluctuations, the DUTs fell outside said ROI and the analysis was negatively impacted. (Example in Appendix, later)
  
 \section{MIMOSA planes}
 
-A total of 6 Minimum Ionizing MOS Active Pixel Sensor planes provide precise spatial measurements of particle trajectories. Each plane consists of 576 rows and 1152 columns of pixels, each sized $\qty{18.4}{\micro\meter} \times \qty{18.4}{\micro\meter}$, covering an active area of around $\num{21.2} \times \qty{10.6}{\micro\meter^2}$. Three of the planes were located before the DUTs, from the direction of the beam, and three were located after. The hits provided by the planes enabled the reconstruction of the tracks of the particles in the beam.
-
+A total of 6 Minimum Ionizing MOS Active Pixel Sensor planes provide precise spatial measurements of particle trajectories. Each plane consists of 576 rows and 1152 columns of pixels, each sized \(\qty{18.4}{\micro\meter} \times \qty{18.4}{\micro\meter}\), covering an active area of around \(\num{21.2} \times \qty{10.6}{\micro\meter^2}\). Three of the planes were located before the DUTs, from the direction of the beam, and three were located after. The hits provided by the planes enabled the reconstruction of the tracks of the particles in the beam.
+%%% TODO: reference?
 
 \section{MCP}\label{sec:MCP_description}
 The microchannel plate (MCP) detector consists of a single block of resistive material with numerous evenly spaced small tubes (microchannels) connecting one face to the other. The main working principle is similar to that of an electron multiplier. When a voltage is applied between the two sides a potential gradient is established along the channels. Whenever a charged particle hits the inner wall of the tubes multiple secondary electrons are emitted, these electrons then are accelerated and hit the opposite wall in the channel, causing the emission of further secondary electrons. As a result, an exponentially increasing number of electrons can be extracted from the output. This detector can provide very fast response time and, for this reason, it was used as a reference for the time resolution of the other devices \cite{LADISLASWIZA1979587}.
@@ -58,8 +58,8 @@ The microchannel plate (MCP) detector consists of a single block of resistive ma
 \begin{minipage}[c]{.5\linewidth}
     \caption{
     Schematics of an MCP.\\ 
-    Top: structure of the detector with a cross-sectional view of the channels, highlighting the diameter $d$ and the length $L$ of the micro-channels. Standard MCPs are fabricated with a diameter of $10$s \unit{\micro\meter} and a ratio $\alpha$ ($\alpha = L / d$) 40 to 60.\\
-    Bottom: when a voltage ($V_D$) is applied, the channel walls behave as continuous electron multiplier: when a target object (electron, ion or photon) hits the inner walls, electrons are released in a parabolic trajectory, and they start a chain reaction which produces a signal amplified by $10^4-10^7$ times.}
+    Top: structure of the detector with a cross-sectional view of the channels, highlighting the diameter \(d\) and the length \(L\) of the micro-channels. Standard MCPs are fabricated with a diameter of \(10\)s \unit{\micro\meter} and a ratio \(\alpha\) (\(\alpha = L / d\)) 40 to 60.\\
+    Bottom: when a voltage (\(V_D\)) is applied, the channel walls behave as continuous electron multiplier: when a target object (electron, ion or photon) hits the inner walls, electrons are released in a parabolic trajectory, and they start a chain reaction which produces a signal amplified by \(10^4-10^7\) times.}
 \end{minipage}
 \label{fig:MCP_diagrame}
 \end{figure}
@@ -76,20 +76,20 @@ The time resolution of the MCP was first calculated by comparing the time differ
     \end{cases}
 \end{equation}
 
-The time distributions (left sides of the equations) were fitted with a gaussian function, each with a width $\sigma_{ij} = \sigma_i \oplus \sigma_j$, where $i$ and $j$ are two of the devices in Equation \ref{eq:time_res_system_eqs} (i.e. MCP, CNM-W4 and CNM-W5). Assuming that the devices were all independent, their time resolutions would also be independent. This gave a system of three equations with three unknowns, which could be solved analytically to find each individual time resolution: $\sigma_1$, $\sigma_2$, $\sigma_{MCP}$.
+The time distributions (left sides of the equations) were fitted with a gaussian function, each with a width \(\sigma_{ij} = \sigma_i \oplus \sigma_j\), where \(i\) and \(j\) are two of the devices in Equation \ref{eq:time_res_system_eqs} (i.e. MCP, CNM-W4 and CNM-W5). Assuming that the devices were all independent, their time resolutions would also be independent. This gave a system of three equations with three unknowns, which could be solved analytically to find each individual time resolution: \(\sigma_1\), \(\sigma_2\), \(\sigma_{MCP}\).
 
 The results computed this way are shown in Table \ref{tab:MCP_time_resolution}.
-\begin{table}[!ht]
+\begin{table}[h!tbpt]
     \begin{center}
         \captionsetup{width=\captionwidth}
         \caption{Time resolution values of the MCP. The uncertainty comes from the statistical variance after the calculation was repeated for all the available runs.}
         \label{tab:MCP_time_resolution}
         \begin{tabular}{ | c | c | c | c | }
             \hline
-            Voltage [$\si{V}$] & 2500 & 2600 & 2800 \\ 
+            Voltage [\(\si{V}\)] & 2500 & 2600 & 2800 \\ 
             \hline 
-            Time resolution [$\si{ps}$] & 36.52 & 16.48 & 3.73 \\  
-            Uncertainty [$\si{ps}$] & $\pm$0.81 & $\pm$0.57 & $\pm$1.33 \\
+            Time resolution [\(\si{ps}\)] & 36.52 & 16.48 & 3.73 \\  
+            Uncertainty [\(\si{ps}\)] & \(\pm\)0.81 & \(\pm\)0.57 & \(\pm\)1.33 \\
             \hline
         \end{tabular}
     \end{center}
@@ -97,8 +97,9 @@ The results computed this way are shown in Table \ref{tab:MCP_time_resolution}.
 
 
 \section{Oscilloscopes}
-The signal generated by the DUT was recorded by two four-channel oscilloscopes: channel 1 (denoted as Ch1) of both oscilloscopes was connected to the MCP (whose signal was put through a splitter and sent to both oscilloscopes). So, up to 6 channels were available in each batch to be attached to the DUTs.
-The waveforms recorded by the oscilloscopes were then processed with the PyAna software. \marginpar{\flushleft I explain this later in the methods}
+The signal generated by the DUT was recorded by two four-channel oscilloscopes: channel 1 (denoted as Ch1) of both oscilloscopes was connected to the MCP (whose signal was put through a splitter and sent to both oscilloscopes). Therefore, up to 6 channels were available in each batch to be attached to the DUTs.
+The waveforms recorded by the oscilloscopes were then processed with the PyAna software \cite{atlas_hgtd_pyana_2025}. 
+%  \marginpar{\flushleft I explain this later in the methods}
 
 
 \section{The sensors}\label{sec:the_sensors}
@@ -111,35 +112,35 @@ A variety of LGADs were tested: with different manufacturers, different designs 
 
 The first two designs have both been manufactured by the IME (Institute of Microelectronics) of the Chinese Academy of Sciences. The two CNM sensors (labeled CNM-W4 and CNM-W5) were used to measure the time resolution of another device, the MCP (Section \ref{sec:MCP_description}), which was used as a time reference for all the time measurements of the other LGADs. 
 
-The sensors were either a single pad or an array (2x2 or 1x3 in this case) of pads. The sensors were then installed onto read-out boards. In the case of multi-pads sensors, the pads were each connected to a channel of the board, so that they could be measured individually.
+The sensors were either a single pad or an array (2\(\times\)2 or 1\(\times\)3) of pads. The sensors were then installed onto readout boards. In the case of multi-pads sensors, some number of pads were each connected to a channel of the board, so that they could be measured individually.
 
 Table \ref{tab:devices_tested} provides the list of the devices that were characterized. %%% for more detailed descriptions see Table in \nameref{chap:appendix}.
 
-\begin{table}[!ht]
+\begin{table}[h!tbpt]  %%% ADD ANOTHER COLUMN WITH NOTES? FOR THE ONES THAT ARE MISSING
     \centering
     \captionsetup{width=\captionwidth}
-    \caption{Summary of the tested devices}
+    \caption{Summary of the tested devices.}
     \label{tab:devices_tested}
 
     % \makebox[1\textwidth][c]{
     \begin{tabularx}{.77\textwidth}{|l|l|l|l|X|}
     \hline %%% I NEED TO TRY TO USE TABULAR INSTEAD OF SHORTSTACK
-        \textbf{Device name} & \textbf{Vendor} & \begin{tabular}{@{}l@{}}\textbf{Pads,} \\ \textbf{used channels}\end{tabular} & \begin{tabular}{@{}l@{}}\textbf{Fluence} \\ $[n_{eq}/\si{cm^2}]$ \end{tabular} & \begin{tabular}{@{}l@{}} \textbf{Radiation} \\ \textbf{type} \end{tabular} \\
+        \textbf{Device name} & \textbf{Vendor} & \begin{tabular}{@{}l@{}}\textbf{Pads,} \\ \textbf{used channels}\end{tabular} & \begin{tabular}{@{}l@{}}\textbf{Fluence} \\ \([n_{eq}/\si{cm^2}]\) \end{tabular} & \begin{tabular}{@{}l@{}} \textbf{Radiation} \\ \textbf{type} \end{tabular} \\
         \hline
         CNM-W4  & CNM & single & 0 & -  \\ 
         CNM-W5  & CNM & single & 0 & -  \\ 
-        CNM-W5-1.5E15  & CNM & single & $\num{1.50E+15}$ & neutron  \\ 
-        CNM-W3-2.5E15  & CNM & single & $\num{2.50E+15}$ & neutron  \\ 
-        USTC2.1-W17 & USTC & 2x2, 2 channels  & 0 & -  \\ 
-        USTC2.1-W17-2E14 & USTC & 2x2, 1 channel & 0 & - \\ 
-        IMEv3-W12-2x2  & IHEP & 2x2, 2 channels  & 0 & -  \\ 
-        IMEv3-W12-1x3  & IHEP & 1x3, 2 channels  & 0 & -  \\ 
-        IMEv3-W12  & IHEP & 2x2, 3 channels  & $\num{1.50E+15}$ & neutron  \\ 
-        IMEv3-W16  & IHEP & 1x3, 1 channel  & $\num{1.50E+15}$ & neutron  \\ 
-        IMEv2-W7-1E14  & IHEP & single & $\num{1.00E+14}$ & proton  \\ 
-        IMEv2-W7-6.5E14  & IHEP & single & $\num{6.50E+14}$ & proton  \\ 
-        IMEv3-W16-8E14  & IHEP & single & $\num{8.00E+14}$ & proton  \\
-        IMEv3-W16-2.5E15  & IHEP & single & $\num{2.50E+15}$ & neutron  \\ 
+        CNM-W5-1.5E15  & CNM & single & \(\num{1.50E+15}\) & neutron  \\ 
+        CNM-W3-2.5E15  & CNM & single & \(\num{2.50E+15}\) & neutron  \\ 
+        USTC2.1-W17 & USTC & 2\(\times\)2, 2 channels  & 0 & -  \\ 
+        USTC2.1-W17-2E14 & USTC & 2\(\times\)2, 1 channel & 0 & - \\ 
+        IMEv3-W12-2x2  & IHEP & 2\(\times\)2, 2 channels  & 0 & -  \\ 
+        IMEv3-W12-1x3  & IHEP & 1\(\times\)3, 2 channels  & 0 & -  \\ 
+        IMEv3-W12-2x2-1.5E15 & IHEP & 2\(\times\)2, 3 channels  & \(\num{1.50E+15}\) & neutron  \\ 
+        IMEv2-W7-1E14  & IHEP & single & \(\num{1.00E+14}\) & proton  \\ 
+        IMEv2-W7-6.5E14  & IHEP & single & \(\num{6.50E+14}\) & proton  \\ 
+        IMEv3-W16-8E14  & IHEP & single & \(\num{8.00E+14}\) & proton  \\
+        IMEv3-W16-1x3-1.5E15  & IHEP & 1\(\times\)3, 1 channel  & \(\num{1.50E+15}\) & neutron  \\ 
+        IMEv3-W16-2.5E15  & IHEP & single & \(\num{2.50E+15}\) & neutron  \\ 
         \hline
     \end{tabularx}
 \end{table}

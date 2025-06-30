@@ -7,7 +7,7 @@ The theory that currently best describes the fundamental particles and their int
 
 
 \section{The Large Hadron Collider}
-\begin{figure}[!ht]
+\begin{figure}[h!tbpt]
     \centering
     \includegraphics[width=.7\linewidth]{Images/intro/LHC.png}
     \captionsetup{width=.7\linewidth}
@@ -15,7 +15,7 @@ The theory that currently best describes the fundamental particles and their int
     \label{fig:LHC}
 \end{figure}
 
-\marginpar{\flushleft I could add some details of the process of acceleration, from H atoms to proton beam into the LHC}
+% \marginpar{\flushleft I could add some details of the process of acceleration, from H atoms to proton beam into the LHC}
 
 The Large Hadron Collider (LHC) is the largest particle accelerator in the world. It was built between 1998 and 2008 by the European Organization for Nuclear Research (CERN, \textit{Conseil européen pour la Recherche nucléaire}) in collaboration with more than 100 countries with the purpose of colliding hadrons\footnote{\label{footnote:hadrons}Hadrons are particles that are made up of two or more quarks, e.g. protons and neutrons} at high energies and study the products of these collisions. It consists of a \qty{27}{\kilo\meter} ring at roughly \qty{100}{\meter} of depth situated at the Franco-Swiss border, near Genève. Two beams of particles travel at near light speed in opposite directions inside two pipes surrounded by superconducting magnets. At specific locations the beams converge and collisions take place, these events can then be observed with specialized detectors built along the ring.
 
@@ -26,12 +26,12 @@ The construction of the LHC was motivated by the need for experimental data to s
 \begin{itemize}
     \item The search for the Higgs boson: the particle (whose mass could not be predicted) responsible for the origin of mass, culminated in the discovery of the Higgs boson in 2012~\cite{ATLAS:2012yve}. 
     \item Supersymmetry: a theory that hypothesizes the existence of massive partners of the particles in the current Standard Model.
-    \item Dark matter and dark energy: the matter that we know only makes up a small fraction, $\sim$4\%, of the content of the universe, and the particles or phenomena responsible for the remaining 23\% (dark matter) and 73\% (dark energy) are still unknown.
+    \item Dark matter and dark energy: the matter that we know only makes up a small fraction, \(\approx\)4\%, of the content of the universe, and the particles or phenomena responsible for the remaining 23\% (dark matter) and 73\% (dark energy) are still unknown.
     \item Matter-antimatter asymmetry: matter and antimatter should have been produced in equal amounts during the Big Bang, yet observations show an overwhelming prevalence of normal matter.
     \item Quark-gluon plasma: a state of matter that existed in the early stages of the Universe, before ordinary matter could emerge.
 \end{itemize}
 
-The LHC is part of the CERN accelerator complex, a chain of machines in which each link accelerates a beam of particles (protons or heavy ions) to higher energies and feeds it to the next one. A simplified version of the complex is shown in Figure~\ref{fig:LHC}. The LHC began operations in 2010 with energies of \qty{3.5}{\tera\electronvolt}, increased up to \qty{4}{\tera\electronvolt} in 2012. After two years of Long Shutdown for upgrades and maintenance, activities resumed in 2015 with Run 2, and beam energies of \qty{6.5}{\tera\electronvolt} ($\sqrt{s}=\qty{13}{\tera\electronvolt}$, center of mass energy) were achieved.
+The LHC is part of the CERN accelerator complex, a chain of machines in which each link accelerates a beam of particles (protons or heavy ions) to higher energies and feeds it to the next one. A simplified version of the complex is shown in Figure~\ref{fig:LHC}. The LHC began operations in 2010 with energies of \qty{3.5}{\tera\electronvolt}, increased up to \qty{4}{\tera\electronvolt} in 2012. After two years of Long Shutdown for upgrades and maintenance, activities resumed in 2015 with Run 2, and beam energies of \qty{6.5}{\tera\electronvolt} (\(\sqrt{s}=\qty{13}{\tera\electronvolt}\), center of mass energy) were achieved.
 
 
 \subsection{The main experiments}\label{subsec:LHC_main_experiments}
@@ -46,7 +46,7 @@ Along the accelerator tracks there are four main experiments (Figure~\ref{fig:LH
 
 Additionally, there are several other experiments part of the CERN complex, including test beam facilities in the North Area which use particle beams from SPS to perform a variety of tests.
 
-\begin{figure}[!ht]
+\begin{figure}[h!tbpt]
     \centering
     \includegraphics[width=.6\linewidth]{Images/intro/integrated_luminosity.png}
     \captionsetup{width=\captionwidth}
@@ -55,13 +55,13 @@ Additionally, there are several other experiments part of the CERN complex, incl
 \end{figure}
 
 One of the most important parameters of a collider, along with the beam energy, is the luminosity. It is used to quantify the amount of interactions that will occur and, therefore, the expected rate of events produced by the collisions. For two bunches\footnote{\label{footnote:particle_beam_bunches} The particles in the LHC beam do not travel uniformly distributed, rather they are grouped in many \textit{bunches}, synchronized to intersect at the center of each main detector% (Section \ref{subsec:LHC_main_experiments}) %%% it's in the same Section
-.} colliding head-on with frequency $f_{coll}$, the luminosity can be calculated by:
+.} colliding head-on with frequency \(f_{coll}\), the luminosity can be calculated by:
 
 \begin{equation}
     \mathcal{L} = f_{coll}\frac{N_1 N_2}{4\pi \sigma_x \sigma_y} \mathcal{F} \, \left[\unit{cm^{-2}.s^{-1}}\right] \, .
 \end{equation}
 
-Where $N_1$ and $N_2$ are the number of particles in each bunch, $\sigma_x$ and $\sigma_y$ define the transverse spread of the bunches (approximately normal distributions) at the interaction point, and $\mathcal{F}$ is a factor of order $1$ to account for inefficient geometric overlapping and other effects.
+Where \(N_1\) and \(N_2\) are the number of particles in each bunch, \(\sigma_x\) and \(\sigma_y\) define the transverse spread of the bunches (approximately normal distributions) at the interaction point, and \(\mathcal{F}\) is a factor of order \(1\) to account for inefficient geometric overlapping and other effects.
 
 A related quantity is the integrated luminosity, which is the integral over time of the instantaneous luminosity. It quantifies the amount of data that is available to be studied, and it is typically measured in inverse femtobarns \unit{\femto\barn^{-1}}=\qty{e-28}{\meter^{-2}}.
 
@@ -72,7 +72,7 @@ After the second Long Shutdown that took place between 2018 and 2022 LHC has bee
 In the upcoming years there will be a third Long Shutdown (from around 2026,until early 2029) to prepare for the next phase: the High-Luminosity LHC Project (HL-LHC) \cite{cernHLLHCProject}. The plan aims to increase the instantaneous luminosity up to \qty{1.5e34}{\centi\meter^{-2}\second^{-1}} (compared to \qty{2.1e34}{\centi\meter^{-2}\second^{-1} of Run 2} \cite{CERN-LHCC-2020-007}) and to bring the integrated luminosity up to \qty{3000}{\femto\barn^{-1}} in the following 10-12 years. This will enable more accurate measurements of new particles and the possibility to observe rare processes below the current sensitivity level. On the other hand, this upgrade will introduce a wide range of new challenges for all the systems within CERN's accelerator complex. For instance, the detectors will be exposed to higher radiation doses, which may impact performance, and the increased number of collisions will lead to more pronounced pile-up effects complicating track reconstruction.
 
 % this is already kinda talking about HGTD, maybe it's a good bridge to the next section: HGTD
-\begin{figure}[!ht]
+\begin{figure}[h!tbpt]
     \centering
     \includegraphics[width=.7\textwidth]{Images/intro/ATLAS_detector.jpg}
     \captionsetup{width=\captionwidth}
@@ -85,7 +85,7 @@ In the upcoming years there will be a third Long Shutdown (from around 2026,unti
 
 ATLAS (\textbf{A} \textbf{T}oroidal \textbf{L}HC \textbf{A}pparatu\textbf{S}) is a general purpose detector built for probing \textit{p-p} and \textit{A-A} collisions (\textit{proton-proton} and \textit{heavy ion-heavy ion}, respectively). Currently, the experiment's main detector systems are: the Inner Detector, the Calorimeters, the Muon Spectrometer and the Magnet System \cite{Collaboration_The_ATLAS2008}. 
 
-\begin{figure}[ht]
+\begin{figure}[h!tbp]
     % \centering
     % \subfloat[Radial view of the ATLAS Inner Detector. From \cite{atlasInnerDetector}]{
     %     \includegraphics[width=.48\linewidth]{Images/intro/ATLAS_inner_detector_radial_description.jpg}
@@ -112,12 +112,12 @@ The Pixel Detector is the first point of detection, only \qty{3}{\centi\meter} a
 
 The Semiconductor Tracker surrounds the Pixel Detector and complements it in the detection and reconstruction of the tracks of charged particles. It consists of over 6 million "micro-strips" silicon detectors with a precision of up to \qty{25}{\micro\meter}.
 
-The final layer of the Inner Detector is the Transition Radiation Tracker (TRT). Unlike its neighbouring silicon sub-detectors, TRT is composed of \num{300000} \qty{4}{\milli\meter} diameter tubes with a \qty{30}{\micro\meter} gold-plated tungsten wire in the centre and filled with a mixture of gas. As charged particles pass through the volume they ionize the gas, which creates detectable electric signals. The location can then be determined, helping with the tracks reconstruction and the momentum measurement. Additionally, the moving particles emit transition radiation\footnote{Transition Radiation occurs when a charged particle traverses materials with different refraction index, such as the boundary between two different media \cite{wikipediaTransitionRadiation}.}, and the intensity of this radiation depends on the $\gamma$ Lorentz factor, thus allowing to distinguish between heavier and lighter particles.
+The final layer of the Inner Detector is the Transition Radiation Tracker (TRT). Unlike its neighbouring silicon sub-detectors, TRT is composed of \num{300000} \qty{4}{\milli\meter} diameter tubes with a \qty{30}{\micro\meter} gold-plated tungsten wire in the centre and filled with a mixture of gas. As charged particles pass through the volume they ionize the gas, which creates detectable electric signals. The location can then be determined, helping with the tracks reconstruction and the momentum measurement. Additionally, the moving particles emit transition radiation\footnote{Transition Radiation occurs when a charged particle traverses materials with different refraction index, such as the boundary between two different media \cite{wikipediaTransitionRadiation}.}, and the intensity of this radiation depends on the \(\gamma\) Lorentz factor, thus allowing to distinguish between heavier and lighter particles.
 
 
 \subsection{Calorimeter}\label{sec:ATLAS_calorimeter}
 
-% \begin{figure}[!ht]
+% \begin{figure}[h!tbpt]
 %     \centering
 %     \includegraphics[width=.8\textwidth]{Images/intro/ATLAS_calorimeter_description.jpg}
 %     \captionsetup{width=\captionwidth}
@@ -135,7 +135,7 @@ The Tile Hadronic Calorimeter surrounds the LAr calorimeter, it has the goal of 
 
 \subsection{Muon Spectrometer}\label{sec:muon_spectrometer}
 
-The outer layer of the ATLAS experiment is composed of muon\footnote{Muons are particles similar to electrons but $\sim$200 times heavier. This allows them to penetrate much deeper into matter, due to less emitted radiation as they decelerate. \label{footnote:muons}} detectors, which identify and measure the momenta of muons. It employs several detector technologies separated into two categories: Fast-Response Detectors, to quickly select collisions potentially interesting for physics, and Precision Detectors, to provide very precise positions of muons.
+The outer layer of the ATLAS experiment is composed of muon\footnote{Muons are particles similar to electrons but \(\approx\)200 times heavier. This allows them to penetrate much deeper into matter, due to less emitted radiation as they decelerate. \label{footnote:muons}} detectors, which identify and measure the momenta of muons. It employs several detector technologies separated into two categories: Fast-Response Detectors, to quickly select collisions potentially interesting for physics, and Precision Detectors, to provide very precise positions of muons.
 
 In the first group there are: 
 \begin{itemize}
@@ -149,7 +149,7 @@ Finally, for the role of Precision Detectors, Monitored Drift Tube (MDTs) are ab
 
 \subsection{Magnet System}\label{sec:magnet_system}
 
-\begin{figure}[!ht]
+\begin{figure}[h!tbpt]
     \centering
     \subfloat[The Central Solenoid Magnet at its installation, 2004. From \cite{atlasMagnetSystem}.]{
         \includegraphics[width=.45\linewidth]{Images/intro/ATLAS_central_solenoid_magnet.JPG}
@@ -174,7 +174,7 @@ Powerful magnets are used to bend the trajectories of charged particles, enablin
 As part of the \nameref{subsec:high_luminosity_upgrade}, the ATLAS detector will undergo several changes, including \cite{MANGHI2024169917}: %% (not exhaustive)
 
 \begin{itemize}
-    \item Inner Tracker (ITk): a new all-silicon tracker will replace the \nameref{sec:ATLAS_inner_detector}. It will be composed of outer Si strip sensors (4 barrel layers and 6 end-cap disks) and inner Si pixel sensors (5 barrel layers and end-cap rings). The new pixel system will cover an area of about \qty{13}{\meter^2}, a significant increase compared to \qty{1.9}{\meter^2} of the current pixel detector. The pseudorapidity\footnote{The pseudorapidity is $\eta=-\ln \tan(\theta/2)$ where $\theta$ is the polar angle from the $z$ axis, i.e. the beam direction.} range will also increase from $\eta=2.5$ to $\eta=4$ \cite{Buttar:2024imj}.
+    \item Inner Tracker (ITk): a new all-silicon tracker will replace the \nameref{sec:ATLAS_inner_detector}. It will be composed of outer Si strip sensors (4 barrel layers and 6 end-cap disks) and inner Si pixel sensors (5 barrel layers and end-cap rings). The new pixel system will cover an area of about \qty{13}{\meter^2}, a significant increase compared to \qty{1.9}{\meter^2} of the current pixel detector. The pseudorapidity\footnote{The pseudorapidity is \(\eta=-\ln \tan(\theta/2)\) where \(\theta\) is the polar angle from the \(z\) axis, i.e. the beam direction.} range will also increase from \(\eta=2.5\) to \(\eta=4\) \cite{Buttar:2024imj}.
     \item Calorimeter electronics: both calorimeters will see the replacement of all electronics to comply with a new Trigger and Data Acquisition architecture, which will provide improved precision and granularity. 
     \item Muon spectrometer: two new chamber technology systems \cite{2106380} will be installed on the New Small Wheel \cite{Kawamoto:2013udg}. Micromegas (MicroMEsh GAseous Structure), which will serve as primary tracking detector, and Small-Strip Thin-Gap Chambers (sTGCs), which will function as primary trigger detector.
     \item HGTD: a new silicon pixel detector that will provide timing information in the forward region, to improve vertex reconstruction. The design of the detector and its modules are described in more detail in the next chapter (\nameref{chap:HGTD_LGADs}.)
