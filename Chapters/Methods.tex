@@ -1,8 +1,6 @@
 \chapter{Analysis}\label{chap:methods}
-%%% I need to restructure deeply
 
 The data recorded by the oscilloscopes, in the form of waveforms, was pre-processed using the software PyAna~\cite{atlas_hgtd_pyana_2025}. Another software, PaTrack~\cite{atlas_hgtd_patrack_2025}, used the spacial information from the MIMOSA planes to reconstruct the tracks of the particles. The data was then combined into ROOT files to be further analyed.
-
 
 Some quality cuts were applied to the data, to remove extra noise. To illustrate the analysis procedure that was followed in this study, a single DUT was picked as an example. All the plots in this chapter (unless otherwise stated) refer to the sensor IMEv3-W12, a 2\(\times\)2 array of LGADs, operated at \qty{-30}{\degreeCelsius} and perpendicular to the beam.
 
@@ -98,11 +96,11 @@ Using this selection of events, the X and Y coordinates of the tracks were plott
 \end{figure}
 
 Looking at the projections of hits on the X and Y coordinates, it was possible to determine the outline of the pad. The distribution was smoothed\footnote{Using a Kernel Density Estimator, as done previously for the pulse height distribution in Section \ref{subsec:pulseHeight_cut}} and its gradient (derivative) was calculated. This gave rise to two remarkably pronounced peaks shown in Figure~\ref{fig:edges_of_the_sensor}, which could be interpreted as the edges of the pads. By applying this procedure to both the X and Y projections we determined the horizontal and vertical edges, respectively. The final rectangular shape can be seen in Figure~\ref{fig:pulseHeight_cut_highlight}, alongside with the density of hits after applying a \textit{pulseHeight cut}. In few cases the sensors were slightly tilted in the XY plane, giving rise to slightly imprecise outlines, this is shown in Appendix, although it did not have a significant impact on the rest of the analysis.
-%%% TODO: example of imprecise outlines
+%%% TODO: example of tilted sensors and imprecise outlines
 
 % NOTE: the edges defined like this are smaller than the real size of the pad (which is 1.3x1.3 mm\(^2\)) \cite{Agapopoulou_2022} \marginpar{\flushleft There is an outer guard ring isolating, so maybe the size is correct}
 
-For certain properties that were analysed (such as efficiency and time resolution) it became clear that the rough selection of the contour of the pad was not always sufficient. Thus, an additional \textit{central area cut} was set up. A region of \(0.5\times0.5\si{mm^2}\) in the center of the pad was selected (similarly to what had been done in \cite{Agapopoulou_2022}) in order to avoid undesirable effects originating from the region outside the gain layer of the LGAD. (maybe details about LGADs guard ring and front view?)
+For certain properties that were analysed (such as efficiency and time resolution) it became clear that the rough selection of the contour of the pad was not always sufficient. Thus, an additional \textit{central area cut} was set up. A region of \(0.5\times0.5\unit{\milli\meter^2}\) in the center of the pad was selected (similarly to what had been done in \cite{Agapopoulou_2022}) in order to avoid undesirable effects originating from the region outside the gain layer of the LGAD. (maybe details about LGADs guard ring and front view?)
 
 \begin{figure}[h!tbp]
     \centering
@@ -170,7 +168,7 @@ In some cases, typically for heavily radiated sensors, the noise in the pulse he
 
 \subsection{Quality cuts validation}
 
-To qualitatively confirm the soundness of the cuts performed, we plotted the density distribution of events of \(\boldsymbol{\Delta t}\) vs \textbf{pulse height} (Figures~\ref{fig:time_pulseHeight_nocut} and \ref{fig:time_pulseHeight_center}). The left plot shows all the available tracks, the right plot shows only the tracks that pass through the smaller central area of the DUT (a square of \(0.5\times0.5\si{mm^2}\) explained in Section~\ref{sec:geometry_cut}).
+To qualitatively confirm the soundness of the cuts performed, we plotted the density distribution of events of \(\boldsymbol{\Delta t}\) vs \textbf{pulse height} (Figures~\ref{fig:time_pulseHeight_nocut} and \ref{fig:time_pulseHeight_center}). The left plot shows all the available tracks, the right plot shows only the tracks that pass through the smaller central area of the DUT (a square of \(0.5\times0.5\unit{\milli\meter^2}\) explained in Section~\ref{sec:geometry_cut}).
 
 The plot on the right shows a narrow selection of events very likely to be a real signal (as they are guaranteed to have passed through the sensor). By comparing it with the plot on the left it can be noticed that a horizontal cut (\nameref{subsec:pulseHeight_cut}) and two vertical cuts (\nameref{subsec:time_cut}) provide indeed a good filter for physically meaningful events. 
 
@@ -178,12 +176,12 @@ The plot on the right shows a narrow selection of events very likely to be a rea
 \begin{figure}[h!tbp]
     \centering
     \subfloat[Density plot of all the event without any cuts applied. The red line and the green line show where \textit{pulse height cut} and \textit{time cut} would be applied, respectively.]{
-        \includegraphics[width=.45\linewidth]{Images/methods/Time_pulseHeight_401_S1_with_info.png}
+        \includegraphics[width=.47\linewidth]{Images/methods/Time_pulseHeight_401S1_DUTs_3_(3,).png}
         \label{fig:time_pulseHeight_nocut}}
     \hfill
     \centering
-    \subfloat[Density plot selecting only tracks passing through the central \(0.5\times0.5\si{mm^2}\) area of the pad.]{
-        \includegraphics[width=.5\linewidth]{Images/methods/Time_pulseHeight_401S1 central area.png}
+    \subfloat[Density plot selecting only tracks passing through the central \(0.5\times0.5\unit{\milli\meter^2}\) area of the pad.]{
+        \includegraphics[width=.47\linewidth]{Images/methods/Time_pulseHeight_401S1 central area_DUTs_3_(3,).png}
         \label{fig:time_pulseHeight_center}}
     \captionsetup{width=\captionwidth}
         \caption{Density plot of events when no cuts are applied (left) and when only a central square in the sensor is selected (right). The comparison between the two plots validates our choices made for quality cuts.}
@@ -200,7 +198,7 @@ The collected charge of a sensor is defined as the most probable value (MPV) of 
 
 \begin{figure}[h!tbp]
     \centering
-    \includegraphics[width=1\linewidth]{Images/charge_plots/charge_data_all_cuts_401_S1_3_Charge_fit_ROOT_double_plot.png}
+    \includegraphics[width=1\linewidth]{Images/methods/charge_data_all_cuts_401_S1_3_Charge_fit_ROOT_double_plot.png}
     \captionsetup{width=\captionwidth}
     \caption{Fit of the charge distribution (red) carried out with ROOT. On the right it is shown the same plot in logarithmic scale, to highlight the extra noise at \(\approx 0\).}
     \label{fig:charge_ROOT_fit}
@@ -231,21 +229,21 @@ The efficiency (\(\epsilon\)) was defined as the total number of tracks with cha
 
 The threshold charge \(Q_{threshold}\) was chosen to be \(4\si{fC}\), which corresponds to the limit of sensitivity of the ASIC.
 
-Before measuring the overall efficiency of the sensors, we applied a \textit{time cut} (as described in \nameref{subsec:time_cut}). Additionally, we elected to restrict the calculation to the smaller \textit{central area} of \(0.5\times0.5\si{mm^2}\) defined earlier in \nameref{sec:geometry_cut}. This area can be seen highlighted in red in Figure~\ref{fig:efficiency_2D_plot}, which also shows how the efficiency value computed for each individual squared binning of the surface.
+Before measuring the overall efficiency of the sensors, we applied a \textit{time cut} (as described in \nameref{subsec:time_cut}). Additionally, we elected to restrict the calculation to the smaller \textit{central area} of \(0.5\times0.5\unit{\milli\meter^2}\) defined earlier in \nameref{sec:geometry_cut}. This area can be seen highlighted in red in Figure~\ref{fig:efficiency_2D_plot}, which also shows how the efficiency value computed for each individual squared binning of the surface.
 
 Finally, the total efficiency was computed with different values of \textit{threshold charge} to obtain the plot in Figure~\ref{fig:efficiency_depending_threshold}, which shows that (in this example) the value remains constant well after the chosen threshold of \(4\si{fC}\).
 
 \begin{figure}[h!tbp]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/efficiency_plots/2D Efficiency_401_S1_with_center_highlight_DUTs_3.png}
+    \includegraphics[width=0.7\linewidth]{Images/methods/efficiency_plots/2D Efficiency_401_S1_with_time_cut_with_center_highlight_DUTs_3.png}
     \captionsetup{width=\captionwidth}
-    \caption{2D histogram plot of efficiency (per squared bin) and \textit{central area cut} highlighted in red.}
+    \caption{2D histogram plot of the efficiency (per squared bin) and the \textit{central area cut} highlighted in red.}
     \label{fig:efficiency_2D_plot}
 \end{figure}
 
 \begin{figure}[h!tbp]
     \centering
-    \includegraphics[width=0.5\linewidth]{Images/efficiency_plots/Efficiency depending on threshold charge (with cuts) batch 401 S1.png}
+    \includegraphics[width=0.5\linewidth]{Images/methods/efficiency_plots/Efficiency depending on threshold charge (with cuts) batch 401 S1.png}
     \caption{Total efficiency when changing the threshold value, ensuring that there is a large plateau of high efficiency.}
     \label{fig:efficiency_depending_threshold}
 \end{figure}
@@ -264,13 +262,12 @@ The difference of times of arrival between the DUT and the MCP was fitted with a
     \end{gathered}
 \end{equation*}
 
-For this sensor (Figure~\ref{fig:time_resolution_plot}) the final time resolution was \(\sigma_{dut} = 49.38\pm0.81\si{\ps} \)
 
 \begin{figure}[h!tbp]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/time_resolution_plots/time_difference_401_S1_zoomed_and_gauss_fit_with_cuts_central_area_DUTs_3.png}
+    \includegraphics[width=0.7\linewidth]{Images/methods/time_resolution_plots/time_difference_401_S1_zoomed_and_gauss_fit_with_cuts_central_area_DUTs_3.png}
     \captionsetup{width=\captionwidth}
-    \caption{Gaussian fit of \(\Delta t\) to find the time resolution (\(\sigma\)), the error bars are the statistical poissonian error (\(y_{err}=\sqrt{N}\)).}
+    \caption{Gaussian fit of \(\Delta t\) to find the time resolution (\(\sigma\)), the error bars are the statistical poissonian error (\(y_{err}=\sqrt{N}\)). For this sensor the final time resolution was \(\sigma_{dut} = 47.72\pm0.88\si{\ps} \).}
     \label{fig:time_resolution_plot}
 \end{figure}
 
