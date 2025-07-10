@@ -1,4 +1,4 @@
-\chapter{Test Beam setup}
+\chapter{Test Beam setup}\label{chap:testbeam_setup}
 
 %%% motivate testbeam
 A typical way to test the performance of sensors for High-Energy Physics applications is with test beams: the Devices Under Test (DUTs) are put through a focused flux of high energy particles and their response is read out and analyzed. %%% aka testbeam
@@ -103,44 +103,68 @@ The waveforms recorded by the oscilloscopes were then processed with the PyAna s
 
 
 \section{The sensors}\label{sec:the_sensors}
-A variety of LGADs were tested: with different manufacturers, different designs and different fluence\footnote{Radiant exposure, here measured in neutron-equivalent over square meters}. They were divided into three main categories:
+A variety of LGADs were tested: with different manufacturers, different designs and different fluence\footnote{Radiant exposure, here measured in neutron-equivalent over square centimeters}. They were divided into three main categories:
 \begin{itemize}
     \item USTC: from the University of Science and Technology of China.
     \item IHEP: from the Institute of High Energy Physics, China.
-    \item CNM: from the Centro National de Microelectronica, Barcelona, Spain.
+    \item CNM: from the Centro Nacional de Microelectr\'onica, Barcelona, Spain.
 \end{itemize}
 
 The first two designs have both been manufactured by the IME (Institute of Microelectronics) of the Chinese Academy of Sciences. The two CNM sensors (labeled CNM-W4 and CNM-W5) were used to measure the time resolution of another device, the MCP (Section \ref{sec:MCP_description}), which was used as a time reference for all the time measurements of the other LGADs. 
 
 The sensors were either a single pad or an array (2\(\times\)2 or 1\(\times\)3) of pads. The sensors were then installed onto readout boards. In the case of multi-pads sensors, some number of pads were each connected to a channel of the board, so that they could be measured individually.
 
-Table \ref{tab:devices_tested} provides the list of the devices that were characterized. %%% for more detailed descriptions see Table in \nameref{chap:appendix}.
+Table \ref{tab:devices_tested} provides the list of the devices that were characterized. Notably, the data from the irradiated USTC sensor was not available, so comparison was possible. Furthermore, one 
 
-\begin{table}[h!tbpt]  %%% ADD ANOTHER COLUMN WITH NOTES? FOR THE ONES THAT ARE MISSING
+%%% for more detailed descriptions see Table in \nameref{chap:appendix}.
+
+\begin{table}[h!tbpt]  %%% TODO: ADD ANOTHER COLUMN WITH NOTES? FOR THE ONES THAT ARE MISSING?
     \centering
     \captionsetup{width=\captionwidth}
-    \caption{Summary of the tested devices.}
+    \caption{List of the tested devices.}
     \label{tab:devices_tested}
 
     % \makebox[1\textwidth][c]{
-    \begin{tabularx}{.77\textwidth}{|l|l|l|l|X|}
+    \begin{tabular}{|l|l|l|l|l|l|}
     \hline %%% I NEED TO TRY TO USE TABULAR INSTEAD OF SHORTSTACK
-        \textbf{Device name} & \textbf{Vendor} & \begin{tabular}{@{}l@{}}\textbf{Pads,} \\ \textbf{used channels}\end{tabular} & \begin{tabular}{@{}l@{}}\textbf{Fluence} \\ \([n_{eq}/\si{cm^2}]\) \end{tabular} & \begin{tabular}{@{}l@{}} \textbf{Radiation} \\ \textbf{type} \end{tabular} \\
+        \textbf{Device name} & \textbf{Vendor} & \begin{tabular}{@{}l@{}}\textbf{Pads,} \\ \textbf{used channels}\end{tabular} & \begin{tabular}{@{}l@{}}\textbf{Fluence} \\ \([n_{eq}/\si{cm^2}]\) \end{tabular} & \begin{tabular}{@{}l@{}} \textbf{Radiation} \\ \textbf{type} \end{tabular} & \textbf{Notes} \\
         \hline
-        CNM-W4  & CNM & single & 0 & -  \\ 
-        CNM-W5  & CNM & single & 0 & -  \\ 
-        CNM-W5-1.5E15  & CNM & single & \(\num{1.50E+15}\) & neutron  \\ 
-        CNM-W3-2.5E15  & CNM & single & \(\num{2.50E+15}\) & neutron  \\ 
-        USTC2.1-W17 & USTC & 2\(\times\)2, 2 channels  & 0 & -  \\ 
-        USTC2.1-W17-2E14 & USTC & 2\(\times\)2, 1 channel & 0 & - \\ 
-        IMEv3-W12-2x2  & IHEP & 2\(\times\)2, 2 channels  & 0 & -  \\ 
-        IMEv3-W12-1x3  & IHEP & 1\(\times\)3, 2 channels  & 0 & -  \\ 
-        IMEv3-W12-2x2-1.5E15 & IHEP & 2\(\times\)2, 3 channels  & \(\num{1.50E+15}\) & neutron  \\ 
-        IMEv2-W7-1E14  & IHEP & single & \(\num{1.00E+14}\) & proton  \\ 
-        IMEv2-W7-6.5E14  & IHEP & single & \(\num{6.50E+14}\) & proton  \\ 
-        IMEv3-W16-8E14  & IHEP & single & \(\num{8.00E+14}\) & proton  \\
-        IMEv3-W16-1x3-1.5E15  & IHEP & 1\(\times\)3, 1 channel  & \(\num{1.50E+15}\) & neutron  \\ 
-        IMEv3-W16-2.5E15  & IHEP & single & \(\num{2.50E+15}\) & neutron  \\ 
+        CNM-W4  & CNM & single & 0 & - & reference \\ 
+        CNM-W5  & CNM & single & 0 & - & reference \\ 
+        CNM-W5-1.5E15  & CNM & single & \(\num{1.50E+15}\) & neutron & - \\ 
+        CNM-W3-2.5E15  & CNM & single & \(\num{2.50E+15}\) & neutron & - \\ 
+        USTC2.1-W17 & USTC & 2\(\times\)2, 2 channels  & 0 & - & - \\ 
+        USTC2.1-W17-2E14 & USTC & 2\(\times\)2, 1 channel & 0 & - & not available\\ 
+        IMEv3-W12-2x2  & IHEP & 2\(\times\)2, 2 channels  & 0 & - & \\ 
+        IMEv3-W12-1x3  & IHEP & 1\(\times\)3, 2 channels  & 0 & -  &\\ 
+        IMEv3-W12-2x2-1.5E15 & IHEP & 2\(\times\)2, 3 channels  & \(\num{1.50E+15}\) & neutron & one ch. wrongly labeled\\ 
+        IMEv2-W7-1E14  & IHEP & single & \(\num{1.00E+14}\) & proton & -\\ 
+        IMEv2-W7-6.5E14  & IHEP & single & \(\num{6.50E+14}\) & proton  & - \\ 
+        IMEv3-W16-8E14  & IHEP & single & \(\num{8.00E+14}\) & proton & - \\
+        IMEv3-W16-1x3-1.5E15  & IHEP & 1\(\times\)3, 1 channel  & \(\num{1.50E+15}\) & neutron & no usable batches \\ 
+        IMEv3-W16-2.5E15  & IHEP & single & \(\num{2.50E+15}\) & neutron  & - \\ 
         \hline
-    \end{tabularx}
+    \end{tabular}
 \end{table}
+
+
+%%% NOT UPDATED ANYMORE, LOOK AT THE EXCEL FILE, I MIGHT DELETE THIS LATER
+%%% I have to reorganize these and associate them with the more accurate descriptions
+% device name:        vendor:        sensor ID:            fluence:    irradiation type:    type:        board name:    channels:
+% CNM-W4              CNM          CNM-R15973-W4-D168      unirradiated      -             single pad     JSI-B12      1
+% CNM-W5              CNM          CNM-R15973-W5-D138      unirradiated      -             single pad     JSI-B14      1
+% CNM-W3-2.5E15       CNM          CNM-R15973-W3-D29       $\num{2.5e15}     neutron       single pad     JSI B5       1
+% CNM-W5-1.5E15       CNM          CNM-R15973-W5-D29       $\num{1.5e15}     neutron       single pad     JSI PP1      1
+% USTC2.1             USTC         USTC2.1-W17-P6-A          0                -             2\(\times\)2           CERN-3       1,2
+% USTC2.1 IRRADIATED (MISSING)
+% IMEv3-W12-C2         IHEP        IMEv3-W12-C2-2-2          0               -              2\(\times\)2          CERN-1       channels 1,2
+% IMEv3-W12-C3         IHEP        IMEv3-W12-C3-1-4 (and 5)  0               -              1x3          CERN-1       channles 3,4  (small GR), bonded
+% CERN2-CH0-IMEv3-W12  IHEP        IMEv3-W12-B2-2-9-1       1.5e15           neutron        2\(\times\)2 sensor    CERN-2       channels 1,2,3
+% CERN2-CH1-IMEv3-W12  IHEP 
+% CERN2-CH2-IMEv3-W12  IHEP 
+% CERN2-CH4-IMEv3-W16  IHEP        IMEv3-W16-Q4-D4-1-4      1.5e15           neutron        1x3          CERN-2       channel:  2(?)
+% JSI-B6-IMEv2-W7-1E14    IHEP       W7-II-C2-1-7 IMEv2-W7Q2    1e14          proton        single       JSI-B6
+% JSI-PP4-IMEv2-W7-6.5E14 IHEP       W7-II-C2-1-7 IMEv2-W7Q2    6.5e14        proton        single       JSI-PP4
+% JSI-B7-IMEv3-W16-8E14   IHEP       IHEP-IMEv3-W16_Q4_D3_1-4   8e14          (unsure)        single       JSI-B7
+% JSI-B13-IMEv3-W16-2.5E15 IHEP      IHEP-IMEv3-W16_Q4_E3_1-4   2.5e15       (unsure)      single        JSI-B13
+                 
