@@ -1,127 +1,6 @@
 %%% APPENDIX
 \chapter{Appendix}\label{chap:appendix}
 
-\section{Table of results}
-
-Here are reported the tables containing all the results, divided by sensor. The column "Batch" indicates the batch number, the oscilloscope ('S1' or 'S2') and the channel number; multiple entries of a single batch number refer to multiple connected pads.
-
-%% All the tables with the results:
-%%% CNM-W4
-\begin{table}[htbp]
-    \small
-    \centering
-    \caption{Summary of the results for the sensor: CNM-W4.}
-    \label{tab:results_CNM-W4}
-    \input{Chapters/Results_tables/table_results_CNM-W4}
-\end{table}
-
-%%% CNM-W5
-\begin{table}[htbp]
-    \small
-    \centering
-    \caption{Summary of the results for the sensor: CNM-W5.}
-    \label{tab:results_CNM-W5}
-    \input{Chapters/Results_tables/table_results_CNM-W5}
-\end{table}
-
-%%% CNM-W5-1.5E15
-\begin{table}[htbp]
-    \small
-    \centering
-    \caption{Summary of the results for the sensor: CNM-W5-1.5E15.}
-    \label{tab:results_CNM-W5-1.5E15}
-    \input{Chapters/Results_tables/table_results_CNM-W5-1.5E15}
-\end{table}
-
-%%% CNM-W3-2.5E15
-\begin{table}[htbp]
-    \small
-    \centering
-    \caption{Summary of the results for the sensor: CNM-W3-2.5E15.}
-    \label{tab:results_CNM-W3-2.5E15}
-    \input{Chapters/Results_tables/table_results_CNM-W3-2.5E15}
-\end{table}
-
-%%% USTC2.1-W17
-\begin{table}[htbp]
-    \small
-    \centering
-    \caption{Summary of the results for the sensor: USTC2.1-W17.}
-    \label{tab:results_USTC2.1-W17}
-    \input{Chapters/Results_tables/table_results_USTC2.1-W17}
-\end{table}
-
-%%% IMEv3-W12-2x2
-\begin{table}[htbp]
-    \small
-    \centering
-    \caption{Summary of the results for the sensor: IMEv3-W12-2x2.}
-    \label{tab:results_IMEv3-W12-2x2}
-    \input{Chapters/Results_tables/table_results_IMEv3-W12-2x2}
-\end{table}
-
-
-%%% IMEv3-W12-1x3
-\begin{table}[htbp]
-    \small
-    \centering
-    \caption{Summary of the results for the sensor: IMEv3-W12-1x3}
-    \label{tab:results_IMEv3-W12-1x3}
-    \input{Chapters/Results_tables/table_results_IMEv3-W12-1x3}
-\end{table}
-
-%%% IMEv3-W12-2x2-1.5E15
-\begin{table}[htbp]
-    \small
-    \centering
-    \caption{Summary of the results for the sensor: IMEv3-W12-2x2-1.5E15}
-    \label{tab:results_IMEv3-W12-2x2-1.5E15}
-    \input{Chapters/Results_tables/table_results_IMEv3-W12-2x2-1.5E15}
-\end{table}
-
-
-%%% IMEv2-W7-1E14
-\begin{table}[htbp]
-    \small
-    \centering
-    \caption{Summary of the results for the sensor: IMEv2-W7-1E14}
-    \label{tab:results_IMEv2-W7-1E14}
-    \input{Chapters/Results_tables/table_results_IMEv2-W7-1E14}
-\end{table}
-
-%%% IMEv2-W7-6.5E14
-\begin{table}[htbp]
-    \small
-    \centering
-    \caption{Summary of the results for the sensor: {IMEv2-W7-6.5E14}}
-    \label{tab:results_IMEv2-W7-6.5E14}
-    \input{Chapters/Results_tables/table_results_IMEv2-W7-6.5E14}
-\end{table}
-
-%%% IMEv3-W16-8E14
-\begin{table}[htbp]
-    \small
-    \centering
-    \caption{Summary of the results for the sensor: IMEv3-W16-8E14}
-    \label{tab:results_IMEv3-W16-8E14}
-    \input{Chapters/Results_tables/table_results_IMEv3-W16-8E14}
-\end{table}
-
-% %%% IMEv3-W16-1x3-1.5E15  this one only has one good batch, it was excluded
-
-
-%%% IMEv3-W16-2.5E15
-\begin{table}[htbp]
-    \small
-    \centering
-    \caption{IMEv3-W16-2.5E15}
-    \label{tab:results_IMEv3-W16-2.5E15}
-    \input{Chapters/Results_tables/table_results_IMEv3-W16-2.5E15}
-\end{table}
-
-
-
-\FloatBarrier
 
 \section[Vavilov vs Landau distribution]{On the Vavilov distribution approximation}\label{sec:vavilov_vs_landau_distribution}
 
@@ -129,14 +8,64 @@ Here are reported the tables containing all the results, divided by sensor. The 
 % \input{Chapters/Vavilov_Landau/Vavilov approximation to Landau.tex}
 \input{Chapters/Vavilov.tex}
 
-\section{Complete list of DUTs}
+
+\section{Dead pixels line}
+
+Some batches (for example Figure~\ref{fig:hits_no_cuts}) presented an empty vertical line, even before any data processing had been applied. By inspecting the data of the hits registered by each individual MIMOSA plane, it was found that one device had a dead column of pixels, which interfered with the track reconstruction. This problem turned out to be inconsequential for the analysis, except for reduced statistics in that very small region.
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=.9\linewidth]{Images/appendix/hits_MIMOSA4.png}
+    \caption{The hits heatmap of the MIMOSA plane n°4, which shows clearly the dead column of pixels, the source of the "empty line" that appeared in the data.}
+    \label{fig:MIMOSA4_hits}
+\end{figure}
+
+
+\section{Mislabeled sensor}
+
+One specific sensor had three channels connected to the readout board (IMEv3-W12-2x2-1.5E15, i.e. an array of 2x2 pads from IME, with fluence of \qty{1.5e15}{\neutroneq}), but, when plotting the outline of each pad, one of them did not match the expected configuration. Additionally, in the logbook of the test beam of May 2023, there was some contradicting information regarding the connected channels on the readout board. We suspect that the inconsistent sensor could actually be one of the pads of IMEv3-W12-\textbf{1x3}-1.5E15 but, for an unfortune coincidence, that sensor had no useful batches. %% (most likely cut out of the FEi4 ROI).
+Therefore, it was not possible to confirm that two channels were simply swapped, and Channel4 of the IMEv3-W12-2x2-1.5E15 was excluded from the analysis.
+
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=.9\linewidth]{Images/appendix/2D_Sensors_605 S1 (pulseHeight cut)_overlapping_v3.png}
+    \caption{This plot combines the 2D plot of the reconstructed tracks (after a \textit{pulse height cut}) of the three channels of IMEv3-W12-2x2-1.5E15. It is very obvious that Channel4 does not match the expected shape of a 2x2 grid, and it is very likely wrongly labeled.}
+    \label{fig:mislabeled_sensor}
+\end{figure}
+
+%%% TODO: more description instead of just additional plots?
+\section{Additonal plots}\label{sec:additional_plots}
+
+\begin{figure}[h!tbp]
+    \centering
+    \subfloat[Using pulse height cut]{
+        \includegraphics[width=.48\textwidth]{Images/appendix/2D_Tracks_401_S1 highlight geometry cut (using pulseHeight).png}
+        \label{fig:geometry_cut_using_pulseHeight}}
+    \hfill
+    \centering
+    \subfloat[Using time cut. Used only in the case of some irradiated sensors, when the noise was too high.]{
+        \includegraphics[width=.48\textwidth]{Images/appendix/2D_Tracks_401_S1 highlight geometry cut (using time).png}
+        \label{fig:geometry_cut_using_time}}
+    \caption{Example of the \textit{geometry cut} (red rectangles) obtained by applying a \textit{pulse height cut} (left) and a \textit{time cut} (left) to show that they produce comparable results. In practice, since all results were calculated inside the smaller \ \(0.5\times0.5\unit{\milli\meter^2}\) area, there were no real differences.}
+    \label{fig:geometry_cut_comparison}
+\end{figure}
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/appendix/Charge_distribution_different_cuts_batch_401_S1_DUTs_3.png}
+    \caption{The different quality cuts applied and their individual effect on the charge distribution}
+    \label{fig:charge_plot_all_cuts}
+\end{figure}
+
+% \section{Sens}
 
 % \begin{landscape}
 
 % \begin{table}[h]
 %     \caption{Complete list of the tested devices with additional details}
 %     \label{tab:full_devices_tested}
-%     \footnotesize
+%     \scriptsize
 %         \begin{tabularx}{\textheight}{|l|l|l|l|l|l|l|l|X|}
 %             \hline
 %             \textbf{Device name} & \textbf{Vendor} & \textbf{Sensor ID} &  \begin{tabular}{@{}l@{}}\textbf{Pads,} \\ \textbf{used channels}\end{tabular} & \begin{tabular}{@{}l@{}}\textbf{Fluence} \\ \([n_{eq}/\si{cm^2}]\) \end{tabular} &\begin{tabular}{@{}l@{}} \textbf{Radiation} \\ \textbf{type} \end{tabular} & \textbf{Board name} & \begin{tabular}{@{}l@{}}\textbf{Board} \\ \textbf{channels} \end{tabular} & \textbf{Notes} \\
@@ -161,39 +90,122 @@ Here are reported the tables containing all the results, divided by sensor. The 
 % \end{table}
 % \end{landscape}
 
+\FloatBarrier
 
-\section{Dead pixels line}
+\section{Table of results}
 
-Some batches (for example Figure~\ref{fig:hits_no_cuts}) presented an empty vertical line, even before any data processing had been applied. By inspecting the data of the hits registered by each individual MIMOSA plane, it was found that one device had a dead column of pixels, which interfered with the track reconstruction. This problem turned out to be inconsequential for the analysis, except for reduced statistics in that very small region.
+Here are reported the tables containing all the results, divided by sensor. The column "Batch" indicates the batch number, the oscilloscope ('S1' or 'S2') and the channel number; multiple entries of a single batch number refer to multiple connected pads. The batch numbered \(5031\) was originally numbered \(503\), but it was divided in two batches because there was a significant shift in the position of the DUTs. \(5032\) was later removed due to the redundancy and higher noise.
 
-\begin{figure}[h!tbp]
+%% All the tables with the results:
+%%% CNM-W4
+\begin{table}[htbp]
+    \scriptsize
     \centering
-    \includegraphics[width=.9\linewidth]{Images/appendix/hits_MIMOSA4.png}
-    \caption{The hits heatmap of the MIMOSA plane n°4, which shows clearly the dead column of pixels, the source of the "empty line" that appeared in the data.}
-    \label{fig:MIMOSA4_hits}
-\end{figure}
+    \caption{Summary of the results for the sensor: CNM-W4.}
+    \label{tab:results_CNM-W4}
+    \input{Chapters/Results_tables/table_results_CNM-W4}
+\end{table}
 
-
-
-\section{Additonal plots}\label{sec:additional_plots}
-
-\begin{figure}[h!tbp]
+%%% CNM-W5
+\begin{table}[htbp]
+    \scriptsize
     \centering
-    \subfloat[Using pulse height cut]{
-        \includegraphics[width=.48\textwidth]{Images/appendix/2D_Tracks_401_S1 highlight geometry cut (using pulseHeight).png}
-        \label{fig:geometry_cut_using_pulseHeight}}
-    \hfill
-    \centering
-    \subfloat[Using time cut]{
-        \includegraphics[width=.48\textwidth]{Images/appendix/2D_Tracks_401_S1 highlight geometry cut (using time).png}
-        \label{fig:geometry_cut_using_time}}
-    \caption{Example of the two \textit{geometry cuts} (red rectangles) obtained by applying two different cuts}
-    \label{fig:geometry_cut_comparison}
-\end{figure}
+    \caption{Summary of the results for the sensor: CNM-W5.}
+    \label{tab:results_CNM-W5}
+    \input{Chapters/Results_tables/table_results_CNM-W5}
+\end{table}
 
-\begin{figure}[h!tbp]
+%%% CNM-W5-1.5E15
+\begin{table}[htbp]
+    \scriptsize
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/appendix/Charge_distribution_different_cuts_batch_401_S1_DUTs_3.png}
-    \caption{The different quality cuts applied and their individual effect on the charge distribution}
-    \label{fig:charge_plot_all_cuts}
-\end{figure}
+    \caption{Summary of the results for the sensor: CNM-W5-1.5E15.}
+    \label{tab:results_CNM-W5-1.5E15}
+    \input{Chapters/Results_tables/table_results_CNM-W5-1.5E15}
+\end{table}
+
+%%% CNM-W3-2.5E15
+\begin{table}[htbp]
+    \scriptsize
+    \centering
+    \caption{Summary of the results for the sensor: CNM-W3-2.5E15.}
+    \label{tab:results_CNM-W3-2.5E15}
+    \input{Chapters/Results_tables/table_results_CNM-W3-2.5E15}
+\end{table}
+
+%%% USTC2.1-W17
+\begin{table}[htbp]
+    \scriptsize
+    \centering
+    \caption{Summary of the results for the sensor: USTC2.1-W17.}
+    \label{tab:results_USTC2.1-W17}
+    \input{Chapters/Results_tables/table_results_USTC2.1-W17}
+\end{table}
+
+%%% IMEv3-W12-2x2
+\begin{table}[htbp]
+    \scriptsize
+    \centering
+    \caption{Summary of the results for the sensor: IMEv3-W12-2x2.}
+    \label{tab:results_IMEv3-W12-2x2}
+    \input{Chapters/Results_tables/table_results_IMEv3-W12-2x2}
+\end{table}
+
+
+%%% IMEv3-W12-1x3
+\begin{table}[htbp]
+    \scriptsize
+    \centering
+    \caption{Summary of the results for the sensor: IMEv3-W12-1x3}
+    \label{tab:results_IMEv3-W12-1x3}
+    \input{Chapters/Results_tables/table_results_IMEv3-W12-1x3}
+\end{table}
+
+%%% IMEv3-W12-2x2-1.5E15
+\begin{table}[htbp]
+    \scriptsize
+    \centering
+    \caption{Summary of the results for the sensor: IMEv3-W12-2x2-1.5E15}
+    \label{tab:results_IMEv3-W12-2x2-1.5E15}
+    \input{Chapters/Results_tables/table_results_IMEv3-W12-2x2-1.5E15}
+\end{table}
+
+
+%%% IMEv2-W7-1E14
+\begin{table}[htbp]
+    \scriptsize
+    \centering
+    \caption{Summary of the results for the sensor: IMEv2-W7-1E14}
+    \label{tab:results_IMEv2-W7-1E14}
+    \input{Chapters/Results_tables/table_results_IMEv2-W7-1E14}
+\end{table}
+
+%%% IMEv2-W7-6.5E14
+\begin{table}[htbp]
+    \scriptsize
+    \centering
+    \caption{Summary of the results for the sensor: {IMEv2-W7-6.5E14}}
+    \label{tab:results_IMEv2-W7-6.5E14}
+    \input{Chapters/Results_tables/table_results_IMEv2-W7-6.5E14}
+\end{table}
+
+%%% IMEv3-W16-8E14
+\begin{table}[htbp]
+    \scriptsize
+    \centering
+    \caption{Summary of the results for the sensor: IMEv3-W16-8E14}
+    \label{tab:results_IMEv3-W16-8E14}
+    \input{Chapters/Results_tables/table_results_IMEv3-W16-8E14}
+\end{table}
+
+% %%% IMEv3-W16-1x3-1.5E15  this one only has one good batch, it was excluded
+
+%%% IMEv3-W16-2.5E15
+\begin{table}[htbp]
+    \scriptsize
+    \centering
+    \caption{IMEv3-W16-2.5E15}
+    \label{tab:results_IMEv3-W16-2.5E15}
+    \input{Chapters/Results_tables/table_results_IMEv3-W16-2.5E15}
+\end{table}
+
