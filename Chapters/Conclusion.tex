@@ -1,0 +1,19 @@
+\chapter*{Conclusion}\label{chap:conclusion}
+
+\addcontentsline{toc}{chapter}{\nameref{chap:conclusion}}
+
+This thesis had the goal of characterizing some LGADs for the future HGTD, using the data from the test beam campaing of May 2023. For each sensor, the collected charge, the gain, the efficiency and the time resolution were measured, at the temperature of \qty{-30}{\degreeCelsius}. The sensors were divided by vendor (USTC, IHEP, CNM), by version, and by radiation dose (from \qtyrange{0}{2.5e15}{\neutroneq}).
+
+Overall, all sensors without radiation damage (except for one: IMEv3-W12-2x2) satisfied the requirements of the HGTD:
+\begin{itemize}
+    \item Collected charge \(>\qty{4}{\femto\coulomb}\).
+    \item Per-hit efficiency \(>95\%\).
+    \item Time resolution \(<\qtyrange{35}{70}{\pico\second}\) (beginning to end of life).
+\end{itemize}
+
+All the irradiated sensors satisfied the requirements (at least for the highest tested voltages) up to a fluence of \qty{1.5e15}{\neutroneq}. In particular, IMEv3-W12-2x2 irradiated at \qty{1.5e15}{\neutroneq} (\(\approx60\%\) of the expected dose at end of life) had collected charge above \qty{8}{\femto\coulomb} and a time resolution better than \qty{35}{\pico\second} for bias voltage higher than \qty{400}{\volt}.
+
+However, the two sensors at the highest fluence (\qty{2.5e5}{\neutroneq}), one from IHEP and one from CNM, both fell short of the charge target, while still achieving a time resolution within the end of life requirement.
+
+Additionally, for the multiple pads sensors, it was shown that the neighbouring pads produce an additional signal with a short delay of the order of \qty{1}{\nano\second}.
+
