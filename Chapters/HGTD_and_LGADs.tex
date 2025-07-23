@@ -100,15 +100,6 @@ The two disks are covered by 8032 modules in total, each module containing two s
 %%% radiation damage and replacement
 The radiation that the components will withstand depends strongly on the radius. Due to electronics and sensors specifications, a minimum charge of \qty{4}{\femto\coulomb} is required. This is achievable up to a radiation damage level of \qty{2.5e15}{\neutroneq\centi\meter^{-2}} (neutron equivalent\footnote{The radiation damage equivalent to neutrons at \qty{1}{\mega\electronvolt}}); as a result, the sensor and electronics within the smallest ring will be replaced after each \qty{1000}{\femto\barn^{-1}} and the ones within the middle ring will be replaced at half of the data-taking (\qty{2000}{\femto\barn^{-1}}).
 
-% The luminous region in the nominal scenario for Run 3 will see a Gaussian spread of approximately 50mm along the \(z\) axis and a width of 175\(\si{ps}\) in time %(Figure~\ref{fig:events_pileup}).
-
-% \begin{figure}[h!tbpb]
-%     \centering
-%     \includegraphics[width=.8\textwidth]{Images/intro/events_pileup_HL_LHC.jpg}
-%     \caption{Visualization of the pile-up of events inside ATLAS, using simulation data (PUT SOURCE AND MORE EXPLANATIONS (what is HS?))}
-%     \label{fig:events_pileup}
-% \end{figure}
-
 
 \section{Low Gain Avalanche Detectors}\label{sec:LGADs}
 
@@ -118,7 +109,7 @@ A special type of silicon sensors were chosen as the active element for the HGTD
 
 \subsection{Working principles of silicon sensors}
 
-The core of a silicon sensor consists of a junction between two differently doped layers (Figure~\ref{fig:p-n_junction_reverse_bias_voltage}), which means that small concentrations of impurities with either higher atomic number (\(n\)-type) or lower (\(p\)-type) are introduced inside the crystals.
+The core of a silicon sensor consists of a junction between two differently doped layers (Figure~\ref{fig:p-n_junction_reverse_bias_voltage}), which means that small concentrations of impurities with either higher atomic number (donors, \(n\)-type) or lower (acceptors, \(p\)-type) are introduced inside the crystals.
 This forms a \(pn\)-junction, and when a voltage is applied with positive potential on the \(n\)-side and negative on the \(p\)-side (reverse bias) the volume between the two layers is depleted of mobile charges, and it becomes an insulator with an internal electric field.
 
 %%% Figure~WITH MINIPAGE (for side caption)
@@ -178,6 +169,13 @@ Three major effects determine the time resolution of the sensors: time walk from
 \end{itemize}
 
 It can be noticed that the lowest jitter and time walk errors are achieved with high S/N and small rise time, i.e. thin sensors with high gain. Time walk can also be corrected with reconstruction algorithms, such as constant-fraction-discrimination (CFD), Figure~\ref{fig:constant fraction}.
+%%% TODO: move here the plot of CFD (time walk)
+
+%%% TODO: radiation damage?
+\subsubsection{Radiation damage}
+
+Due to the harsh environment the sensors will be placed, they will suffer significant damage caused by the extreme flux of highly energetic particles. At the microscopic level, this will cause irregularities in the silicon lattice, altering the bulk and surface properties. At the macroscopic level, there will be an increase in leakage current, a degradation in charge collection efficiency and a change in the effective doping concentration \cite{Moll:1999kv} (as the defects can behave as donors or acceptors). The leakage current can be sufficiently quenched by operating at low temperatures, the charge collection can be improved by applying higher bias voltages. But the last effect has the most detrimental impact on the properties of the sensors, which will deteriorate as the radiation dose increases
+
 
 \subsection{Signal generation by charged particles}\label{subsec:charged_particles_distribution}
 %%% To find the gain of the sensors we have to first look at the charge deposited on a normal silicon sensor (without gain).
@@ -198,3 +196,4 @@ Additionally, due to a combination of theoretical corrections \cite{PhysRevA.11.
     \caption{Plot of Landau function (in blue) and the Landau x Gaussian convolution (in red), with equal Landau parameters and arbitrary units, both normalized to 1.}
     \label{fig:langau_convolution_plot}
 \end{figure}
+
