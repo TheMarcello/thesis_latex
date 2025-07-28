@@ -1,4 +1,4 @@
-\chapter{Analysis}\label{chap:methods}
+\chapter{Analysis}\label{chap:analysis}
 
 The data recorded by the oscilloscopes, in the form of waveforms, was pre-processed using the software PyAna~\cite{atlas_hgtd_pyana_2025}. Another software, PaTrack~\cite{atlas_hgtd_patrack_2025}, used the spacial information from the MIMOSA planes to reconstruct the tracks of the particles. The data was then combined into ROOT files to be further analyed.
 
@@ -38,17 +38,9 @@ The spacial information was processed with the PaTrack software to create tracks
 \end{figure} 
 
 
-To measure the time resolution it is crucial to define the Time of Arrival (TOA), i.e. the time at which the particle hits the sensor and the pulse is recorded. There are several ways to make this choice, including: Constant Threshold Discriminator (CTD), Constant Fraction Discriminator (CFD) and Zero Crossing Detector (ZCD).
+To measure the time resolution it is crucial to define the Time of Arrival (TOA), i.e. the time at which the particle hits the sensor and the pulse is recorded. There are several ways to make this choice, including: Constant Threshold Discriminator (CTD), Constant Fraction Discriminator (CFD) and Zero Crossing Detector (ZCD), Figure~\ref{fig:constant fraction}.
 
-\begin{figure}[h!btp]
-    \centering
-    \includegraphics[width=.8\linewidth]{Images/methods/Constant_fraction_1.pdf}
-    \captionsetup{width=\captionwidth}
-    \caption{Comparison of Constant Threshold Discriminator (left) and Constant Fraction Discriminator (right), for two pulses with similar shapes but different amplitudes. CTD has a fixed threshold value, the TOA \(t\) is set when the pulse crosses the threshold. For CFD, the time \(t\) corresponds to the moment the pulse reaches a certain fraction of the maximum amplitude. This illustrates the \textit{time walk} effect.}
-    \label{fig:constant fraction}
-\end{figure} 
-
-In this study we chose to use the Constant Fraction Discriminator. More specifically, for the MCP a value of 50\% CFD was chosen, while for the DUTS a value of 20\% was chosen in all cases except for heavily irradiated sensors, in which 70\% yielded improved results overall.
+In this study we chose to use the Constant Fraction Discriminator. More specifically, for the MCP a value of 50\% CFD was chosen, while for the DUTS a value of 20\% was chosen in all cases except for heavily irradiated sensors, in which 70\% yielded improved results overall. (An example of each in Figures~\ref{fig:CFD_comparison_unirradiated}~and~\ref{fig:CFD_comparison_irradiated}.)
 
 \FloatBarrier
 
@@ -56,7 +48,6 @@ In this study we chose to use the Constant Fraction Discriminator. More specific
 
 % To remove the various sources of noise some quality cuts were applied to the data. %; in this section we explain these choices.
 To ensure that only physically meaningful events were used in the measurements, it was necessary to apply some quality cuts to the initial data. These cuts were designed to reject events affected by various sources of noise or not meaningful to the analysis. 
-%%% TODO: maybe more examples? 
 
 To begin with, we removed events with low signal peak (or high noise). Subsequently, we used the pulse height information to identify the outline of each pad and select only events passing through it. Finally, we established a time window around the peak of the distribution to avoid negative effects caused by the neighbouring pads and the edges of the sensors (outside the gain layer).
 
@@ -96,11 +87,12 @@ Using this selection of events, the X and Y coordinates of the tracks were plott
 \end{figure}
 
 Looking at the projections of hits on the X and Y coordinates, it was possible to determine the outline of the pad. The distribution was smoothed\footnote{Using a Kernel Density Estimator, as done previously for the pulse height distribution in Section \ref{subsec:pulseHeight_cut}} and its gradient (derivative) was calculated. This gave rise to two remarkably pronounced peaks shown in Figure~\ref{fig:edges_of_the_sensor}, which could be interpreted as the edges of the pads. By applying this procedure to both the X and Y projections we determined the horizontal and vertical edges, respectively. The final rectangular shape can be seen in Figure~\ref{fig:pulseHeight_cut_highlight}, alongside with the density of hits after applying a \textit{pulseHeight cut}. In few cases the sensors were slightly tilted in the XY plane, giving rise to slightly imprecise outlines, this is shown in Appendix, although it did not have a significant impact on the rest of the analysis.
-%%% TODO: example of tilted sensors and imprecise outlines
+%%% TODO: example of tilted sensors and imprecise outlines: batch 203 (tilted)
 
 % NOTE: the edges defined like this are smaller than the real size of the pad (which is 1.3x1.3 mm\(^2\)) \cite{Agapopoulou_2022} \marginpar{\flushleft There is an outer guard ring isolating, so maybe the size is correct}
 
-For certain properties that were analysed (such as efficiency and time resolution) it became clear that the rough selection of the contour of the pad was not always sufficient. Thus, an additional \textit{central area cut} was set up. A region of \(0.5\times0.5\unit{\milli\meter^2}\) in the center of the pad was selected (similarly to what had been done in \cite{Agapopoulou_2022}) in order to avoid undesirable effects originating from the region outside the gain layer of the LGAD. (maybe details about LGADs guard ring and front view?)
+For certain properties that were analysed (such as efficiency and time resolution) it became clear that the rough selection of the contour of the pad was not always sufficient. Thus, an additional \textit{central area cut} was set up. A region of \(0.5\times0.5\unit{\milli\meter^2}\) in the center of the pad was selected (similarly to what had been done in \cite{Agapopoulou_2022}) in order to avoid undesirable effects originating from the region outside the gain layer of the LGAD.
+%%% TODO: (maybe details about LGADs guard ring and front view?)
 
 \begin{figure}[h!tbp]
     \centering
@@ -152,25 +144,25 @@ Some peculiarities became apparent, namely the second peak shifted to the right 
 
 In some cases, typically for heavily radiated sensors, the noise in the pulse height distribution was too large (Figure~\ref{fig:pulseHeight_cut_failed}) to allow a \textit{pulseHeight cut} as in \ref{subsec:pulseHeight_cut}. This happened due to the pulse height decreasing and the noise peaks rising, so the separation between the two became less marked. In these situations it was possible to apply a \textit{time cut} instead and still get a satisfactory contour of the pad. The results between the two methods were very similar (Figure~\ref{fig:geometry_cut_comparison} in \nameref{chap:appendix}) so this seemed a good alternative.
 
-\begin{figure}[ht]
+\begin{figure}[h!tbp]
     \centering
     \subfloat[Pulse height distribution, without a clear boundary between noise and signal.]{
-        \includegraphics[width=.5\linewidth]{Images/methods/2D_Sensors_603 S2 pulseHeight cut_only_pulse.png}
+        \includegraphics[width=.4\linewidth]{Images/methods/2D_Sensors_603 S2 pulseHeight cut_only_pulse.png}
         \label{fig:pulseHeight_cut_failed}}
     \hfill
     \centering
     \subfloat[Contour of the pad, highlighted in red, found by applying a time cut to the data. The irregular shape of the pad is caused by the ROI selected by the FEi4.]{
-        \includegraphics[width=.45\linewidth]{Images/methods/2D_Tracks_603_S2 highlight geometry cut (using time).png}
+        \includegraphics[width=.55\linewidth]{Images/methods/2D_Tracks_603_S2 highlight geometry cut (using time).png}
         \label{fig:time_cut_highlight}}
     \captionsetup{width=\captionwidth}
-    \caption{Example of a different sensor (\textbf{irradiated}), for which the previous \textit{pulse height cut} became impractical (left), but using \textit{time cut} yielded a reasonable outline of the pad (right)}
+    \caption{Example of a different sensor (irradiated), for which the previous \textit{pulse height cut} became impractical (left), but using \textit{time cut} yielded a reasonable outline of the pad (right)}
 \end{figure}
 
 \subsection{Quality cuts validation}
 
 To qualitatively confirm the soundness of the cuts performed, we plotted the density distribution of events of \(\boldsymbol{\Delta t}\) vs \textbf{pulse height} (Figures~\ref{fig:time_pulseHeight_nocut} and \ref{fig:time_pulseHeight_center}). The left plot shows all the available tracks, the right plot shows only the tracks that pass through the smaller central area of the DUT (a square of \(0.5\times0.5\unit{\milli\meter^2}\) explained in Section~\ref{sec:geometry_cut}).
 
-The plot on the right shows a narrow selection of events very likely to be a real signal (as they are guaranteed to have passed through the sensor). By comparing it with the plot on the left it can be noticed that a horizontal cut (\nameref{subsec:pulseHeight_cut}) and two vertical cuts (\nameref{subsec:time_cut}) provide indeed a good filter for physically meaningful events. 
+The narrow selection of events in the right plot is very likely to be real signals (as they are particles guaranteed to have passed through the sensor). By comparing it with the plot on the left it can be noticed that a horizontal cut (\nameref{subsec:pulseHeight_cut}) and two vertical cuts (\nameref{subsec:time_cut}) provide indeed a good filter for physically meaningful events. 
 
 
 \begin{figure}[h!tbp]
@@ -210,7 +202,7 @@ The gain is obtained by dividing the most probable value of the collected charge
 
 \subsubsection{Extra noise}
 Despite all the trimming to the data, a noticeable part of the noise centered at \(\approx 0\) could not be removed. We could not pinpoint the origin of this extra noise, but a lot of factors could contribute to it: track reconstruction, other electronic noise etc.
-Considering this point, the fit was performed in a smaller interval, avoiding the noise (Figure~\ref{fig:charge_ROOT_fit}). The left limit was fixed at \(4\si{fC}\), as this is also the lowest signal that the electronic board is able to measure, the right limit was adjusted to include only bins with significant amount of data (and account for the \nameref{subsec:tail_discrepancies}, described in Appendix).
+Considering this point, the fit was performed in a smaller interval, avoiding the noise (Figure~\ref{fig:charge_ROOT_fit}). The left limit was fixed at \(4\si{fC}\), as this is also the lowest signal that the electronic board is able to measure, the right limit was adjusted to include only bins with significant amount of data (and account for the \nameref{subsec:charge_irregularities}, described in Appendix).
 
 %%% maybe I can put a table to show which cuts I applied to which variables
 
