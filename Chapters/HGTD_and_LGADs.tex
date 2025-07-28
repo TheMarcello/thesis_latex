@@ -169,12 +169,19 @@ Three major effects determine the time resolution of the sensors: time walk from
 \end{itemize}
 
 It can be noticed that the lowest jitter and time walk errors are achieved with high S/N and small rise time, i.e. thin sensors with high gain. Time walk can also be corrected with reconstruction algorithms, such as constant-fraction-discrimination (CFD), Figure~\ref{fig:constant fraction}.
-%%% TODO: move here the plot of CFD (time walk)
 
-%%% TODO: radiation damage?
+\begin{figure}[h!btp]
+    \centering
+    \includegraphics[width=.8\linewidth]{Images/methods/Constant_fraction_1.pdf}
+    \captionsetup{width=\captionwidth}
+    \caption{Illustration of the \textit{time walk} effect: two pulses with similar shapes, but different amplitudes, can have distinct Time Of Arrivals. Two reconstruction algorithms are compared: Constant Threshold Discriminator (left) and Constant Fraction Discriminator (right). CTD has a fixed threshold value, so the TOA \(t\) is set when the pulse crosses the threshold. For CFD, the time \(t\) corresponds to the moment the pulse reaches a certain fraction of the maximum amplitude, removing the time walk effect.}
+    \label{fig:constant fraction}
+\end{figure} 
+
+
 \subsubsection{Radiation damage}
 
-Due to the harsh environment the sensors will be placed, they will suffer significant damage caused by the extreme flux of highly energetic particles. At the microscopic level, this will cause irregularities in the silicon lattice, altering the bulk and surface properties. At the macroscopic level, there will be an increase in leakage current, a degradation in charge collection efficiency and a change in the effective doping concentration \cite{Moll:1999kv} (as the defects can behave as donors or acceptors). The leakage current can be sufficiently quenched by operating at low temperatures, the charge collection can be improved by applying higher bias voltages. But the last effect has the most detrimental impact on the properties of the sensors, which will deteriorate as the radiation dose increases
+Due to the harsh environment the sensors will be placed in, they will suffer significant damage caused by the extreme flux of highly energetic particles. At the microscopic level, this will cause irregularities in the silicon lattice, altering the bulk and surface properties. At the macroscopic level, there will be an increase in leakage current, a degradation in charge collection efficiency and a change in the effective doping concentration \cite{Moll:1999kv} (as the defects can behave as donors or acceptors). The leakage current can be sufficiently quenched by operating at low temperatures, the charge collection can be improved by applying higher bias voltages. But the last effect has the most detrimental impact on the properties of the sensors, which will deteriorate as the radiation dose increases.
 
 
 \subsection{Signal generation by charged particles}\label{subsec:charged_particles_distribution}
