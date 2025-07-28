@@ -21,7 +21,7 @@ Some batches (for example Figure~\ref{fig:hits_no_cuts}) presented an empty vert
 \end{figure}
 
 
-\section{Mislabeled sensor}
+\section{Mislabeled sensor}\label{sec:mislabeled_sensor}
 
 One specific sensor had three channels connected to the readout board (IMEv3-W12-2x2-1.5E15, i.e. an array of 2x2 pads from IME, with fluence of \qty{1.5e15}{\neutroneq}), but, when plotting the outline of each pad, one of them did not match the expected configuration. Additionally, in the logbook of the test beam of May 2023, there was some contradicting information regarding the connected channels on the readout board. We suspect that the inconsistent sensor could actually be one of the pads of IMEv3-W12-\textbf{1x3}-1.5E15 but, for an unfortune coincidence, that sensor had no useful batches. %% (most likely cut out of the FEi4 ROI).
 Therefore, it was not possible to confirm that two channels were simply swapped, and Channel4 of the IMEv3-W12-2x2-1.5E15 was excluded from the analysis.
@@ -35,6 +35,7 @@ Therefore, it was not possible to confirm that two channels were simply swapped,
 \end{figure}
 
 %%% TODO: more description instead of just additional plots?
+%%% TODO: also add plots of tilted sensors (batch 203)
 \section{Additonal plots}\label{sec:additional_plots}
 
 \begin{figure}[h!tbp]
@@ -51,6 +52,21 @@ Therefore, it was not possible to confirm that two channels were simply swapped,
     \label{fig:geometry_cut_comparison}
 \end{figure}
 
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Images/appendix/CFD_comparison_401 central area cuts S1 dut: 3.png}
+    \caption{Comparison of the fit for the time resolution of an unirradiated sensor (IMEv3-W12-1x3), for three different values of CFD: 20\%, 50\% and 70\%}
+    \label{fig:CFD_comparison_unirradiated}
+\end{figure}
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Images/appendix/CFD_comparison_401 central area cuts S1 dut: 3.png}
+    \caption{Comparison of the fit for the time resolution of irradiated sensor (IMEv3-W12-2x2-1.5E15), for three different values of CFD: 20\%, 50\% and 70\%}
+    \label{fig:CFD_comparison_irradiated}
+\end{figure}
+
 \begin{figure}[h!tbp]
     \centering
     \includegraphics[width=0.7\linewidth]{Images/appendix/Charge_distribution_different_cuts_batch_401_S1_DUTs_3.png}
@@ -58,7 +74,6 @@ Therefore, it was not possible to confirm that two channels were simply swapped,
     \label{fig:charge_plot_all_cuts}
 \end{figure}
 
-% \section{Sens}
 
 % \begin{landscape}
 
