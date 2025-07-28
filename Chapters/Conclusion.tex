@@ -1,8 +1,8 @@
-\chapter*{Conclusion}\label{chap:conclusion}
+\chapter*{Conclusions}\label{chap:conclusion}
 
 \addcontentsline{toc}{chapter}{\nameref{chap:conclusion}}
 
-This thesis had the goal of characterizing some LGADs for the future HGTD, using the data from the test beam campaing of May 2023. For each sensor, the collected charge, the gain, the efficiency and the time resolution were measured, at the temperature of \qty{-30}{\degreeCelsius}. The sensors were divided by vendor (USTC, IHEP, CNM), by version, and by radiation dose (from \qtyrange{0}{2.5e15}{\neutroneq}).
+This thesis had the goal of characterizing various LGADs from three manufacturers for the future HGTD, using the data from the test beam campaing of May 2023. For each sensor, the collected charge, the gain, the efficiency and the time resolution were measured, at the temperature of \qty{-30}{\degreeCelsius}. The devices were divided b y vendor (USTC, IHEP, CNM), by version, and by radiation dose (from \qtyrange{0}{2.5e15}{\neutroneq}). The analysis was at times negatively impacted by some missing data and by some erroneous selections of FEi4 ROI.
 
 Overall, all sensors without radiation damage (except for one: IMEv3-W12-2x2) satisfied the requirements of the HGTD:
 \begin{itemize}
@@ -11,9 +11,13 @@ Overall, all sensors without radiation damage (except for one: IMEv3-W12-2x2) sa
     \item Time resolution \(<\qtyrange{35}{70}{\pico\second}\) (beginning to end of life).
 \end{itemize}
 
-All the irradiated sensors satisfied the requirements (at least for the highest tested voltages) up to a fluence of \qty{1.5e15}{\neutroneq}. In particular, IMEv3-W12-2x2 irradiated at \qty{1.5e15}{\neutroneq} (\(\approx60\%\) of the expected dose at end of life) had collected charge above \qty{8}{\femto\coulomb} and a time resolution better than \qty{35}{\pico\second} for bias voltage higher than \qty{400}{\volt}.
+All the irradiated sensors satisfied the requirements (at least for the highest tested voltages) up to a fluence of \qty{1.5e15}{\neutroneq}. In particular, IMEv3-W12-2x2 irradiated at \qty{1.5e15}{\neutroneq} (\(\approx60\%\) of the total radiation dose at the end of the life) had a collected charge above \qty{8}{\femto\coulomb} and a time resolution better than \qty{35}{\pico\second} for bias voltage higher than \qty{400}{\volt}. The results were comparable with similar tests of irradiated IHEP-IMEv2, such as in \cite{Ali:2023roa}. Due to missing data, the low irradiation USTC sensor could not be analysed.
 
-However, the two sensors at the highest fluence (\qty{2.5e5}{\neutroneq}), one from IHEP and one from CNM, both fell short of the charge target, while still achieving a time resolution within the end of life requirement.
+However, the two sensors at the highest fluence (\qty{2.5e5}{\neutroneq}), one from IHEP and one from CNM, both fell short of the charge and efficiency targets, while still achieving a time resolution within the end of life requirement. Although, the present results show considerably worse performance than in other studies of IHEP-IMEv2, like in \cite{Ali:2023roa} and in \cite{Wu:2022ruu}, but compatible with the irradiated CNM studies in \cite{Agapopoulou_2022}. 
 
-Additionally, for the multiple pads sensors, it was shown that the neighbouring pads produce an additional signal with a short delay of the order of \qty{1}{\nano\second}.
+The sensors were also tested at an angle (\qty{0}{\degree}, \qty{6}{\degree} and \qty{14}{\degree}) to the beam direction. In every case, all properties showed a slight improvement. 
 
+Additionally, for the 2x2 and 1x3 array sensors, it was shown that a significant amount of particles was detected by the neighbouring pads, generating an extra signal with a short delay of the order of \qty{1}{\nano\second}.
+
+%%% TODO: and some other future possibilities?
+Although this study was conducted in the later stages of the LGAD R\&D program, these results may help validate previous results and contribute to the broader understanding of LGADs behaviour.
