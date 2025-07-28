@@ -43,8 +43,7 @@ Selecting a specific ROI allowed excluding the areas outside the DUTs surface an
  
 \section{MIMOSA planes}
 
-A total of 6 Minimum Ionizing MOS Active Pixel Sensor planes provide precise spatial measurements of particle trajectories. Each plane consists of 576 rows and 1152 columns of pixels, each sized \(\qty{18.4}{\micro\meter} \times \qty{18.4}{\micro\meter}\), covering an active area of around \(\num{21.2} \times \qty{10.6}{\micro\meter^2}\). Three of the planes were located before the DUTs, from the direction of the beam, and three were located after. The hits provided by the planes enabled the reconstruction of the tracks of the particles in the beam.
-%%% TODO: reference?
+A total of 6 Minimum Ionizing MOS Active Pixel Sensor planes \cite{Hu-Guo:2010lrq} provide precise spatial measurements of particle trajectories. Each plane consists of 576 rows and 1152 columns of pixels, each sized \(\qty{18.4}{\micro\meter} \times \qty{18.4}{\micro\meter}\), covering an active area of around \(\num{21.2} \times \qty{10.6}{\micro\meter^2}\). Three of the planes were located before the DUTs, from the direction of the beam, and three were located after. The hits provided by the planes enabled the reconstruction of the tracks of the particles in the beam.
 
 \section{MCP}\label{sec:MCP_description}
 The microchannel plate (MCP) detector consists of a single block of resistive material with numerous evenly spaced small tubes (microchannels) connecting one face to the other. The main working principle is similar to that of an electron multiplier. When a voltage is applied between the two sides a potential gradient is established along the channels. Whenever a charged particle hits the inner wall of the tubes multiple secondary electrons are emitted, these electrons then are accelerated and hit the opposite wall in the channel, causing the emission of further secondary electrons. As a result, an exponentially increasing number of electrons can be extracted from the output. This detector can provide very fast response time and, for this reason, it was used as a reference for the time resolution of the other devices \cite{LADISLASWIZA1979587}.
@@ -110,15 +109,20 @@ A variety of LGADs were tested: with different manufacturers, different designs 
     \item CNM: from the Centro Nacional de Microelectr\'onica, Barcelona, Spain.
 \end{itemize}
 
-The first two designs have both been manufactured by the IME (Institute of Microelectronics) of the Chinese Academy of Sciences. The two CNM sensors (labeled CNM-W4 and CNM-W5) were used to measure the time resolution of another device, the MCP (Section \ref{sec:MCP_description}), which was used as a time reference for all the time measurements of the other LGADs. 
+The first two designs have both been manufactured by the IME (Institute of Microelectronics) of the Chinese Academy of Sciences. The two unirradiated CNM sensors (labeled CNM-W4 and CNM-W5) were used to measure the time resolution of another device, the MCP (Section \ref{sec:MCP_description}), which was used as a time reference for the time measurements of all the other LGADs. 
 
-The sensors were either a single pad or an array (2\(\times\)2 or 1\(\times\)3) of pads. The sensors were then installed onto readout boards. In the case of multi-pads sensors, some number of pads were each connected to a channel of the board, so that they could be measured individually.
+Two other devices from CNM were irradiated at \qty{1.5e15}{\neutroneq} and \qty{2.5e15}{\neutroneq}. Two versions (v2 and v3) of the IME-IHEP sensors were available, both had a carbon implantation, which has the purpose of increasing the radiation hardness of the LGAD. The sensors were either a single pad or an array (2\(\times\)2 or 1\(\times\)3) of pads, and they were irradiated at fluences ranging from \(0\) to \qty{2.5e15}{\neutroneq}. Two USTC devices, also with carbon enrichment (version 2.1), were tested at zero and low fluence. 
 
-Table \ref{tab:devices_tested} provides the list of the devices that were characterized. Notably, the data from the irradiated USTC sensor was not available, so comparison was possible. Furthermore, one 
+Notably, the data from the irradiated USTC sensor was not available. Moreover, one pad of IMEv3-W12-2x2-1.5E15 was removed from the analysis due a possible wrong labeling (\nameref{sec:mislabeled_sensor}).
+
+The sensors were then installed onto readout boards. In the case of multi-pads sensors, some number of pads were each connected to one channel of the board, so that they could be measured individually.
+
+Table \ref{tab:devices_tested} provides the list of the devices that were characterized.
 
 %%% for more detailed descriptions see Table in \nameref{chap:appendix}.
+%%% TODO: maybe more complete table in appendix? with devices id
 
-\begin{table}[h!tbpt]  %%% TODO: ADD ANOTHER COLUMN WITH NOTES? FOR THE ONES THAT ARE MISSING?
+\begin{table}[h!tbpt]  
     \centering
     \captionsetup{width=\captionwidth}
     \caption{List of the tested devices.}
@@ -137,7 +141,7 @@ Table \ref{tab:devices_tested} provides the list of the devices that were charac
         USTC2.1-W17-2E14 & USTC & 2\(\times\)2, 1 channel & 0 & - & not available\\ 
         IMEv3-W12-2x2  & IHEP & 2\(\times\)2, 2 channels  & 0 & - & \\ 
         IMEv3-W12-1x3  & IHEP & 1\(\times\)3, 2 channels  & 0 & -  &\\ 
-        IMEv3-W12-2x2-1.5E15 & IHEP & 2\(\times\)2, 3 channels  & \(\num{1.50E+15}\) & neutron & one ch. wrongly labeled\\ 
+        IMEv3-W12-2x2-1.5E15 & IHEP & 2\(\times\)2, 3 channels  & \(\num{1.50E+15}\) & neutron & only two channels \\ 
         IMEv2-W7-1E14  & IHEP & single & \(\num{1.00E+14}\) & proton & -\\ 
         IMEv2-W7-6.5E14  & IHEP & single & \(\num{6.50E+14}\) & proton  & - \\ 
         IMEv3-W16-8E14  & IHEP & single & \(\num{8.00E+14}\) & proton & - \\
