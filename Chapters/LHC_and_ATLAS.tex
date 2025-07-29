@@ -7,11 +7,11 @@ The theory that currently best describes the fundamental particles and their int
 
 
 \section{The Large Hadron Collider}
-\begin{figure}[h!tbpt]
+\begin{figure}[h!tbp]
     \centering
     \includegraphics[width=.7\linewidth]{Images/intro/LHC.png}
     \captionsetup{width=\captionwidth}
-    \caption{Simplified scheme of the CERN accelerator complex. Each proton or lead ion starts from a linear accelerator (LINAC 4 and LINAC 3, respectively, not in the picture), it is then transferred to the Proton Synchrotron (SP), into the Super Proton Synchrotron (SPS) and finally into the Large Hadron Collider (LHC). During each phase of acceleration the particles reach higher momentum before being transferred to the next stage.}
+    \caption{Simplified scheme of the CERN accelerator complex. Each proton or lead ion starts from a linear accelerator (LINAC 4 or LINAC 3, respectively, not in the picture), it is then transferred to the Proton Synchrotron (SP), into the Super Proton Synchrotron (SPS) and finally into the Large Hadron Collider (LHC). During each phase of acceleration the particles reach higher momentum before being transferred to the next stage.}
     \label{fig:LHC}
 \end{figure}
 
@@ -46,7 +46,7 @@ Along the accelerator tracks there are four main experiments (Figure~\ref{fig:LH
 
 Additionally, there are several other experiments part of the CERN complex, including test beam facilities in the North Area which use particle beams from SPS to perform a variety of tests.
 
-\begin{figure}[h!tbpt]
+\begin{figure}[h!tbp]
     \centering
     \includegraphics[width=.6\linewidth]{Images/intro/integrated_luminosity.png}
     \captionsetup{width=\captionwidth}
@@ -54,8 +54,7 @@ Additionally, there are several other experiments part of the CERN complex, incl
     \label{fig:integrated_luminosity}
 \end{figure}
 
-One of the most important parameters of a collider, along with the beam energy, is the luminosity. It is used to quantify the amount of interactions that will occur and, therefore, the expected rate of events produced by the collisions. For two bunches\footnote{\label{footnote:particle_beam_bunches} The particles in the LHC beam do not travel uniformly distributed, rather they are grouped in many \textit{bunches}, synchronized to intersect at the center of each main detector% (Section \ref{subsec:LHC_main_experiments}) %%% it's in the same Section
-.} colliding head-on with frequency \(f_{coll}\), the luminosity can be calculated by:
+One of the most important parameters of a collider, along with the beam energy, is the luminosity. It is used to quantify the amount of interactions that will occur and, therefore, the expected rate of events produced by the collisions. For two bunches\footnotemark colliding head-on with frequency \(f_{coll}\), the luminosity can be calculated by:
 
 \begin{equation}
     \mathcal{L} = f_{coll}\frac{N_1 N_2}{4\pi \sigma_x \sigma_y} \mathcal{F} \, \left[\unit{cm^{-2}.s^{-1}}\right] \, .
@@ -69,13 +68,15 @@ After the second Long Shutdown that took place between 2018 and 2022 LHC has bee
 
 %%% plans for the next years
 \subsection{High-Luminosity upgrade}\label{subsec:high_luminosity_upgrade}
-In the upcoming years there will be a third Long Shutdown (from around 2026,until early 2029) to prepare for the next phase: the High-Luminosity LHC Project (HL-LHC) \cite{cernHLLHCProject}. The plan aims to increase the instantaneous luminosity up to \qty{1.5e34}{\centi\meter^{-2}\second^{-1}} (compared to \qty{2.1e34}{\centi\meter^{-2}\second^{-1} of Run 2} \cite{CERN-LHCC-2020-007}) and to bring the integrated luminosity up to \qty{3000}{\femto\barn^{-1}} in the following 10-12 years. This will enable more accurate measurements of new particles and the possibility to observe rare processes below the current sensitivity level. On the other hand, this upgrade will introduce a wide range of new challenges for all the systems within CERN's accelerator complex. For instance, the detectors will be exposed to higher radiation doses, which may impact performance, and the increased number of collisions will lead to more pronounced pile-up effects complicating track reconstruction.
-
+In the upcoming years there will be a third Long Shutdown (from around 2026, until early 2029) to prepare for the next phase: the High-Luminosity LHC Project (HL-LHC) \cite{cernHLLHCProject}. The plan aims to increase the instantaneous luminosity up to \qty{1.5e34}{\centi\meter^{-2}\second^{-1}} (compared to \qty{2.1e34}{\centi\meter^{-2}\second^{-1}} of Run 2 \cite{CERN-LHCC-2020-007}) and to bring the integrated luminosity up to \qty{3000}{\femto\barn^{-1}} in the following 10-12 years. This will enable more accurate measurements of new particles and the possibility to observe rare processes below the current sensitivity level. On the other hand, this upgrade will introduce a wide range of new challenges for all the systems within CERN's accelerator complex. For instance, the detectors will be exposed to higher radiation doses, which may impact performance, and the increased number of collisions will lead to more pronounced pile-up effects complicating track reconstruction.
 % this is already kinda talking about HGTD, maybe it's a good bridge to the next section: HGTD
+
+%%% HERE FOOTNOTE FOR BUNCH, put it here manually because it keeps moving it away
+\footnotetext{\label{footnote:particle_beam_bunches}The particles in the LHC beam do not travel uniformly distributed, rather they are grouped in many \textit{bunches}, synchronized to intersect at the center of each main detector.}
 
 \section{The ATLAS experiment}%\label{chap:ATLAS}
 
-\begin{figure}[h!tbpt]
+\begin{figure}[h!tbp]
     \centering
     \includegraphics[width=.7\textwidth]{Images/intro/ATLAS_detector.jpg}
     \captionsetup{width=\captionwidth}
@@ -108,7 +109,7 @@ ATLAS (\textbf{A} \textbf{T}oroidal \textbf{L}HC \textbf{A}pparatu\textbf{S}) is
 \marginpar{\flushleft }
 The main purpose of the Inner Detector is to reconstruct the vertices of the collisions, it comprises three sub-detectors (Figure~\ref{fig:ATLAS_inner_detector}).
 
-The Pixel Detector is the first point of detection, only \qty{3}{\centi\meter} away from the LHC beam line, and it is made of four layers of silicon pixels, more than 92 million in total. Charged particles originated from the collision points leave a small amount of energy that can be measured by the pixels with a precision of almost \qty{10}{\micro\meter}. These signals are then used to reconstruct the origin and the momentum of the particles.
+The Pixel Detector is the first point of detection, only \qty{3}{\centi\meter} away from the LHC beam line, and it is made of four layers of silicon pixels, more than 92 million in total. Charged particles originating from the collision points leave a small amount of energy that can be measured by the pixels with a precision of almost \qty{10}{\micro\meter}. These signals are then used to reconstruct the origin and the momentum of the particles.
 
 The Semiconductor Tracker surrounds the Pixel Detector and complements it in the detection and reconstruction of the tracks of charged particles. It consists of over 6 million "micro-strips" silicon detectors with a precision of up to \qty{25}{\micro\meter}.
 
@@ -117,7 +118,7 @@ The final layer of the Inner Detector is the Transition Radiation Tracker (TRT).
 
 \subsection{Calorimeter}\label{sec:ATLAS_calorimeter}
 
-% \begin{figure}[h!tbpt]
+% \begin{figure}[h!tbp]
 %     \centering
 %     \includegraphics[width=.8\textwidth]{Images/intro/ATLAS_calorimeter_description.jpg}
 %     \captionsetup{width=\captionwidth}
@@ -125,17 +126,17 @@ The final layer of the Inner Detector is the Transition Radiation Tracker (TRT).
 %     \label{fig:ATLAS_calorimeter}
 % \end{figure}
 
-Calorimeters are designed to absorb most of the incoming particles, forcing them to deposit all of their energy and stop within the detector. They are divided into two categories: electromagnetic and hadronic calorimeters. Electromagnetic calorimeters (ECAL) measure the energy of electrons and photons while they interact with matter via electromagnetic force. Hadronic calorimeters, on the other hand, measure the energy of hadrons\footref{footnote:hadrons} as they interact with atomic nuclei via strong force. Calorimeters can stop most known particle, except for muons\footref{footnote:muons} (observed with \ref{sec:muon_spectrometer}) and neutrinos.
+Calorimeters are designed to absorb most of the incoming particles, forcing them to deposit all of their energy and stop within the detector. They are divided into two categories: electromagnetic and hadronic calorimeters. Electromagnetic calorimeters (ECAL) measure the energy of electrons and photons while they interact with matter via electromagnetic force. Hadronic calorimeters, on the other hand, measure the energy of hadrons\footref{footnote:hadrons} as they interact with atomic nuclei via strong force. Calorimeters can stop most known particle, except for muons\footnote{Muons are particles similar to electrons but \(\approx\)200 times heavier. This allows them to penetrate much deeper into matter, due to less emitted radiation as they decelerate. \label{footnote:muons}} (observed with the \nameref{sec:muon_spectrometer}) and neutrinos.
 
 The ATLAS calorimetry system uses two different technologies: the Liquid Argon Calorimeter (LAr) and the Tile Hadronic Calorimeter.
 
-The Liquid Argon Calorimeter (LAr) features layers of metal (either tungsten, copper or lead), with liquid argon in-between, kept a temperature of \qty{-184}{\degreeCelsius}. Several modules are placed cylindrically around the beam (the barrel) and at the extremities (endcaps). The LAr forward (FCal) covers the region close to the beam using three disks of metal (copper, tungsten and tungsten).
+The Liquid Argon Calorimeter (LAr) features layers of metal (either tungsten, copper or lead), with liquid argon in-between, kept at a temperature of \qty{-184}{\degreeCelsius}. Several modules are placed cylindrically around the beam (the barrel) and at the extremities (endcaps). The LAr forward (FCal) covers the region close to the beam using three disks of metal (copper, tungsten and tungsten).
 
-The Tile Hadronic Calorimeter surrounds the LAr calorimeter, it has the goal of measuring hadronic particles that did not deposit all of their energy in the LAr. It consists of alternating layers of steel and plastic scintillating tiles. Particles hitting the steel layer create a shower of other particles, the plastic scintillators in turn produce photons, which are then converted into an electric current to determine the original particle's energy.
+The Tile Hadronic Calorimeter surrounds the LAr calorimeter, it has the goal of measuring hadronic particles that did not deposit all of their energy in the LAr. It consists of alternating layers of steel and plastic scintillating tiles. Particles hitting the steel layer create a shower of other particles, and the plastic scintillators in turn produce photons, which are then converted into an electric current to determine the original particle's energy.
 
 \subsection{Muon Spectrometer}\label{sec:muon_spectrometer}
 
-The outer layer of the ATLAS experiment is composed of muon\footnote{Muons are particles similar to electrons but \(\approx\)200 times heavier. This allows them to penetrate much deeper into matter, due to less emitted radiation as they decelerate. \label{footnote:muons}} detectors, which identify and measure the momenta of muons. It employs several detector technologies separated into two categories: Fast-Response Detectors, to quickly select collisions potentially interesting for physics, and Precision Detectors, to provide very precise positions of muons.
+The outer layer of the ATLAS experiment is composed of muon\footref{footnote:muons} detectors, which identify and measure the momenta of muons. It employs several detector technologies separated into two categories: Fast-Response Detectors, to quickly select collisions potentially interesting for physics, and Precision Detectors, to provide very precise positions of muons.
 
 In the first group there are: 
 \begin{itemize}
@@ -146,10 +147,9 @@ Both of these detectors measure the electric signals of particles as they ionize
 
 Finally, for the role of Precision Detectors, Monitored Drift Tube (MDTs) are able to determine the position of a muon to an accuracy of \qty{100}{\micro\meter}. They are constituted by more than \num{380000} aluminium tubes with a wire at the tube's center and filled with a gas mixture. They are stacked up over several layers, to precisely trace the path of each muon.
 
-
 \subsection{Magnet System}\label{sec:magnet_system}
 
-\begin{figure}[h!tbpt]
+\begin{figure}[h!tbp]
     \centering
     \subfloat[The Central Solenoid Magnet at its installation, 2004. From \cite{atlasMagnetSystem}.]{
         \includegraphics[width=.45\linewidth]{Images/intro/ATLAS_central_solenoid_magnet.JPG}
@@ -162,7 +162,7 @@ Finally, for the role of Precision Detectors, Monitored Drift Tube (MDTs) are ab
     \caption{Photos of ATLAS magnets during their installation.}
 \end{figure}
 
-Powerful magnets are used to bend the trajectories of charged particles, enabling the measurement of their momentum and charge. In ATLAS this is done two different types of superconducting magnet systems: toroidal and solenoidal, utilized in the three main sections: Central Solenoid Magnet, Barrel Toroid and End-cap Toroids.
+Powerful magnets are used to bend the trajectories of charged particles, enabling the measurement of their momentum and charge. In ATLAS this is done with two different types of superconducting magnet systems: toroidal and solenoidal, utilized in the three main sections: Central Solenoid Magnet, Barrel Toroid and End-cap Toroids.
 \begin{itemize}
     \item Central Solenoid Magnet: surrounds the inner detector at the core of ATLAS. It provides a \qty{2}{\tesla} magnetic field in just \qty{4.5}{\centi\meter} thickness (Figure~\ref{fig:ATLAS_central_solenoid}).
     \item Barrel Toroid: the largest toroidal magnet ever constructed, providing a magnetic field of up to \qty{3.5}{\tesla}. It is used to measure the momentum of muons.
@@ -180,4 +180,4 @@ As part of the \nameref{subsec:high_luminosity_upgrade}, the ATLAS detector will
     \item HGTD: a new silicon pixel detector that will provide timing information in the forward region, to improve vertex reconstruction. The design of the detector and its modules are described in more detail in the next chapter (\nameref{chap:HGTD_LGADs}.)
 \end{itemize}
 
-\marginpar{\flushleft There is also LUCID-3 in \cite{MANGHI2024169917}, PMTs for luminosity measurements.}
+% \marginpar{\flushleft There is also LUCID-3 in \cite{MANGHI2024169917}, PMTs for luminosity measurements.}
