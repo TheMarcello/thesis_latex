@@ -10,7 +10,7 @@
 The upcoming High-Luminosity phase has the goal of increasing the integrated luminosity by a factor \(10\), enhancing the potential of new physics discoveries. However, it will also bring a variety of new complications, most importantly the increase in pileup interactions\footnote{Multiple collisions happening during the same bunch crossing, on top of a main event of interest.}.
 %%% HGTD as a solution 
 A new way to mitigate this effect for higher pseudorapidity values will be "\textit{to use high-precision timing information to distinguish between collisions occurring very close in space but well-separated in time}" \cite{CERN-LHCC-2020-007}. This is set to be accomplished by the High Granularity Timing Detector (HGTD).
-The HGTD will improve the object reconstruction capabilities of ATLAS, complementing ITk. This, in turn, will help study a variety of processes that rely on the precise identification and measurement of the physics objects produced during \(p-p\) collisions, such as jets and leptons.
+The HGTD will improve the object reconstruction capabilities of ATLAS, complementing the ITk. This, in turn, will help study a variety of processes that rely on the precise identification and measurement of the physics objects produced during \(p-p\) collisions, such as jets and leptons.
 The detector's active elements will be silicon sensors, which will provide precise timing information and will withstand the additional radiation of the HL. To achieve the HGTD's preicison goal of \qty{30}{\pico\second} (\qty{50}{\pico\second}) at start life (end life), the sensors will need to have a time resolution per hit of \qty{35}{\pico\second} (\qty{70}{\pico\second}). Additionally, a hit efficiency above \(95\%\) and %a due to the electronics' spefications,
 a minimum collected charge of \qty{4}{\femto\coulomb} will also be required.
 % I need to add the sensor requirements: time resolution, charge and efficiency 
@@ -31,14 +31,14 @@ Generally, a track is associated to a vertex if the track's origin is compatible
  
 Where \(z_0\) is the longitudinal impact parameter, \(z_{vertex}\) is the vertex position, \(\sigma_{z_0}\) is the spacial resolution and \(s\) is a significant cut (typically 2.5 or 3)\cite{cernTechnicalDesign}. 
 
-\begin{figure}[h!tbpt]
+\begin{figure}[h!tbp]
     \centering
     \subfloat[Simulation of the local pileup vertex densities for two values of \(<\mu>\) (average number of collisions per bunch crossing), indicative of the current and future collision rates. From~\cite{cernTechnicalDesign}.]{
         \includegraphics[width=.45\linewidth]{Images/intro/pileup_density_simulation.png}
         \label{fig:pileup_densities}}
     \hfill
     \centering
-    \subfloat[Simulation of the longitudinal resolution of ITk as a function of \(\eta\), for muons with \(p_T=\qty{1}{\giga\electronvolt}\) and \(p_T=\qty{10}{\giga\electronvolt}\) From~\cite{cernTechnicalDesign}.]{
+    \subfloat[Simulation of the longitudinal resolution of the ITk as a function of \(\eta\), for muons with \(p_T=\qty{1}{\giga\electronvolt}\) and \(p_T=\qty{10}{\giga\electronvolt}\) From~\cite{cernTechnicalDesign}.]{
         \includegraphics[width=.46\linewidth]{Images/intro/ITk_z_resolution_for_eta.pdf}
         \label{fig:ITk_spacial_resolution}}
     \caption{Simulations of the pileup densities (left) and the ITk spacial resolution (right).}
@@ -47,7 +47,7 @@ Where \(z_0\) is the longitudinal impact parameter, \(z_{vertex}\) is the vertex
 %%% difficulties/problems
 Some problems arise. 
 Firstly, as \(\eta\) increases, tracks become more parallel to the beam and are subject to multiple scattering effects due to more material compared to the central barrel region. Secondly, the HL-LHC will see a rise in the number of collisions per bunch %\footref{footnote:particle_beam_bunches} %%% this footnote is from the previous chapter, so it gives the wrong number
- and, as a direct consequence, an increase in the average density of hard-scatter vertices (Figure~\ref{fig:pileup_densities}). Lastly, the resolution of ITk in the z direction (i.e. the beam direction) worsens considerably at higher pseudrapidities, as shown in the simulation in Figure~\ref{fig:ITk_spacial_resolution} for two values of \(p_T\)\footnote{\(p_T\) is the transverse momentum: the component of the momentum perpendicular to the beam line.}.
+ and, as a direct consequence, an increase in the average density of hard-scatter vertices (Figure~\ref{fig:pileup_densities}). Lastly, the resolution of the ITk in the z direction (i.e. the beam direction) worsens considerably at higher pseudrapidities, as shown in the simulation in Figure~\ref{fig:ITk_spacial_resolution} for two values of \(p_T\)\footnote{\(p_T\) is the transverse momentum: the component of the momentum perpendicular to the beam line.}.
 
 %%% check if I mention how these problems will be solved
 
@@ -78,7 +78,7 @@ The detector will also introduce new timing information to the data, independent
 % eta=2.4 -> theta=10.367°      eta=4 -> theta=2.0986°
 The detector will cover pseudrapidities between \(2.4 < \eta < 4.0\) (so an incident angle roughly between 2° and 10°), complementing the ITk (Inner Tracker).
 % picture of HGTD
-\begin{figure}[h!tbpt]
+\begin{figure}[h!tbp]
     \centering
     \subfloat[The detector will be placed outside the volume of the future Inner Tracker, between the Barrel ande Forward Calorimeters]{
         \includegraphics[width=.6\linewidth]{Images/intro/HGTD_position_and_layout.png}
@@ -113,7 +113,7 @@ The core of a silicon sensor consists of a junction between two differently dope
 This forms a \(pn\)-junction, and when a voltage is applied with positive potential on the \(n\)-side and negative on the \(p\)-side (reverse bias) the volume between the two layers is depleted of mobile charges, and it becomes an insulator with an internal electric field.
 
 %%% Figure~WITH MINIPAGE (for side caption)
-\begin{figure}[h!tbpt]
+\begin{figure}[h!tbp]
     \begin{minipage}[c]{.25\linewidth}
         \includegraphics[width=1\linewidth]{Images/LGADs/p-n junction with voltage.png}
     \end{minipage}
@@ -131,7 +131,7 @@ Silicon sensors generally offer several advantages over other type of detectors.
 
 \subsection{LGADs}
 
-\begin{figure}[h!tbpt]
+\begin{figure}[h!tbp]
     \begin{minipage}[c]{.45\linewidth}
         \includegraphics[width=1\linewidth]{Images/LGADs/LGADs_schema_of_work.png}
     \end{minipage}
