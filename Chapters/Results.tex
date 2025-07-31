@@ -1,6 +1,6 @@
 \chapter{Results}\label{chap:results}
 
-The main goal of this analysis was to quantify key metrics of the performance of LGAD sensors. In particular, we analysed the collected charge, the time resolution and the efficiency at the temperature of \qty{-30}{\degreeCelsius}, which will be the temperature of the detector in operation. We compared the results between unirradiated and differently irradiated sensors to test whether the requirements at start and end of life were satisfied. The sensors were also studied at angles between \qty{0}{\degree} and \qty{14}{\degree} relative to the beam direction, in line with the HGTD's expected pseudorapidity coverage: between \(2.4\) and \(4\), which corresponds to an incident angle of \qtyrange{2}{10}{\degree}.
+The main goal of this analysis was to quantify key metrics of the performance of LGAD sensors. In particular, we analysed the collected charge, the time resolution and the efficiency at the temperature of \qty{-30}{\degreeCelsius}, which will be the temperature of the detector in operation. We compared the results between unirradiated and differently irradiated sensors to test whether the requirements at start and end of life were satisfied. The sensors were also studied at angles between \qty{0}{\degree} and \qty{14}{\degree} relative to the beam direction, in line with the HGTD's expected pseudorapidity coverage: between \(2.4\) and \(4\), which corresponds to incident angles of \qtyrange{2}{10}{\degree}.
 
 Additionally, some other properties and effects that arose during the analysis were also investigated. Such as, signal coming from neighbouring pads, noise coming from outside the gain layer of the pads, and properties of the region lying between two adjacent pads. Certain anomalies were also successfully explained, and the root cause was found in the incorrect voltage range set on an oscilloscope, which caused pulses to be "clipped" below a specific threshold. Moreover, due to a temporary malfunction of the cooling box, one batch of data showed neatly the sensitivity of LGADs to temperature variations.
 
@@ -60,7 +60,7 @@ The sensors in the IME group were further split depending on versions and types,
         \includegraphics[width=.47\linewidth]{Images/Results/Irradiated/IMEv3-W12_voltage_efficiency_irradiated.png}
         \label{fig:IMEv3-W12_voltage_efficiency}}
     \captionsetup{width=\captionwidth}
-    \caption{IMEv3-W12. The non irradiated sensors (both the 2\(\times\)2 array and the 1\(\times\)3 array) had sufficiently high collected charge at all tested bias voltages, while the time resolution was just short of the \qty{35}{\pico\second} target in the case of the 2\(\times\)2 array, although this is likely to be solved with higher applied voltage. The lack of data for higher voltages was due to erroneous batches. It should be noted that the two pads of the 1\(\times\)3 array had significant and consistent discrepancies in charge and time resolution, presumably due to differences at manufacturing stage. The sensors at \qty{1.5e15}{\neutroneq} had very good performance overall and still reached the target time resolution of beginning of operations (\qty{35}{\pico\second}) at \(\simeq60\%\) of the total expected dose. The efficiency satisfied the \(95\%\) goal above \(\approx\qty{400}{\volt}\).}
+    \caption{IMEv3-W12. The non irradiated sensors (both the 2\(\times\)2 array and the 1\(\times\)3 array) had sufficiently high collected charge at all tested bias voltages, while the time resolution was just short of the \qty{35}{\pico\second} target in the case of the 2\(\times\)2 array, although this is likely to be solved with higher applied voltage. The lack of data for higher voltages was due to erroneous batches. It should be noted that the two pads of the 1\(\times\)3 array had significant and consistent discrepancies in charge and time resolution, presumably due to differences at the manufacturing stage. The sensors at \qty{1.5e15}{\neutroneq} had very good performance overall and still reached the target time resolution of beginning of operations (\qty{35}{\pico\second}) at \(\simeq60\%\) of the total expected dose. The efficiency satisfied the \(95\%\) goal above \(\approx\qty{400}{\volt}\).}
 \end{figure}
 
 \begin{figure}[p!htb]
@@ -105,6 +105,8 @@ The sensors in the IME group were further split depending on versions and types,
     \captionof{figure}{IMEv3-W16. The sensor at \qty{8e14}{\neutroneq} performed well overall, except for the batch at highest bias voltage, which saw a small but unexpected worsening of time resolution and efficiency. We investigated further the cause, but we were unable to pinpoint the exact source. The sensor at \qty{2.5e15}{\neutroneq}, corresponding to the end-of-life radiation dose, had a collected charge below the requirements, slightly below \qty{3}{\femto\coulomb} and very poor efficiency, but it showed satisfactory time resolution.}
 \end{minipage}
 \end{figure}
+
+\FloatBarrier
 
 \subsubsection{USTC}
 
@@ -156,12 +158,12 @@ The unirradiated sensors were used to measure the time resolution of the MCP (Se
 \end{minipage}
 \end{figure}
 
-% \FloatBarrier 
+\FloatBarrier 
 
 \subsection{Angled}
 
 When particles traverse a sensor at an angle, the effective path inside the volume of the sensor will be slightly larger (\(\approx3\%\) at \qty{14}{\degree}). For this reason, charge deposition will be greater and a small improvement in the performance is expected.
-The sensors were studied with incident angle of \qty{0}{\degree}, \qty{6}{\degree} and \qty{14}{\degree}. However, due to some missing or erroneous batches or mismatched voltages and angles, not all data points were available.
+The sensors were studied with incident angles of \qty{0}{\degree}, \qty{6}{\degree} and \qty{14}{\degree}. However, due to some missing or erroneous batches or mismatched voltages and angles, not all data points were available.
 
 \subsubsection{IME}
 
@@ -251,7 +253,7 @@ The sensors were studied with incident angle of \qty{0}{\degree}, \qty{6}{\degre
     \end{minipage}
     \hfill
     \begin{minipage}[c]{.5\linewidth}
-    \captionof{figure}{IMEv2-W7, fluence \qty{1e14}{\neutroneq}. Although the sensors mostly behaved as expected, two batches at the same incident angle measured different charge but comparable time resolution. The source discrepancy could not be identified. (The only potential difference was that the higher charge batch was \(\approx \qty{1}{\milli\meter}\) more towards the center of the beam.)}
+    \captionof{figure}{IMEv2-W7, fluence \qty{1e14}{\neutroneq}. Although the sensors mostly behaved as expected, two batches at the same incident angle measured different charge but comparable time resolution. The source discrepancy could not be identified. (The only potential difference was that in the batch with higher charge, the sensor was \(\approx \qty{1}{\milli\meter}\) more towards the center of the beam.)}
     \end{minipage}
 \end{figure}
 
@@ -350,7 +352,7 @@ Some other interesting effects were investigated further.
 
 \subsection{Noise from the edges}\label{sec:deviations_from_gaussian}
 
-An anomaly in the time distribution was the asymmetry between the tails, with the left side notably diverging from a normal distribution. By picking only the events in a certain time frame, and plotting the position of the corresponding reconstructed tracks, we were able to determine that the ring surrounding the gain layer was responsible for this effect (Figure \ref{fig:time_difference_wide_gaussian}). The result was observed throughout all devices. This further justified our choice of selecting a smaller central area for most of the analysis.
+An anomaly in the time distribution was the asymmetry between the tails, with the left side notably diverging from a normal distribution. By picking only the events in a specific time frame, and plotting the position of the corresponding reconstructed tracks, we were able to determine that the ring surrounding the gain layer was responsible for this effect (Figure \ref{fig:time_difference_wide_gaussian}). The result was observed throughout all devices. This further justified our choice of selecting a smaller central area for most of the analysis.
 
 \begin{figure}[h!tbp]
     \centering
@@ -370,7 +372,7 @@ An anomaly in the time distribution was the asymmetry between the tails, with th
 
 As it was very obvious from Figure \ref{fig:time_cut_gauss+bg_fit}, a second peak appeared in the time distribution.
 
-By picking all the events in specific time windows, we were able to verify that: the main peak simply coincides with the DUT, the second peak arises from events picked up by its neighbouring pad, Figure \ref{fig:time_difference_multiple_peaks_highlight} is evidence of this. The second peak was observed with a delay of the order of \qty{1}{\nano\second}.
+By picking all the events in certain time windows, we were able to verify that: the main peak simply coincides with the DUT, the second peak arises from events picked up by its neighbouring pad. Figure \ref{fig:time_difference_multiple_peaks_highlight} is evidence of this. The second peak was observed with a delay of the order of \qty{1}{\nano\second}.
 As further confirmation this effect was only observed in DUTs which were part of LGAD arrays.
 
 \begin{figure}[h!tbp]
@@ -406,14 +408,14 @@ Fortunately, this effect only impacted a small percentage of the data, thus it d
     \centering
     \includegraphics[width=.9\linewidth]{Images/detailed_analysis/Waveform of clipped pulse (ns).png}
     \captionsetup{width=\captionwidth}
-    \caption{Example of a single pulse with the highest part cut out}
+    \caption{Example of a single pulse with the highest points cut out}
     \label{fig:clipped_pulse}
 \end{figure}
  
 
 \subsubsection{Irregularities in the charge distribution}\label{subsec:charge_irregularities}
 
-In a few cases the tail of the distribution deviated considerably from the expected function. We were able to successfully attribute this discrepancy to the "clipping" effect. In Figure \ref{fig:charge_vs_pulseHeight_for_clipping} (right) the pulse height is plotted against the charge and the clipped events appear very clearly at the rightmost part of the plot. This group of events overlapped with the expected charge distribution and could not be removed without modifying it. For this reason, the only solution was to adjust the range of the fit to try to exclude these events.
+In a few cases the tail of the distribution deviated considerably from the expected function, as a consequence of the pulse clipping. In Figure \ref{fig:charge_vs_pulseHeight_for_clipping} (right) the pulse height is plotted against the charge and the clipped events appear very clearly at the rightmost part of the plot. This group of events overlapped with the expected charge distribution and could not be removed without altering it. For this reason, the only solution was to adjust the range of the fit to exclude these events.
 
 \begin{figure}[h!tbp]
     \centering
@@ -428,29 +430,29 @@ In a few cases the tail of the distribution deviated considerably from the expec
 
 \subsection{Temperature fluctuations}\label{sec:temperature_fluctuations}
 
-During the data taking there was a short malfunction of the cooling box containing the DUTs, which caused the temperature to rise up to \(\approx\qty{-26}{\degreeCelsius}\). The batch was excluded from the previous analysis, but it showed that the sensors have a significant sensitivity to temperature, so it was deemed interesting enough to report. For a change in temperature of \(\approx\qty{6}{\degreeCelsius}\), the collected charge saw a decrease of up to \(\approx\qty{10}{\femto\coulomb}\) and time resolution saw a decrease of up to \(\approx\qty{3}{\pico\second}\).
+During the data taking there was a short malfunction of the cooling box containing the DUTs, which caused the temperature to rise up to \(\approx\qty{-26}{\degreeCelsius}\). The  batch was excluded from the previous analysis, but it showed that the sensors have a significant sensitivity to temperature, so it was deemed interesting enough to report. For a change in temperature of \(\approx\qty{6}{\degreeCelsius}\), the collected charge saw a decrease of up to \(\approx\qty{10}{\femto\coulomb}\) and time resolution saw a decrease of up to \(\approx\qty{3}{\pico\second}\).
 
 \begin{figure}[h!tbp]
     \centering
-    \begin{minipage}[c]{.47\linewidth}
-    \subfloat[Temperature vs Charge, DUTs on oscilloscope 1]{
-        \includegraphics[width=.95\linewidth]{Images/Results/temperature fluctuations/Charge vs temperature 413_S1_dut[1, 2, 3].png}
-        \label{fig:temperature_charge_S1}}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[c]{.47\linewidth}
-    \subfloat[Temperature vs Time resolution, DUTs on oscilloscope 1]{
-        \includegraphics[width=.95\linewidth]{Images/Results/temperature fluctuations/Time resolution vs temperature 413_S1_dut[1, 2, 3].png}
+    \begin{minipage}[c]{.49\linewidth}
+        \subfloat[Temperature vs Charge, DUTs on oscilloscope 1]{
+            \includegraphics[width=.95\linewidth]{Images/Results/temperature fluctuations/Charge vs temperature 413_S1_dut[1, 2, 3].png}
+            \label{fig:temperature_charge_S1}}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[c]{.49\linewidth}
+        \subfloat[Temperature vs Time resolution, DUTs on oscilloscope 1]{
+            \includegraphics[width=.95\linewidth]{Images/Results/temperature fluctuations/Time resolution vs temperature 413_S1_dut[1, 2, 3].png}
         \label{fig:temperature_time_res_S1}}
     \end{minipage}
     \vfill
-    \begin{minipage}[c]{.47\linewidth}
+    \begin{minipage}[c]{.49\linewidth}
         \subfloat[Temperature vs Charge, DUTs on oscilloscope 2]{
             \includegraphics[width=.95\linewidth]{Images/Results/temperature fluctuations/Charge vs temperature 413_S2_dut[1, 2, 3].png}
             \label{fig:temperature_charge_S2}}
         \end{minipage}
         \hfill
-        \begin{minipage}[c]{.47\linewidth}
+        \begin{minipage}[c]{.49\linewidth}
         \subfloat[Temperature vs Time resolution, DUTs on oscilloscope 2]{
             \includegraphics[width=.95\linewidth]{Images/Results/temperature fluctuations/Time resolution vs temperature 413_S2_dut[1, 2, 3].png}
             \label{fig:temperature_time_res_S2}}
@@ -463,14 +465,101 @@ During the data taking there was a short malfunction of the cooling box containi
 \FloatBarrier
 \subsection{Interpad study}\label{sec:neighbouring_pads}
 %%% TODO: put more plots and description? tbh I don't know what would the conclusions be
-The following plots show the efficiency of the interpad region, as a function of the position. The location data was projected onto the X axis (Y axis) and, for each bin, the efficiency was calculated in a vertical (horizontal) strip. 
 
+The following plots show the efficiency of the interpad region, as a function of the position. The location data was projected onto the X axis (Y axis) and, for each bin, the efficiency was calculated in a vertical (horizontal) strip. The analysis of the IMEv3-W12-2x2 was discarded due a small but significant tilt of the sensor in the XY plane (Figure~\ref{fig:tilted_sensors}). This inclination meant that the projections of the positions onto one axis would not be well aligned. 
+
+%%% IMEv3-W12-1x3
 \begin{figure}[h!tbp]
     \centering
-    \includegraphics[width=0.5\linewidth]{Images/detailed_analysis/1D_Efficiency_on_the_edges_USTC2.1-W17_403_-100V_duts_1_2.png}
-    \captionsetup{width=\captionwidth}
-    \caption{Efficiency projected onto one direction, measured between two neighbouring pads.}
-    \label{fig:neighbouring_pads}
+    \subfloat[Interpad efficiency, \qty{80}{\volt}]{
+        \includegraphics[width=.3\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_IMEv3-W12-1x3_401_-80V_duts_3_3.png}
+        \label{fig:IMEv3-W12-1x3_interpad_80V}}
+    \hfill
+    \subfloat[Interpad efficiency, \qty{90}{\volt}]{
+        \includegraphics[width=.3\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_IMEv3-W12-1x3_402_-90V_duts_3_3.png}
+        \label{fig:IMEv3-W12-1x3_interpad_90V}}
+    \hfill
+    \subfloat[Interpad efficiency, \qty{100}{\volt}]{
+        \includegraphics[width=.3\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_IMEv3-W12-1x3_403_-100V_duts_3_3.png}
+        \label{fig:IMEv3-W12-1x3_interpad_100V}}
+    \vfill
+
+    \begin{minipage}[c]{.31\linewidth}
+        \subfloat[Interpad efficiency, \qty{125}{\volt}]{
+            \includegraphics[width=.95\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_IMEv3-W12-1x3_407_-125V_duts_3_3.png}
+            \label{fig:IMEv3-W12-1x3_interpad_125V}}
+        \end{minipage}
+        \hfill
+    \begin{minipage}[c]{.65\linewidth}
+        \captionof{figure}{For the unirradiated IME sensor, the pads had a fairly narrow region of low efficiency, with a valley at \(\approx 10\%\) efficiency, which remained mostly stable from \qtyrange{-90}{-125}{\volt}.}
+    \end{minipage}
 \end{figure}
 
+%%% IMEv3-W12-2x2-1.5E15
+\begin{figure}[h!tbp]
+    \centering
+    \subfloat[Interpad efficiency, \qty{300}{\volt}]{
+        \includegraphics[width=.3\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_IMEv3-W12-2x2-1.5E15_601_-300V_duts_1_2.png}
+        \label{fig:IMEv3-W12-2x2_interpad_300V}}
+    \hfill
+    \subfloat[Interpad efficiency, \qty{350}{\volt}]{
+        \includegraphics[width=.3\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_IMEv3-W12-2x2-1.5E15_602_-350V_duts_1_2.png}
+        \label{fig:IMEv3-W12-2x2_interpad_350V}}
+    \hfill
+    \subfloat[Interpad efficiency, \qty{400}{\volt}]{
+        \includegraphics[width=.3\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_IMEv3-W12-2x2-1.5E15_603_-400V_duts_1_2.png}
+        \label{fig:IMEv3-W12-2x2_interpad_400V}}
+    \vfill
+
+    \begin{minipage}[c]{.61\linewidth}
+        \subfloat[Interpad efficiency, \qty{450}{\volt}]{
+            \includegraphics[width=.47\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_IMEv3-W12-2x2-1.5E15_604_-450V_duts_1_2.png}
+            \label{fig:IMEv3-W12-2x2_interpad_450V}}
+        \hfill
+        \subfloat[Interpad efficiency, \qty{490}{\volt}]{
+            \includegraphics[width=.47\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_IMEv3-W12-2x2-1.5E15_605_-490V_duts_1_2.png}
+            \label{fig:IMEv3-W12-2x2_interpad_490V}}
+        \end{minipage}
+        \hfill
+    \begin{minipage}[c]{.35\linewidth}
+        \captionof{figure}{The sensor IMEv3-W12-2x2-1.5E15 showed a significant improvement of the lowest efficiency in the gap, especially above \qty{-490}{\volt}. The regularly spaced decrease in efficiency, may have been caused by some physical element interfering with the beam, as this effect was observed in many sensors.}
+    \end{minipage}
+\end{figure}
+
+
+%%% USTC
+\begin{figure}[h!tbp]
+    \centering
+    \subfloat[Interpad efficiency, \qty{80}{\volt}]{
+        \includegraphics[width=.3\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_USTC2.1-W17_401_-80V_duts_1_2.png}
+        \label{fig:USTC2.1-W17_interpad_80V}}
+    \hfill
+    \subfloat[Interpad efficiency, \qty{90}{\volt}]{
+        \includegraphics[width=.3\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_USTC2.1-W17_402_-90V_duts_1_2.png}
+        \label{fig:USTC2.1-W17_interpad_90V}}
+    \hfill
+    \subfloat[Interpad efficiency, \qty{100}{\volt}]{
+        \includegraphics[width=.3\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_USTC2.1-W17_403_-100V_duts_1_2.png}
+        \label{fig:USTC2.1-W17_interpad_100V}}
+    \vfill
+
+    \begin{minipage}[c]{.31\linewidth}
+        \subfloat[Interpad efficiency, \qty{105}{\volt}]{
+            \includegraphics[width=.95\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_USTC2.1-W17_407_-105V_duts_1_2.png}
+            \label{fig:USTC2.1-W17_interpad_105V}}
+        \end{minipage}
+        \hfill
+    \begin{minipage}[c]{.65\linewidth}
+        \captionof{figure}{The sensor USTC2.1-W17 displayed very little change in the interpad region, with the width and depth of the gap staying mostly costant from \qtyrange{-80}{-105}{\volt}.}
+    \end{minipage}
+\end{figure}
+
+
+% \begin{figure}[h!tbp]
+%     \centering
+%     \includegraphics[width=0.5\linewidth]{Images/detailed_analysis/interpad studies/}
+%     \captionsetup{width=\captionwidth}
+%     \caption{Efficiency projected onto one direction, measured between two neighbouring pads.}
+%     \label{fig:neighbouring_pads}
+% \end{figure}
 
