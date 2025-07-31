@@ -63,7 +63,7 @@ The most powerful way to utilise this timing information is to require each trac
 \end{equation}
 
 %%% other advantages
-Where \(t_0\) is the time of the primary vertex, \(t_{track}\) is the time of the track, \(\sigma_t\) is the combined error and \(s\) is a significant cut, analogously to Eq~\ref{eq:compatibility_vertex}. % It should be noted, however that the experimental challenges of the determination of \(t_0\) will limit the full power of this approach \cite{cernTechnicalDesign}.
+Where \(t_0\) is the time of the primary vertex, \(t_{track}\) is the time of the track, \(\sigma_t\) is the combined error and \(s\) is a significant cut, analogously to Eq.~\ref{eq:compatibility_vertex}. % It should be noted, however that the experimental challenges of the determination of \(t_0\) will limit the full power of this approach \cite{cernTechnicalDesign}.
 The detector will also introduce new timing information to the data, independent of other detector measurements. And finally, the HGTD will provide an additional, precise way to measure luminosity both online (instantanous, during operations) and offline (calculated after data taking), contributing to the ATLAS goal of 1\% uncertainty on luminosity, which is the largest source of uncertainty in many analyses, such as for precision measurements of the Higgs boson~\cite{CERN-LHCC-2020-007}.
 
 % %%% I put these points above
@@ -74,9 +74,7 @@ The detector will also introduce new timing information to the data, independent
 %     \item Providing an additional, precise way to measure luminosity both online (instanteous, during operations) and offline (calculated after data taking), contributing to the ATLAS goal of 1\% uncertainty on luminosity, which is the largest source of uncertainty in many analyses, such as for the Higgs boson~\cite{CERN-LHCC-2020-007}.
 % \end{itemize}
 
-%%% detector layout
-% eta=2.4 -> theta=10.367°      eta=4 -> theta=2.0986°
-The detector will cover pseudrapidities between \(2.4 < \eta < 4.0\) (so an incident angle roughly between 2° and 10°), complementing the ITk (Inner Tracker).
+
 % picture of HGTD
 \begin{figure}[h!tbp]
     \centering
@@ -93,17 +91,17 @@ The detector will cover pseudrapidities between \(2.4 < \eta < 4.0\) (so an inci
 \end{figure}
 
 %%% detector layout
-The detector consists of two thin disks with that will be placed outside the ITk, as shown in Figure~\ref{fig:HGTD_location}. Each disk includes two instrumented double-sided layers, a hermetic vessel and two moderator pieces, inside and outside the vessel (to reduce the back-scattered neutrons created by the end-cap/forward calorimeters). The detector is further divided into three concentric active regions, as can be seen in Figures \ref{fig:HGTD_location} and \ref{fig:HGTD_schema}, ranging: \qty{120}{\milli\meter}-\qty{230}{\milli\meter}, \qty{230}{\milli\meter}-\qty{470}{\milli\meter} and \qty{470}{\milli\meter}-\qty{640}{\milli\meter} \cite{CERN-LHCC-2020-007}. Beyond the outer region are the peripheral electronics.
+% eta=2.4 -> theta=10.367°      eta=4 -> theta=2.0986°
+The detector will cover pseudrapidities between \(2.4 < \eta < 4.0\) (so an incident angle roughly between 2° and 10°), complementing the ITk (Inner Tracker).
+The detector consists of two thin disks to be placed outside the ITk, as shown in Figure~\ref{fig:HGTD_location}. Each disk includes two instrumented double-sided layers, a hermetic vessel and two moderator pieces (inside and outside the vessel), to reduce the back-scattered neutrons created by the end-cap/forward calorimeters. The detector is further divided into three concentric active regions, as can be seen in Figures \ref{fig:HGTD_location} and \ref{fig:HGTD_schema}, ranging: \qty{120}{\milli\meter}-\qty{230}{\milli\meter}, \qty{230}{\milli\meter}-\qty{470}{\milli\meter} and \qty{470}{\milli\meter}-\qty{640}{\milli\meter} \cite{CERN-LHCC-2020-007}. Beyond the outer region are the peripheral electronics.
 %%% the modules
-The two disks are covered by 8032 modules in total, each module containing two silicon sensors and two ASICs (Application-Specific Integrated Circuit). Each sensor features 15x15 pads of Low Gain Avalanche Detectors (LGAD), a specific type of silicon sensors (\nameref{sec:LGADs}).
+The two disks are covered by 8032 modules in total, each module containing two silicon sensors and two ASICs (Application-Specific Integrated Circuit). Each sensor features 15x15 pads of Low Gain Avalanche Detectors (LGAD), a specific type of silicon sensors.% (\nameref{sec:LGADs}).
 
 %%% radiation damage and replacement
 The radiation that the components will withstand depends strongly on the radius. Due to electronics and sensors specifications, a minimum charge of \qty{4}{\femto\coulomb} is required. This is achievable up to a radiation damage level of \qty{2.5e15}{\neutroneq\centi\meter^{-2}} (neutron equivalent\footnote{The radiation damage equivalent to neutrons at \qty{1}{\mega\electronvolt}}); as a result, the sensor and electronics within the smallest ring will be replaced after each \qty{1000}{\femto\barn^{-1}} and the ones within the middle ring will be replaced at half of the data-taking (\qty{2000}{\femto\barn^{-1}}).
 
 
 \section{Low Gain Avalanche Detectors}\label{sec:LGADs}
-
-\marginpar{\flushleft Other image/photo of LGAD?}
 
 A special type of silicon sensors were chosen as the active element for the HGTD. Due to their precision, limited thickness and internal gain.
 
@@ -154,7 +152,6 @@ The key metrics of the sensors are: time resolution, collected charge and effici
 To accomplish a time resolution per track of \(\approx\qty{30}{\pico\second}\) (start) and \(\approx\qty{50}{\pico\second}\) (end), the sensors will require a time resolution per hit of \(\approx\qty{35}{\pico\second}\) (start) \(\approx\qty{70}{\pico\second}\) (end) \cite{CERN-LHCC-2020-007}.
 
 Three major effects determine the time resolution of the sensors: time walk from amplitude variations\footnote{Time walk refers to the variation in signal timing caused by pulses with different amplitudes reaching a fixed threshold at different times.}, electronic noise jitter, and Landau fluctuations from charge deposition non-uniformities. 
-\marginpar{\flushleft The plot of time walk effect }
 
 \begin{equation}\label{eq:time_resoltuion_LGADs}
     \sigma^2 = \sigma_{TimeWalk}^2 + \sigma_{Jitter}^2 + \sigma_{Landau}^2  \, .
@@ -181,7 +178,7 @@ It can be noticed that the lowest jitter and time walk errors are achieved with 
 
 \subsubsection{Radiation damage}
 
-Due to the harsh environment the sensors will be placed in, they will suffer significant damage caused by the extreme flux of highly energetic particles. At the microscopic level, this will cause irregularities in the silicon lattice, altering the bulk and surface properties. At the macroscopic level, there will be an increase in leakage current, a degradation in charge collection efficiency and a change in the effective doping concentration \cite{Moll:1999kv} (as the defects can behave as donors or acceptors). The leakage current can be sufficiently quenched by operating at low temperatures, the charge collection can be improved by applying higher bias voltages. But the last effect has the most detrimental impact on the properties of the sensors, which will deteriorate as the radiation dose increases.
+Due to the extreme flux of highly energetic particles that the sensors will encounter, they will suffer significant damage. At the microscopic level, this will cause irregularities in the silicon lattice, altering the bulk and surface properties. At the macroscopic level, there will be an increase in leakage current, a degradation in charge collection efficiency and a change in the effective doping concentration \cite{Moll:1999kv} (as the defects can behave as donors or acceptors). The leakage current can be sufficiently quenched by operating at low temperatures, the charge collection can be improved by applying higher bias voltages. But the last effect has the most detrimental impact on the properties of the sensors, which will deteriorate as the radiation dose increases.
 
 
 \subsection{Signal generation by charged particles}\label{subsec:charged_particles_distribution}

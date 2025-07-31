@@ -12,7 +12,7 @@ The pre-processing was performed by other collaborators prior to this analysis. 
     \centering
     \includegraphics[width=1\linewidth]{Images/methods/Waveform of particle, channel2, with CFD (ns).png}
     \captionsetup{width=\captionwidth}
-    \caption{An example of a pulse with its main features highlighted. The pedestal (red dotted line) is the mean of the background signals, the noise (yellow) is its standard deviation, the pulseheight (black) is the maximum amplitude and the charge (light blue) is the area under the pulse. The remaining three dashed lines (blue, green and red) correspond to the TOA associated to three different values of CFD (20\%, 50\% and 70\%, respectively).}
+    \caption{An example of a pulse with its main features highlighted. The pedestal (red dotted line) is the mean of the background signals, the noise (yellow) is its standard deviation, the pulse height (black) is the maximum amplitude and the charge (light blue) is the area under the pulse. The remaining three dashed lines (blue, green and red) correspond to the TOA associated to three different values of CFD (20\%, 50\% and 70\%, respectively).}
     \label{fig:waveform_features}
 \end{figure} 
 
@@ -52,13 +52,13 @@ To ensure that only physically meaningful events were used in the measurements, 
 To begin with, we removed events with low signal peak (or high noise). Subsequently, we used the pulse height information to identify the outline of each pad and select only events passing through it. Finally, we established a time window around the peak of the distribution to avoid negative effects caused by the neighbouring pads and the edges of the sensors (outside the gain layer).
 
 \subsection{Noise cut}\label{subsec:noise_cut}
-The most straightforward trimming consisted in the exclusion of signals which had a pulseheight less than 3 times greater than the noise:
+The most straightforward trimming consisted in the exclusion of signals which had a pulse height less than 3 times greater than the noise:
 
 \begin{equation*}
     P > b + 3\sigma \, .
 \end{equation*}
 
-Where \(P\) is the maximum of the pulse (pulseheight), \(b\) is pedestal baseline and \(\sigma\) is the noise. This ensured the exclusion of events that could simply be particularly highly peaked noise. %%% don't know about this sentence
+Where \(P\) is the maximum of the pulse (pulse height), \(b\) is pedestal baseline and \(\sigma\) is the noise. This ensured the exclusion of events that could simply be particularly highly peaked noise. %%% don't know about this sentence
 
 \subsection{Pulse height cut}\label{subsec:pulseHeight_cut}
 
@@ -67,7 +67,7 @@ Where \(P\) is the maximum of the pulse (pulseheight), \(b\) is pedestal baselin
     \centering
     \includegraphics[width=.5\linewidth]{Images/methods/2D_Sensors_401 S1 pulseHeight cut_pulse.png}
     \captionsetup{width=\captionwidth}
-    \caption{The pulse height cut was defined by the position of the local minimum between the two main peaks (identified as to noise and signal)}
+    \caption{The pulse height cut was defined by the position of the local minimum between the two main peaks (identified as to noise and signal). The rightmost spike of events was caused by some erroneous oscilloscope settings, explained in Section~\ref{sec:pulse_clipping}.}
     \label{fig:pulseHeight_cut}
 \end{figure}
 
@@ -86,13 +86,11 @@ Using this selection of events, the X and Y coordinates of the tracks were plott
     \label{fig:edges_of_the_sensor}
 \end{figure}
 
-Looking at the projections of hits on the X and Y coordinates, it was possible to determine the outline of the pad. The distribution was smoothed\footnote{Using a Kernel Density Estimator, as done previously for the pulse height distribution in Section \ref{subsec:pulseHeight_cut}} and its gradient (derivative) was calculated. This gave rise to two remarkably pronounced peaks shown in Figure~\ref{fig:edges_of_the_sensor}, which could be interpreted as the edges of the pads. By applying this procedure to both the X and Y projections we determined the horizontal and vertical edges, respectively. The final rectangular shape can be seen in Figure~\ref{fig:pulseHeight_cut_highlight}, alongside with the density of hits after applying a \textit{pulseHeight cut}. In few cases the sensors were slightly tilted in the XY plane, giving rise to slightly imprecise outlines, this is shown in Appendix, although it did not have a significant impact on the rest of the analysis.
-%%% TODO: example of tilted sensors and imprecise outlines: batch 203 (tilted)
+Looking at the projections of hits on the X and Y coordinates, it was possible to determine the outline of the pad. The distribution was smoothed\footnote{Using a Kernel Density Estimator, as done previously for the pulse height distribution.} and its gradient (derivative) was calculated. This gave rise to two remarkably pronounced peaks shown in Figure~\ref{fig:edges_of_the_sensor}, which could be interpreted as the edges of the pads. By applying this procedure to both the X and Y projections we determined the horizontal and vertical edges, respectively. The final rectangular shape can be seen in Figure~\ref{fig:pulseHeight_cut_highlight}, alongside with the density of hits after applying a \textit{pulse height cut}. In few cases the sensors were slightly tilted in the XY plane, giving rise to slightly imprecise outlines, this is shown in \ref{fig:tilted_sensors}, although it did not have a significant impact on the rest of the analysis.
 
 % NOTE: the edges defined like this are smaller than the real size of the pad (which is 1.3x1.3 mm\(^2\)) \cite{Agapopoulou_2022} \marginpar{\flushleft There is an outer guard ring isolating, so maybe the size is correct}
 
 For certain properties that were analysed (such as efficiency and time resolution) it became clear that the rough selection of the contour of the pad was not always sufficient. Thus, an additional \textit{central area cut} was set up. A region of \(0.5\times0.5\unit{\milli\meter^2}\) in the center of the pad was selected (similarly to what had been done in \cite{Agapopoulou_2022}) in order to avoid undesirable effects originating from the region outside the gain layer of the LGAD.
-%%% TODO: (maybe details about LGADs guard ring and front view?)
 
 \begin{figure}[h!tbp]
     \centering
@@ -100,11 +98,11 @@ For certain properties that were analysed (such as efficiency and time resolutio
         \includegraphics[width=.47\linewidth]{Images/methods/2D_Tracks_401 S1 (no cuts)_DUTs_3.png}
         \label{fig:hits_no_cuts}}
     \hfill
-    \subfloat[The smaller rectangle corresponds to the area of the pad (highlighted in red with sides lengths) found by applying a \textit{pulseHeight cut}.]{
-        \includegraphics[width=.45\linewidth]{Images/methods/2D_Tracks_401_S1 highlight geometry cut (using pulseHeight).png}
+    \subfloat[The smaller rectangle corresponds to the area of the pad (highlighted in red with sides lengths) found by applying a \textit{pulse height cut}.]{
+        \includegraphics[width=.47\linewidth]{Images/methods/2D_Tracks_401_S1 highlight geometry cut (using pulseHeight).png}
         \label{fig:pulseHeight_cut_highlight}}
     \captionsetup{width=\captionwidth}
-    \caption{later}
+    \caption{The events selected by applying a pulse height cut}
 \end{figure}
 
 \subsection{Time cut}\label{subsec:time_cut}
@@ -142,11 +140,11 @@ Some peculiarities became apparent, namely the second peak shifted to the right 
 
 \subsubsection{Heavily radiated sensor case}\label{subsec:geometry_cut_w/pulse_cut}
 
-In some cases, typically for heavily radiated sensors, the noise in the pulse height distribution was too large (Figure~\ref{fig:pulseHeight_cut_failed}) to allow a \textit{pulseHeight cut} as in \ref{subsec:pulseHeight_cut}. This happened due to the pulse height decreasing and the noise peaks rising, so the separation between the two became less marked. In these situations it was possible to apply a \textit{time cut} instead and still get a satisfactory contour of the pad. The results between the two methods were very similar (Figure~\ref{fig:geometry_cut_comparison} in \nameref{chap:appendix}) so this seemed a good alternative.
+In some cases, typically for heavily radiated sensors, the noise in the pulse height distribution was too large (Figure~\ref{fig:pulseHeight_cut_failed}) to allow a \textit{pulse height cut} as in \ref{subsec:pulseHeight_cut}. This happened due to the pulse height decreasing and the noise peaks rising, so the separation between the two became less marked. In these situations it was possible to apply a \textit{time cut} instead and still get a satisfactory contour of the pad. The results of the two methods were very similar (Figure~\ref{fig:geometry_cut_comparison} in \nameref{chap:appendix}) so this seemed a good alternative.
 
 \begin{figure}[h!tbp]
     \centering
-    \subfloat[Pulse height distribution, without a clear boundary between noise and signal.]{
+    \subfloat[Pulse height distribution, without a clear boundary between noise and signal. The orange belt represents the poissonian error.]{
         \includegraphics[width=.4\linewidth]{Images/methods/2D_Sensors_603 S2 pulseHeight cut_only_pulse.png}
         \label{fig:pulseHeight_cut_failed}}
     \hfill
@@ -176,7 +174,7 @@ The narrow selection of events in the right plot is very likely to be real signa
         \includegraphics[width=.47\linewidth]{Images/methods/Time_pulseHeight_401S1 central area_DUTs_3_(3,).png}
         \label{fig:time_pulseHeight_center}}
     \captionsetup{width=\captionwidth}
-        \caption{Density plot of events when no cuts are applied (left) and when only a central square in the sensor is selected (right). The comparison between the two plots validates our choices made for quality cuts.}
+        \caption{Density plot of events when no cuts are applied (left) and when only a central square in the sensor is selected (right). The comparison between the two plots validated our choices made for quality cuts.}
 \end{figure}
 
 
@@ -221,9 +219,9 @@ The efficiency (\(\epsilon\)) was defined as the total number of tracks with cha
 
 The threshold charge \(Q_{threshold}\) was chosen to be \(4\si{fC}\), which corresponds to the limit of sensitivity of the ASIC.
 
-Before measuring the overall efficiency of the sensors, we applied a \textit{time cut} (as described in \nameref{subsec:time_cut}). Additionally, we elected to restrict the calculation to the smaller \textit{central area} of \(0.5\times0.5\unit{\milli\meter^2}\) defined earlier in \nameref{sec:geometry_cut}. This area can be seen highlighted in red in Figure~\ref{fig:efficiency_2D_plot}, which also shows how the efficiency value computed for each individual squared binning of the surface.
+Before measuring the overall efficiency of the sensors, we applied a \textit{time cut} (as described in \nameref{subsec:time_cut}). Additionally, we elected to restrict the calculation to the smaller \textit{central area} of \(0.5\times0.5\unit{\milli\meter^2}\) defined earlier in Section~\ref{sec:geometry_cut}. This area can be seen highlighted in red in Figure~\ref{fig:efficiency_2D_plot}, which also shows the efficiency value computed for each individual squared binning of the surface.
 
-Finally, the total efficiency was computed with different values of \textit{threshold charge} to obtain the plot in Figure~\ref{fig:efficiency_depending_threshold}, which shows that (in this example) the value remains constant well after the chosen threshold of \(4\si{fC}\).
+Finally, the total efficiency was also computed with different values of \textit{threshold charge} to obtain the plot in Figure~\ref{fig:efficiency_depending_threshold}, which shows that (in this example) the value remains constant well after the chosen threshold of \(4\si{fC}\).
 
 \begin{figure}[h!tbp]
     \centering

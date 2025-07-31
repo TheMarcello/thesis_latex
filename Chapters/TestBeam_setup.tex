@@ -5,20 +5,20 @@ A typical way to test the performance of sensors for High-Energy Physics applica
 
 The HGTD collaboration has run many test beam campaigns, mainly at CERN and at DESY (Deutsches Elektronen-Synchrotron). The focus of this analysis is the test beam campaign of May 2023, conducted at CERN using a beam of \qty{120}{\giga\electronvolt} pions, provided by SPS.
 
-\begin{figure}[h!tbpt]
+\begin{figure}[h!tbp]
     \centering
     \includegraphics[width=.95\linewidth]{Images/TestBeam_setup/TestBeam_setup_redrawn.png}
     \captionsetup{width=\captionwidth}
-    \caption{The components of the test beam setup: six MIMOSA planes, the FE-I4, the MCP and the cooling box containing the DUTs}
+    \caption{The main components of the test beam setup: six MIMOSA planes, the FE-I4, the MCP and the cooling box containing the DUTs}
     \label{fig:testbeam_setup}
 \end{figure}
 
 The experimental setup of this campaign included:
 \begin{itemize}
-    \item FE-i4: a hybrid pixel detector that provided a user-defined Region Of Interest (ROI), creating a HitOR\footnote{A binary signal generated when \textbf{at least one pixel} registers a hit} signal. %to avoid noisy pixels.
+    \item FE-i4: a hybrid pixel detector that provided a user-defined Region Of Interest (ROI), creating a HitOR\footnote{A binary signal generated when at least one pixel registers a hit} signal. %to avoid noisy pixels.
     \item Trigger Logic Unit (TLU): provided a trigger\footnote{A trigger is a signal that initiates data readout when a particle is detected}, combining the signals from a scintillator and the FE-i4. %% describe trigger??
     \item 6 MIMOSA planes: used for precise spatial measurements of the particles in the beam, enabling track reconstruction.
-    \item Microchannel Plate detector (MCP): measured the time of the moving particles, used as reference for the time resolution.
+    \item MicroChannel Plate detector (MCP): measured the time of the moving particles, used as reference for the time resolution.
     \item Cooling box: contained the various DUTs, maintaining them at \qty{-30}{\degreeCelsius}.
     \item 2 oscilloscopes: acquired the data from the MCP and the DUTs. %%% I put later the channels
 \end{itemize}
@@ -35,15 +35,16 @@ The experimental setup of this campaign included:
 
 \section{TLU and FEi4}
 
-The Trigger Logic Unit provides a trigger whenever a particle is detected. This trigger in turn instructs various components (in this case the oscilloscopes, the MIMOSA planes) to initiate data acquisition. More specifically the TLU takes input from a scintillator and the FE-i4 to create a trigger.
+The Trigger Logic Unit provided a trigger whenever a particle was detected. This trigger in turn instructed various components (in this case the oscilloscopes, the MIMOSA planes) to initiate data acquisition. More specifically the TLU took input from a scintillator and the FE-i4 to create a trigger.
 
 The FE-i4 (Front-End-Iteration 4) is a pixel readout chip with a planar silicon sensor bump bonded to it. It has a configurable sensitive area of up to \(\num{16.8} \times \qty{20}{\milli\meter^2}\) made up of 80 columns (\qty{250}{\micro\meter} pitch) and 336 rows (\qty{50}{\micro\meter}) \cite{Obermann:2014goa}. 
 
-Selecting a specific ROI allowed excluding the areas outside the DUTs surface and reducing sources of noise (e.g. noisy pixels of MIMOSA planes). It should be noted that in some occasions, due to erroneous ROI selection or due to small positional shifts caused by temperature fluctuations, the DUTs fell outside said ROI and the analysis was negatively impacted. (Example in Appendix, later)
+Selecting a specific ROI allowed to exclude the areas outside the DUTs surface and to reduce sources of noise (e.g. noisy pixels of MIMOSA planes). %%% maybe the next part is just a repetition of what I say later
+%It should be noted that in some occasions, due to erroneous ROI selection or due to small positional shifts caused by temperature fluctuations, the DUTs fell outside said ROI and the analysis was negatively impacted. (Example in Appendix, later)
  
 \section{MIMOSA planes}
 
-A total of 6 Minimum Ionizing MOS Active Pixel Sensor planes \cite{Hu-Guo:2010lrq} provide precise spatial measurements of particle trajectories. Each plane consists of 576 rows and 1152 columns of pixels, each sized \(\qty{18.4}{\micro\meter} \times \qty{18.4}{\micro\meter}\), covering an active area of around \(\num{21.2} \times \qty{10.6}{\micro\meter^2}\). Three of the planes were located before the DUTs, from the direction of the beam, and three were located after. The hits provided by the planes enabled the reconstruction of the tracks of the particles in the beam.
+A total of 6 Minimum Ionizing MOS Active Pixel Sensor planes \cite{Hu-Guo:2010lrq} provided precise spatial measurements of particle trajectories. Each plane consists of 576 rows and 1152 columns of pixels, each sized \(\qty{18.4}{\micro\meter} \times \qty{18.4}{\micro\meter}\), covering an active area of around \(\num{21.2} \times \qty{10.6}{\micro\meter^2}\). Three of the planes were located before the DUTs, in the direction of the beam, and three were located after. The hits provided by the planes enabled the reconstruction of the tracks of the particles in the beam.
 
 \section{MCP}\label{sec:MCP_description}
 The microchannel plate (MCP) detector consists of a single block of resistive material with numerous evenly spaced small tubes (microchannels) connecting one face to the other. The main working principle is similar to that of an electron multiplier. When a voltage is applied between the two sides a potential gradient is established along the channels. Whenever a charged particle hits the inner wall of the tubes multiple secondary electrons are emitted, these electrons then are accelerated and hit the opposite wall in the channel, causing the emission of further secondary electrons. As a result, an exponentially increasing number of electrons can be extracted from the output. This detector can provide very fast response time and, for this reason, it was used as a reference for the time resolution of the other devices \cite{LADISLASWIZA1979587}.
@@ -75,10 +76,10 @@ The time resolution of the MCP was first calculated by comparing the time differ
     \end{cases}
 \end{equation}
 
-The time distributions (left sides of the equations) were fitted with a gaussian function, each with a width \(\sigma_{ij} = \sigma_i \oplus \sigma_j\), where \(i\) and \(j\) are two of the devices in Equation \ref{eq:time_res_system_eqs} (i.e. MCP, CNM-W4 and CNM-W5). Assuming that the devices were all independent, their time resolutions would also be independent. This gave a system of three equations with three unknowns, which could be solved analytically to find each individual time resolution: \(\sigma_1\), \(\sigma_2\), \(\sigma_{MCP}\).
+The time distributions (left sides of the equations) were fitted with a gaussian function, each with a width \(\sigma_{ij} = \sigma_i \oplus \sigma_j\), where \(i\) and \(j\) are two of the devices in Equation~\ref{eq:time_res_system_eqs} (i.e. MCP, CNM-W4 and CNM-W5). Assuming that the devices were all independent, their time resolutions would also be independent. This gave a system of three equations with three unknowns, which could be solved analytically to find each individual time resolution: \(\sigma_1\), \(\sigma_2\), \(\sigma_{MCP}\).
 
 The results computed this way are shown in Table \ref{tab:MCP_time_resolution}.
-\begin{table}[h!tbpt]
+\begin{table}[h!tbp]
     \begin{center}
         \captionsetup{width=\captionwidth}
         \caption{Time resolution values of the MCP. The uncertainty comes from the statistical variance after the calculation was repeated for all the available runs.}
@@ -113,7 +114,7 @@ The first two designs have both been manufactured by the IME (Institute of Micro
 
 Two other devices from CNM were irradiated at \qty{1.5e15}{\neutroneq} and \qty{2.5e15}{\neutroneq}. Two versions (v2 and v3) of the IME-IHEP sensors were available, both had a carbon implantation, which has the purpose of increasing the radiation hardness of the LGAD. The sensors were either a single pad or an array (2\(\times\)2 or 1\(\times\)3) of pads, and they were irradiated at fluences ranging from \(0\) to \qty{2.5e15}{\neutroneq}. Two USTC devices, also with carbon enrichment (version 2.1), were tested at zero and low fluence. 
 
-Notably, the data from the irradiated USTC sensor was not available. Moreover, one pad of IMEv3-W12-2x2-1.5E15 was removed from the analysis due a possible wrong labeling (\nameref{sec:mislabeled_sensor}).
+Notably, the data from the irradiated USTC sensor was not available. Moreover, one pad of IMEv3-W12-2x2-1.5E15 was removed from the analysis due a possible wrong labeling (see in \ref{sec:mislabeled_sensor}).
 
 The sensors were then installed onto readout boards. In the case of multi-pads sensors, some number of pads were each connected to one channel of the board, so that they could be measured individually.
 
@@ -122,7 +123,7 @@ Table \ref{tab:devices_tested} provides the list of the devices that were charac
 %%% for more detailed descriptions see Table in \nameref{chap:appendix}.
 %%% TODO: maybe more complete table in appendix? with devices id
 
-\begin{table}[h!tbpt]  
+\begin{table}[h!tbp]  
     \centering
     \captionsetup{width=\captionwidth}
     \caption{List of the tested devices.}
