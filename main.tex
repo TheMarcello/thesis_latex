@@ -7,51 +7,53 @@
 \usepackage{placeins} % specify some float barrier for better float position
 % \usepackage{float} % specifying image position?
 \usepackage{xcolor} % For text colors
-\usepackage{wrapfig}  % to wrap text around images
+% \usepackage{wrapfig}  % to wrap text around images
 \usepackage[rightcaption]{sidecap}  % caption to the side of the image
-% \usepackage{svg} % for .svg images this is actually not useful because it just converts it to pdf anyways
 \usepackage{subfig} % for more figures together
 \usepackage{amsmath} % math things ?
 \usepackage[skip=10pt plus1pt, indent=0pt]{parskip}
 \usepackage{titlesec} % improve chapter titles
 % \usepackage{todonotes} % adds notes to the side, actually these slow down the compilation by a ton
 \usepackage{tabularx}
+% \usepackage{multirow}  % multiple rows merge
+\usepackage{booktabs}  % for imported tables (from pandas)
 % \usepackage{rotating}   % rotating tables? 
 % \usepackage{lscape}    % rotating tables????
 % \usepackage{adjustbox}  % I use it to rotate a table
-\usepackage{makecell}  % to make two line elemenents in a cell
+% \usepackage{makecell}  % to make two line elemenents in a cell
 % \usepackage[symbol]{footmisc} % to use symbols for footnotes (https://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers)
 \usepackage{siunitx}  % SI units
 \usepackage{derivative}
 \usepackage[backend=biber, sorting=none, maxnames=2, style=ieee]{biblatex} %Imports biblatex package, style=nature/ieee/apsrev?
 \usepackage{tablefootnote}  % footnotes in tables don't appear otherwise
+\usepackage[bottom]{footmisc} % to force footnotes at the bottom of the page
 \usepackage{lineno}  % line numbers
+
 \linenumbers
 
 % \usepackage{biblatex} %Imports biblatex package
 %THIS TO INCLUDE THE VAVILOV_LANDAU LATEX FILE
 % \usepackage{Vavilov_packages}
 
-% \newcommand{\specialcell}[2][c]{%
-%   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 \DeclareSIUnit{\barn}{b}
 \DeclareSIUnit{\neutroneq}{n_{eq}}
 
 \newcommand{\captionwidth}{.9\linewidth}
 
 %%% trying to adjust floats settings
-\renewcommand{\topfraction}{.85} % .7
-\renewcommand{\bottomfraction}{.7} % .3
-\renewcommand{\textfraction}{.15} % .2
-\renewcommand{\floatpagefraction}{.66} % .5
+\renewcommand{\topfraction}{.9} % .7
+\renewcommand{\bottomfraction}{.8} % .3
+\renewcommand{\textfraction}{.07} % .2
+\renewcommand{\floatpagefraction}{.7} % .5
 % \renewcommand{\dbltopfraction}{.66} % .7
 % \renewcommand{\dblfloatpagefraction}{.66} % .5
 \setcounter{topnumber}{9} % 2
 \setcounter{bottomnumber}{9} % 1
-\setcounter{totalnumber}{20} % 3
+\setcounter{totalnumber}{4} % 3
 % \setcounter{dbltopnumber}{9} % 2
 \setlength{\floatsep}{4pt}
 
+%%% TODO: maybe these colors?
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -59,6 +61,7 @@
     linkcolor=black,
     urlcolor=black
 }
+\interfootnotelinepenalty=10000  
 
 \addbibresource{bibliography.bib} %Import the bibliography file
 \setlength\bibitemsep{\baselineskip}
@@ -66,14 +69,16 @@
 
 \title{Test Beam analysis for HGTD}
 \author{Marcello Pozzessere}
-\date{January 2025}
+\date{July 2025}
 
 \begin{document}
 
-\maketitle
-% \renewcommand{\thesection}{\arabic{section}}
-% \titleformat{\chapter}{\bfseries\huge}{\thechapter.}{20pt}{\huge\it}
+% \maketitle
+\input{Chapters/Title_page.tex}
+
 \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\,\textcolor{gray}{|}\,}{0pt}{\Huge\bfseries}
+
+\input{Chapters/Abstract}
 
 \tableofcontents
 
@@ -87,11 +92,9 @@
 
 \include{Chapters/Methods.tex}
 
-\include{Chapters/Results}
+\include{Chapters/Results.tex}
 
-
-\chapter{Conclusions}
-\marginpar{File to make}
+\include{Chapters/Conclusion.tex}
 
 \appendix
 
