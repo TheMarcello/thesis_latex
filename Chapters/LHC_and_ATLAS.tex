@@ -3,7 +3,7 @@
 
 \chapter{The LHC and the ATLAS experiment}\label{chap:LHC_ATLAS}
 
-The theory that currently best describes the fundamental particles and their interactions is known as the Standard Model \cite{Herrero1999}. It was developed during the 20th century and finalized in the mid-1970s, after experimental confirmations of quarks. The Standard Model has since predicted and explained a wide range of phenomena with great accuracy, important examples are the W and Z bosons and the Higgs boson. However, some questions still remain unanswered.
+The theory that currently best describes the fundamental particles and their interactions is known as the Standard Model~\cite{Herrero1999}. It was developed during the 20th century and finalized in the mid-1970s, after experimental confirmations of quarks. The Standard Model has since predicted and explained a wide range of phenomena with great accuracy, important examples are the W and Z bosons and the Higgs boson. However, some questions still remain unanswered.
 
 
 \section{The Large Hadron Collider}
@@ -68,7 +68,7 @@ After the second Long Shutdown that took place between 2018 and 2022 LHC has bee
 
 %%% plans for the next years
 \subsection{High-Luminosity upgrade}\label{subsec:high_luminosity_upgrade}
-In the upcoming years there will be a third Long Shutdown (from around 2026, until early 2029) to prepare for the next phase: the High-Luminosity LHC Project (HL-LHC) \cite{cernHLLHCProject}. The plan aims to increase the instantaneous luminosity up to \qty{1.5e34}{\centi\meter^{-2}\second^{-1}} (compared to \qty{2.1e34}{\centi\meter^{-2}\second^{-1}} of Run 2 \cite{CERN-LHCC-2020-007}) and to bring the integrated luminosity up to \qty{3000}{\femto\barn^{-1}} in the following 10-12 years. This will enable more accurate measurements of new particles and the possibility to observe rare processes below the current sensitivity level. On the other hand, this upgrade will introduce a wide range of new challenges for all the systems within CERN's accelerator complex. For instance, the detectors will be exposed to higher radiation doses, which may impact performance, and the increased number of collisions will lead to more pronounced pile-up effects complicating track reconstruction.
+In the upcoming years there will be a third Long Shutdown (from around 2026, until early 2029) to prepare for the next phase: the High-Luminosity LHC Project (HL-LHC)~\cite{cernHLLHCProject}. The plan aims to increase the instantaneous luminosity up to \qty{1.5e34}{\centi\meter^{-2}\second^{-1}} (compared to \qty{2.1e34}{\centi\meter^{-2}\second^{-1}} of Run 2~\cite{CERN-LHCC-2020-007}) and to bring the integrated luminosity up to \qty{3000}{\femto\barn^{-1}} in the following 10-12 years. This will enable more accurate measurements of new particles and the possibility to observe rare processes below the current sensitivity level. On the other hand, this upgrade will introduce a wide range of new challenges for all the systems within CERN's accelerator complex. For instance, the detectors will be exposed to higher radiation doses, which may impact performance, and the increased number of collisions will lead to more pronounced pile-up effects complicating track reconstruction.
 % this is already kinda talking about HGTD, maybe it's a good bridge to the next section: HGTD
 
 %%% HERE FOOTNOTE FOR BUNCH, put it here manually because it keeps moving it away
@@ -113,7 +113,7 @@ The Pixel Detector is the first point of detection, only \qty{3}{\centi\meter} a
 
 The Semiconductor Tracker surrounds the Pixel Detector and complements it in the detection and reconstruction of the tracks of charged particles. It consists of over 6 million "micro-strips" silicon detectors with a precision of up to \qty{25}{\micro\meter}.
 
-The final layer of the Inner Detector is the Transition Radiation Tracker (TRT). Unlike its neighbouring silicon sub-detectors, TRT is composed of \num{300000} \qty{4}{\milli\meter} diameter tubes with a \qty{30}{\micro\meter} gold-plated tungsten wire in the centre and filled with a mixture of gas. As charged particles pass through the volume they ionize the gas, which creates detectable electric signals. The location can then be determined, helping with the tracks reconstruction and the momentum measurement. Additionally, the moving particles emit transition radiation\footnote{Transition Radiation occurs when a charged particle traverses materials with different refraction index, such as the boundary between two different media \cite{wikipediaTransitionRadiation}.}, and the intensity of this radiation depends on the \(\gamma\) Lorentz factor, thus allowing to distinguish between heavier and lighter particles.
+The final layer of the Inner Detector is the Transition Radiation Tracker (TRT). Unlike its neighbouring silicon sub-detectors, TRT is composed of \num{300000} \qty{4}{\milli\meter} diameter tubes with a \qty{30}{\micro\meter} gold-plated tungsten wire in the center and filled with a mixture of gas. As charged particles pass through the volume they ionize the gas, which creates detectable electric signals. The location can then be determined, helping with the tracks reconstruction and the momentum measurement. Additionally, the moving particles emit transition radiation\footnote{Transition Radiation occurs when a charged particle traverses materials with different refraction index, such as the boundary between two different media \cite{wikipediaTransitionRadiation}.}, and the intensity of this radiation depends on the \(\gamma\) Lorentz factor, thus allowing to distinguish between heavier and lighter particles.
 
 
 \subsection{Calorimeter}\label{sec:ATLAS_calorimeter}
@@ -145,7 +145,7 @@ In the first group there are:
 \end{itemize}
 Both of these detectors measure the electric signals of particles as they ionize the gas.
 
-Finally, for the role of Precision Detectors, Monitored Drift Tube (MDTs) are able to determine the position of a muon to an accuracy of \qty{100}{\micro\meter}. They are constituted by more than \num{380000} aluminium tubes with a wire at the tube's center and filled with a gas mixture. They are stacked up over several layers, to precisely trace the path of each muon.
+Finally, for the role of Precision Detectors, Monitored Drift Tube (MDTs) are able to determine the position of a muon to an accuracy of \qty{100}{\micro\meter}. They are constituted by more than \num{380000} aluminum tubes with a wire at the tube's center and filled with a gas mixture. They are stacked up over several layers, to precisely trace the path of each muon.
 
 \subsection{Magnet System}\label{sec:magnet_system}
 
@@ -171,12 +171,12 @@ Powerful magnets are used to bend the trajectories of charged particles, enablin
 
 \subsection{ATLAS upgrades}\label{subsec:ATLAS_upgrades}
 
-As part of the \nameref{subsec:high_luminosity_upgrade}, the ATLAS detector will undergo several changes, including \cite{MANGHI2024169917}: %% (not exhaustive)
+In order to cope with the new experimental challenges of the HL-LHC, as described in Section~\ref{subsec:high_luminosity_upgrade}, the ATLAS detector will undergo a series of upgrades~\cite{MANGHI2024169917}, including a new inner tracker and a new timing detector to provide 4D information on the particles created by the collisions.
 
 \begin{itemize}
-    \item Inner Tracker (ITk): a new all-silicon tracker will replace the \nameref{sec:ATLAS_inner_detector}. It will be composed of outer Si strip sensors (4 barrel layers and 6 end-cap disks) and inner Si pixel sensors (5 barrel layers and end-cap rings). The new pixel system will cover an area of about \qty{13}{\meter^2}, a significant increase compared to \qty{1.9}{\meter^2} of the current pixel detector. The pseudorapidity\footnote{The pseudorapidity is \(\eta=-\ln \tan(\theta/2)\) where \(\theta\) is the polar angle from the \(z\) axis, i.e. the beam direction.} range will also increase from \(\eta=2.5\) to \(\eta=4\) \cite{Buttar:2024imj}.
-    \item Calorimeter electronics: both calorimeters will see the replacement of all electronics to comply with a new Trigger and Data Acquisition architecture, which will provide improved precision and granularity. 
-    \item Muon spectrometer: two new chamber technology systems \cite{2106380} will be installed on the New Small Wheel \cite{Kawamoto:2013udg}. Micromegas (MicroMEsh GAseous Structure), which will serve as primary tracking detector, and Small-Strip Thin-Gap Chambers (sTGCs), which will function as primary trigger detector.
+    \item Inner Tracker (ITk) \cite{Buttar:2024imj}: a new all-silicon tracker will replace the \nameref{sec:ATLAS_inner_detector}. It will be composed of outer Si strip sensors (4 barrel layers and 6 end-cap disks) and inner Si pixel sensors (5 barrel layers and end-cap rings). The new pixel system will cover an area of about \qty{13}{\meter^2}, a significant increase compared to \qty{1.9}{\meter^2} of the current pixel detector. The pseudorapidity\footnote{The pseudorapidity is \(\eta=-\ln \tan(\theta/2)\) where \(\theta\) is the polar angle from the \(z\) axis, i.e. the beam direction.} range will also increase from \(\eta=2.5\) to \(\eta=4\).
+    % \item Calorimeter electronics: both calorimeters will see the replacement of all electronics to comply with a new Trigger and Data Acquisition architecture, which will provide improved precision and granularity. 
+    % \item Muon spectrometer: two new chamber technology systems \cite{2106380} will be installed on the New Small Wheel \cite{Kawamoto:2013udg}. Micromegas (MicroMEsh GAseous Structure), which will serve as primary tracking detector, and Small-Strip Thin-Gap Chambers (sTGCs), which will function as primary trigger detector.
     \item HGTD: a new silicon pixel detector that will provide timing information in the forward region, to improve vertex reconstruction. The design of the detector and its modules are described in more detail in the next chapter (\nameref{chap:HGTD_LGADs}.)
 \end{itemize}
 

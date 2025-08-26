@@ -1,6 +1,6 @@
 \chapter{Analysis}\label{chap:analysis}
 
-The data recorded by the oscilloscopes, in the form of waveforms, was pre-processed using the software PyAna~\cite{atlas_hgtd_pyana_2025}. Another software, PaTrack~\cite{atlas_hgtd_patrack_2025}, used the spacial information from the MIMOSA planes to reconstruct the tracks of the particles. The data was then combined into ROOT files to be further analyed.
+The data recorded by the oscilloscopes, in the form of waveforms, was pre-processed using the software PyAna~\cite{atlas_hgtd_pyana_2025}. Another software, PaTrack~\cite{atlas_hgtd_patrack_2025}, used the spacial information from the MIMOSA planes to reconstruct the tracks of the particles. The data was then combined into ROOT files to be further analyzed.
 
 Some quality cuts were applied to the data, to remove extra noise. To illustrate the analysis procedure that was followed in this study, a single DUT was picked as an example. All the plots in this chapter (unless otherwise stated) refer to the sensor IMEv3-W12, a 2\(\times\)2 array of LGADs, operated at \qty{-30}{\degreeCelsius} and perpendicular to the beam.
 
@@ -19,7 +19,7 @@ The pre-processing was performed by other collaborators prior to this analysis. 
 %PyAna, aka pulse description
 Whenever a trigger was detected, the oscilloscopes recorded an event. For each event, at least 2000 samples were collected, spaced every \qty{25}{\pico\second}, an example of one event (a pulse) is shown in Figure~\ref{fig:waveform_features}. This pulse (waveform) was then processed with PyAna.
 
-Firstly, the pedestal and the noise were measured by computing the mean and standard deviation, respectively, using the first 240 samples, where no signal is expected \cite{Allaire:2018bof}. Secondly, the maximum of the pulse was found by a second-degree polynomial fit, in a \qty{400}{\pico\second} window around the sample with the highest amplitude. After subtracting the pedestal, the total charge was computed as the integral of the pulse divided by the transimpedance\footnote{Trasfer impedance, it is the ratio of output voltage to input current in the readout board, expressed in \unit{\ohm}} value of the board the LGAD is mounted on (Equation~\ref{eq:charge_integral}). The integral is computed in a window wide enough to contain the full pulse.
+Firstly, the pedestal and the noise were measured by computing the mean and standard deviation, respectively, using the first 240 samples, where no signal is expected \cite{Allaire:2018bof}. Secondly, the maximum of the pulse was found by a second-degree polynomial fit, in a \qty{400}{\pico\second} window around the sample with the highest amplitude. After subtracting the pedestal, the total charge was computed as the integral of the pulse divided by the transimpedance\footnote{Transfer impedance, it is the ratio of output voltage to input current in the readout board, expressed in \unit{\ohm}} value of the board the LGAD is mounted on (Equation~\ref{eq:charge_integral}). The integral is computed in a window wide enough to contain the full pulse.
 
 \begin{equation}\label{eq:charge_integral}
     Q = \frac{\int_{t_1}^{t_2} V(t)dt}{R_b} \, .
@@ -40,7 +40,7 @@ The spacial information was processed with the PaTrack software to create tracks
 
 To measure the time resolution it is crucial to define the Time of Arrival (TOA), i.e. the time at which the particle hits the sensor and the pulse is recorded. There are several ways to make this choice, including: Constant Threshold Discriminator (CTD), Constant Fraction Discriminator (CFD) and Zero Crossing Detector (ZCD), Figure~\ref{fig:constant fraction}.
 
-In this study we chose to use the Constant Fraction Discriminator. More specifically, for the MCP a value of 50\% CFD was chosen, while for the DUTS a value of 20\% was chosen in all cases except for heavily irradiated sensors, in which 70\% yielded improved results overall. (An example of each in Figures~\ref{fig:CFD_comparison_unirradiated}~and~\ref{fig:CFD_comparison_irradiated}.)
+In this study we chose to use the Constant Fraction Discriminator. More specifically, for the MCP a value of 50\% CFD was chosen, while for the DUTs a value of 20\% was chosen in all cases except for heavily irradiated sensors, in which 70\% yielded improved results overall. (An example of each in Figures~\ref{fig:CFD_comparison_unirradiated}~and~\ref{fig:CFD_comparison_irradiated}.)
 
 \FloatBarrier
 
@@ -58,7 +58,7 @@ The most straightforward trimming consisted in the exclusion of signals which ha
     P > b + 3\sigma \, .
 \end{equation*}
 
-Where \(P\) is the maximum of the pulse (pulse height), \(b\) is pedestal baseline and \(\sigma\) is the noise. This ensured the exclusion of events that could simply be particularly highly peaked noise. %%% don't know about this sentence
+Where \(P\) is the maximum of the pulse (pulse height), \(b\) is pedestal baseline and \(\sigma\) is the noise. Since the noise is approximately normally distributed, applying this cut ensures that events arising from noise fluctuations are excluded with high confidence.
 
 \subsection{Pulse height cut}\label{subsec:pulseHeight_cut}
 
@@ -90,7 +90,7 @@ Looking at the projections of hits on the X and Y coordinates, it was possible t
 
 % NOTE: the edges defined like this are smaller than the real size of the pad (which is 1.3x1.3 mm\(^2\)) \cite{Agapopoulou_2022} \marginpar{\flushleft There is an outer guard ring isolating, so maybe the size is correct}
 
-For certain properties that were analysed (such as efficiency and time resolution) it became clear that the rough selection of the contour of the pad was not always sufficient. Thus, an additional \textit{central area cut} was set up. A region of \(0.5\times0.5\unit{\milli\meter^2}\) in the center of the pad was selected (similarly to what had been done in \cite{Agapopoulou_2022}) in order to avoid undesirable effects originating from the region outside the gain layer of the LGAD.
+For certain properties that were analyzed (such as efficiency and time resolution) it became clear that the rough selection of the contour of the pad was not always sufficient. Thus, an additional \textit{central area cut} was set up. A region of \(0.5\times0.5\unit{\milli\meter^2}\) in the center of the pad was selected (similarly to what had been done in \cite{Agapopoulou_2022}) in order to avoid undesirable effects originating from the region outside the gain layer of the LGAD.
 
 \begin{figure}[h!tbp]
     \centering
@@ -107,16 +107,15 @@ For certain properties that were analysed (such as efficiency and time resolutio
 
 \subsection{Time cut}\label{subsec:time_cut}
 
-Additionally, to further clean the data, a cut on the \(\Delta t\) was applied.
+The physical distance between the MCP and the DUT was fixed, and the momentum of the particles was constant throughout all the runs. Thus, the flight time of the particles between the MCP and the DUT was peaked around one point. Using this knowledge, an additional cut on the \(\Delta t\) was applied.
 
-Firstly the distribution of \(\Delta t\) (\(t_{DUT}-t_{MCP}\), time of arrival of the DUT - MCP) without any other cut was fit with a Gaussian plus a uniform background (Figure~\ref{fig:time_cut_gauss+bg_fit}):
+Firstly, the distribution of \(\Delta t\) (\(t_{DUT}-t_{MCP}\), time of arrival of the DUT - MCP) without any other cut was fit with a Gaussian plus a uniform background (Figure~\ref{fig:time_cut_gauss+bg_fit}):
 
 \begin{figure}[h!tbp]
     \centering
     \includegraphics[width=.9\linewidth]{Images/methods/time_difference_603_S2_gauss_fit_no_cuts_DUT2.png}
     \captionsetup{width=\captionwidth}
-    \caption{Time difference distribution (\(t_{DUT}-t_{MCP}\)) fit with a Gaussian + uniform background. The vertical dashed lines represent the boundary set as \textit{time cut}. The secondary peak 
-     the right (i.e. delayed) is caused by a neighbouring pad, more detailed explanation in Section~\ref{sec:multiple_peaks}.}
+    \caption{Time difference distribution (\(t_{DUT}-t_{MCP}\)) fit with a Gaussian + uniform background. The vertical dashed lines represent the boundary set as \textit{time cut}. The presence of the secondary peak was explained in Section~\ref{sec:multiple_peaks}.}
     \label{fig:time_cut_gauss+bg_fit}
 \end{figure}
 
@@ -136,7 +135,7 @@ Given that roughly 99.7\% of all values of a normal distribution lie within 3 st
 
 This cut proved to be especially useful in calculating the total efficiency of each pad and in fitting the charge distribution.
 
-Some peculiarities became apparent, namely the second peak shifted to the right of the main one (meaning delayed compared to the latter) and some discrepancy with the expected Gaussian distribution around the left tail. These effects were further investigated and will be explained later in Sections \ref{sec:multiple_peaks} and \ref{sec:deviations_from_gaussian}.
+Although, some peculiarities became apparent, namely the second peak shifted to the right of the main one (meaning delayed compared to the latter) and some discrepancy with the expected Gaussian distribution around the left tail. These effects were further investigated and will be explained later in Sections \ref{sec:multiple_peaks} and \ref{sec:deviations_from_gaussian}.
 
 \subsubsection{Heavily radiated sensor case}\label{subsec:geometry_cut_w/pulse_cut}
 
@@ -182,7 +181,7 @@ The narrow selection of events in the right plot is very likely to be real signa
 
 A central goal of this study was to measure the distribution of the charge collected by the pads and verify their correspondence with the theoretical distribution: a convolution of a Gaussian and a Landau distribution (Appendix \ref{sec:vavilov_vs_landau_distribution}).
 
-To achieve this, all the quality cuts defined in Section \ref{sec:qualtiy_cuts} were applied, and a fit was carried out using an implementation of the Gaussian*Landau convolution provided by the ROOT framework~\cite{Brun:1997pa} (Figure~\ref{fig:charge_ROOT_fit}).
+To achieve this, all the quality cuts defined in Section~\ref{sec:qualtiy_cuts} were applied, and a fit was carried out using an implementation of the Gaussian*Landau convolution provided by the ROOT framework~\cite{Brun:1997pa} (Figure~\ref{fig:charge_ROOT_fit}).
 
 The collected charge of a sensor is defined as the most probable value (MPV) of the charge, i.e. the highest point in the distribution.
 

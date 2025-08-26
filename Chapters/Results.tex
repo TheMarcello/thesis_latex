@@ -1,6 +1,6 @@
 \chapter{Results}\label{chap:results}
 
-The main goal of this analysis was to quantify key metrics of the performance of LGAD sensors. In particular, we analysed the collected charge, the time resolution and the efficiency at the temperature of \qty{-30}{\degreeCelsius}, which will be the temperature of the detector in operation. We compared the results between unirradiated and differently irradiated sensors to test whether the requirements at start and end of life were satisfied. The sensors were also studied at angles between \qty{0}{\degree} and \qty{14}{\degree} relative to the beam direction, in line with the HGTD's expected pseudorapidity coverage: between \(2.4\) and \(4\), which corresponds to incident angles of \qtyrange{2}{10}{\degree}.
+The main goal of this analysis was to quantify key metrics of the performance of LGAD sensors. In particular, we analyzed the collected charge, the time resolution and the efficiency at the temperature of \qty{-30}{\degreeCelsius}, which will be the temperature of the detector in operation. We compared the results between unirradiated and differently irradiated sensors to test whether the requirements at start and end of life were satisfied. The sensors were also studied at angles between \qty{0}{\degree} and \qty{14}{\degree} relative to the beam direction, in line with the HGTD's expected pseudorapidity coverage: between \(2.4\) and \(4\), which corresponds to incident angles of \qtyrange{2}{10}{\degree}.
 
 Additionally, some other properties and effects that arose during the analysis were also investigated. Such as, signal coming from neighbouring pads, noise coming from outside the gain layer of the pads, and properties of the region lying between two adjacent pads. Certain anomalies were also successfully explained, and the root cause was found in the incorrect voltage range set on an oscilloscope, which caused pulses to be "clipped" below a specific threshold. Moreover, due to a temporary malfunction of the cooling box, one batch of data showed neatly the sensitivity of LGADs to temperature variations.
 
@@ -26,14 +26,14 @@ Additionally, some other properties and effects that arose during the analysis w
 The most important properties of the sensors are:
 
 \begin{itemize}
-    \item Collected change: the most probable value (MPV) of the Landau*Gaussian convolution (\ref{sec:methods_collected_charge}).
-    \item Time resolution: the spread of the Gaussian distribution of the Time of Arrivals (\ref{sec:methods_time_resolution}).
-    \item Efficiency: the fraction of incident particles that produce a detectable signal in the sensor. (\ref{sec:methods_efficiency}).
+    \item Collected change: the most probable value (MPV) of the Landau*Gaussian convolution (Section~\ref{sec:methods_collected_charge}).
+    \item Time resolution: the spread of the Gaussian distribution of the Time of Arrivals (Section~\ref{sec:methods_time_resolution}).
+    \item Efficiency: the fraction of incident particles that produce a detectable signal in the sensor. (Section~\ref{sec:methods_efficiency}).
 \end{itemize}
 
 Overall all sensors behaved as expected: their collected charge increased with higher bias voltage and decreased with higher radiation dose (fluence), and most of them satisfied the HGTD's requirements.
 
-\subsection{Irradiated}
+\subsection{Irradiated samples performance}
 
 \subsubsection{IME}
 
@@ -129,13 +129,13 @@ The data from the USTC sensor was the most affected by missing and erroneous bat
     \end{minipage}
     \hfill
     \begin{minipage}[c]{.5\linewidth}
-        \captionof{figure}{USTC. The sensor had very good collected charge and efficiency, albeit falling short of the time resolutio aim. It also manifested evident differencies between the two neighbouring pads. Unfortunately, the data of the irradiated USTC sensor was not available, so no comparison was possible.}
+        \captionof{figure}{USTC. The sensor had very good collected charge and efficiency, albeit falling short of the time resolution aim. It also manifested evident differences between the two neighbouring pads. Unfortunately, the data of the irradiated USTC sensor was not available, so no comparison was possible.}
 \end{minipage}
 \end{figure}
 
 \subsubsection{CNM}
 
-The unirradiated sensors were used to measure the time resolution of the MCP (Section \ref{sec:MCP_description}). They had already been tested before (as in \cite{Allaire:2018bof}) and they showed similar performance, with gain up to \qtyrange{40}{50}{}, and time resolution better than \qty{30}{\pico\second}. In this test beam they were also tested irradiated at two fluences: \qty{1.5e15}{\neutroneq} and \qty{2.5e15}{\neutroneq}.
+The unirradiated sensors were used to measure the time resolution of the MCP (Section~\ref{sec:MCP_description}). They had already been tested before (as in \cite{Allaire:2018bof}) and they showed similar performance, with gain up to \qtyrange{40}{50}{}, and time resolution better than \qty{30}{\pico\second}. In this test beam they were also tested irradiated at two fluences: \qty{1.5e15}{\neutroneq} and \qty{2.5e15}{\neutroneq}.
 
 \begin{figure}[h!tbp]
     \centering
@@ -160,7 +160,7 @@ The unirradiated sensors were used to measure the time resolution of the MCP (Se
 
 \FloatBarrier 
 
-\subsection{Angled}
+\subsection{Angled samples performance}
 
 When particles traverse a sensor at an angle, the effective path inside the volume of the sensor will be slightly larger (\(\approx3\%\) at \qty{14}{\degree}). For this reason, charge deposition will be greater and a small improvement in the performance is expected.
 The sensors were studied with incident angles of \qty{0}{\degree}, \qty{6}{\degree} and \qty{14}{\degree}. However, due to some missing or erroneous batches or mismatched voltages and angles, not all data points were available.
@@ -275,7 +275,7 @@ The sensors were studied with incident angles of \qty{0}{\degree}, \qty{6}{\degr
     \end{minipage}
     \hfill
     \begin{minipage}[c]{.5\linewidth}
-    \captionof{figure}{IMEv2-W7, fluence \qty{6.5E14}{\neutroneq}. This sensor exhibited one pecularity: the data points at \qty{6}{\degree} had unexpectedly worse charge and time resolution values. Upon further investigation, in both batches the selected ROI cut out most of the sensor, greatly reducing the amount and the utility of the data. Figure~\ref{fig:IMEv2-W7_geo_cut_erroneous_ROI} shows the selected ROI.}
+    \captionof{figure}{IMEv2-W7, fluence \qty{6.5E14}{\neutroneq}. This sensor exhibited one peculiarity: the data points at \qty{6}{\degree} had unexpectedly worse charge and time resolution values. Upon further investigation, in both batches the selected ROI cut out most of the sensor, greatly reducing the amount and the utility of the data. Figure~\ref{fig:IMEv2-W7_geo_cut_erroneous_ROI} shows the selected ROI.}
     \end{minipage}
 \end{figure}
 
@@ -370,10 +370,10 @@ An anomaly in the time distribution was the asymmetry between the tails, with th
 
 \subsection{Signal from neighbouring pads}\label{sec:multiple_peaks}
 
-As it was very obvious from Figure \ref{fig:time_cut_gauss+bg_fit}, a second peak appeared in the time distribution.
+As the momentum of the incident particles was fixed, and the distance between the MCP and the DUTs was not changed during the runs, the time of flight from MCP to DUTs should + at one point, not two, as shown in Figure~\ref{fig:time_cut_gauss+bg_fit}. 
 
-By picking all the events in certain time windows, we were able to verify that: the main peak simply coincides with the DUT, the second peak arises from events picked up by its neighbouring pad. Figure \ref{fig:time_difference_multiple_peaks_highlight} is evidence of this. The second peak was observed with a delay of the order of \qty{1}{\nano\second}.
-As further confirmation this effect was only observed in DUTs which were part of LGAD arrays.
+The nature of the second peak was investigated by checking the spatial characteristics of the associated events, i.e. selecting all the events inside this time window and checking the spatial projection of the tracks on the DUT. It was found that the main peak simply coincides with the DUT, and the second peak arises from events picked up by its neighbouring pad. Figure~\ref{fig:time_difference_multiple_peaks_highlight} is evidence of this. This second group of events was observed with a delay of the order of \qty{1}{\nano\second}.
+As further confirmation, this effect was only observed in DUTs which were part of LGAD arrays.
 
 \begin{figure}[h!tbp]
     \centering
@@ -383,7 +383,7 @@ As further confirmation this effect was only observed in DUTs which were part of
     \subfloat[2D plot of the tracks inside the yellow first peak, revealing the connected pad]{
         \includegraphics[width=.47\linewidth]{Images/detailed_analysis/2D Tracks 401_S1_dut_3_with_first_peak.png}}
     \hfill
-    \subfloat[2D plot of the tracks inside the green second peak, revealig the connected pad]{
+    \subfloat[2D plot of the tracks inside the green second peak, revealing the connected pad]{
         \includegraphics[width=.47\linewidth]{Images/detailed_analysis/2D Tracks 401_S1_dut_3_with_second_peak.png}}
     \captionsetup{width=\captionwidth}
     \caption{Top: Time difference (DUT-MCP) distribution, with the first and second peak highlighted.
@@ -395,11 +395,11 @@ As further confirmation this effect was only observed in DUTs which were part of
 
 \subsection{Pulse clipping}\label{sec:pulse_clipping}
 
-As briefly mentioned before, there was indirect evidence that the pulses recorded by the oscilloscopes had been "cut" at their highest point. To prove this, the waveforms data was directly investigated, and a sample is shown in Figure \ref{fig:clipped_pulse}. The apex of the pulse shows clearly a spurious plateau caused by the voltage value exceeding the range set on the oscilloscope. The outcomes of this were:
+As briefly mentioned before, there was indirect evidence that the pulses recorded by the oscilloscopes had been "cut" at their highest point. To verify this, the waveforms data was directly investigated, and a sample is shown in Figure~\ref{fig:clipped_pulse}. The apex of the pulse shows clearly a spurious plateau caused by the voltage value exceeding the range set on the oscilloscope. The consequences of this were:
 
 \begin{itemize}
-    \item Anomaly in the pulse height distribution (Figure \ref{fig:pulseHeight_cut})
-    \item Irregularities in the charge distribution (Figure \ref{fig:charge_vs_pulseHeight_for_clipping})
+    \item Anomaly in the pulse height distribution (Figure~\ref{fig:pulseHeight_cut})
+    \item Irregularities in the charge distribution (Figure~\ref{fig:charge_vs_pulseHeight_for_clipping})
 \end{itemize}
 
 Fortunately, this effect only impacted a small percentage of the data, thus it did not have a significant impact on the analysis.
@@ -415,13 +415,13 @@ Fortunately, this effect only impacted a small percentage of the data, thus it d
 
 \subsubsection{Irregularities in the charge distribution}\label{subsec:charge_irregularities}
 
-In a few cases the tail of the distribution deviated considerably from the expected function, as a consequence of the pulse clipping. In Figure \ref{fig:charge_vs_pulseHeight_for_clipping} (right) the pulse height is plotted against the charge and the clipped events appear very clearly at the rightmost part of the plot. This group of events overlapped with the expected charge distribution and could not be removed without altering it. For this reason, the only solution was to adjust the range of the fit to exclude these events.
+In a few cases the tail portion of the charge distribution deviated considerably from the expected function, left graph of Figure~\ref{fig:charge_vs_pulseHeight_for_clipping}, as a consequence of the pulse clipping. In the right graph of Figure~\ref{fig:charge_vs_pulseHeight_for_clipping} the pulse height is plotted against the charge and the clipped events appear distinctly at the rightmost part of the plot. This group of events overlapped with the expected charge distribution and could not be removed without altering it. For this reason, the only solution was to adjust the range of the fit to exclude these events.
 
 \begin{figure}[h!tbp]
     \centering
     \includegraphics[width=1\linewidth]{Images/detailed_analysis/Charge_vs_pulseHeight_density_413_S2_dut3.png}
     \captionsetup{width=\captionwidth}
-    \caption{Left: distribution of collected charge with Gaussian*Landau fit. \\
+    \caption{Left: distribution of collected charge with Gaussian*Landau fit, the tail shows a significant deviation between fit and data. \\
     Right: scatter plot of Pulse height vs Charge, revealing a dense line of events with identical pulse height, caused by the clipping.}
     \label{fig:charge_vs_pulseHeight_for_clipping}
 \end{figure}
@@ -550,7 +550,7 @@ The following plots show the efficiency of the interpad region, as a function of
         \end{minipage}
         \hfill
     \begin{minipage}[c]{.65\linewidth}
-        \captionof{figure}{The sensor USTC2.1-W17 displayed very little change in the interpad region, with the width and depth of the gap staying mostly costant from \qtyrange{-80}{-105}{\volt}.}
+        \captionof{figure}{The sensor USTC2.1-W17 displayed very little change in the interpad region, with the width and depth of the gap staying mostly constant from \qtyrange{-80}{-105}{\volt}.}
     \end{minipage}
 \end{figure}
 

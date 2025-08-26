@@ -24,12 +24,23 @@
 % \usepackage[symbol]{footmisc} % to use symbols for footnotes (https://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers)
 \usepackage{siunitx}  % SI units
 \usepackage{derivative}
-\usepackage[backend=biber, sorting=none, maxnames=2, style=ieee]{biblatex} %Imports biblatex package, style=nature/ieee/apsrev?
+% \usepackage[backend=biber, sorting=none, maxnames=2, style=phys,
+% doi=true, url=true, isbn=false, eprint=false]{biblatex} %Imports biblatex package, style=nature/ieee/apsrev? phys
+\usepackage[backend=biber, maxnames=2,
+style=phys,
+biblabel=brackets,
+giveninits=true,
+abbreviate=false,
+doi=false, url=false, isbn=false,
+block=space,
+% backref=true, backrefstyle=two,
+]{biblatex}
+
 \usepackage{tablefootnote}  % footnotes in tables don't appear otherwise
 \usepackage[bottom]{footmisc} % to force footnotes at the bottom of the page
 \usepackage{lineno}  % line numbers
 
-\linenumbers
+% \linenumbers
 
 % \usepackage{biblatex} %Imports biblatex package
 %THIS TO INCLUDE THE VAVILOV_LANDAU LATEX FILE
@@ -52,6 +63,7 @@
 \setcounter{totalnumber}{4} % 3
 % \setcounter{dbltopnumber}{9} % 2
 \setlength{\floatsep}{4pt}
+\setlength{\abovecaptionskip}{5pt plus 3pt minus 2pt} % Chosen fairly arbitrarily
 
 %%% TODO: maybe these colors?
 \hypersetup{
@@ -69,7 +81,7 @@
 
 \title{Test Beam analysis for HGTD}
 \author{Marcello Pozzessere}
-\date{July 2025}
+\date{August 2025}
 
 \begin{document}
 
