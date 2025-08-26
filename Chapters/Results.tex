@@ -102,7 +102,7 @@ The sensors in the IME group were further split depending on versions and types,
     \end{minipage}
     \hfill
     \begin{minipage}[c]{.5\linewidth}
-    \captionof{figure}{IMEv3-W16. The sensor at \qty{8e14}{\neutroneq} performed well overall, except for the batch at highest bias voltage, which saw a small but unexpected worsening of time resolution and efficiency. We investigated further the cause, but we were unable to pinpoint the exact source. The sensor at \qty{2.5e15}{\neutroneq}, corresponding to the end-of-life radiation dose, had a collected charge below the requirements, slightly below \qty{3}{\femto\coulomb} and very poor efficiency, but it showed satisfactory time resolution.}
+    \captionof{figure}{IMEv3-W16. The sensor at \qty{8e14}{\neutroneq} performed well overall, except for the batch at highest bias voltage, which saw a small but unexpected worsening of time resolution and efficiency. We investigated it further, but we were unable to pinpoint the exact cause. The sensor at \qty{2.5e15}{\neutroneq}, corresponding to the end-of-life radiation dose, had a collected charge below the requirements, slightly below \qty{3}{\femto\coulomb} and very poor efficiency, but it showed satisfactory time resolution.}
 \end{minipage}
 \end{figure}
 
@@ -162,7 +162,7 @@ The unirradiated sensors were used to measure the time resolution of the MCP (Se
 
 \subsection{Angled samples performance}
 
-When particles traverse a sensor at an angle, the effective path inside the volume of the sensor will be slightly larger (\(\approx3\%\) at \qty{14}{\degree}). For this reason, charge deposition will be greater and a small improvement in the performance is expected.
+When particles traverse a sensor at an angle, the effective path inside the volume of the sensor will be slightly longer (\(\approx3\%\) at \qty{14}{\degree}). For this reason, charge deposition will be greater and a small improvement in the performance is expected.
 The sensors were studied with incident angles of \qty{0}{\degree}, \qty{6}{\degree} and \qty{14}{\degree}. However, due to some missing or erroneous batches or mismatched voltages and angles, not all data points were available.
 
 \subsubsection{IME}
@@ -208,7 +208,7 @@ The sensors were studied with incident angles of \qty{0}{\degree}, \qty{6}{\degr
     \end{minipage}
     \hfill
     \begin{minipage}[c]{.5\linewidth}
-    \captionof{figure}{IMEv3-W12, 1\(\times\)3 array, at \qty{-125}{\volt}. The sensor displayed the predicted increase in collected charge and time resolution, although with significant uncertainty. Furthermore, the differences between the two pads (already seen in \ref{fig:IMEv3-W12_voltage_charge}) were also very evident.}
+    \captionof{figure}{IMEv3-W12, 1\(\times\)3 array, at \qty{-125}{\volt}. The sensor displayed the predicted increase in collected charge and time resolution, although with significant uncertainty. Furthermore, the differences between the two pads (already seen in Figure~\ref{fig:IMEv3-W12_voltage_charge}) were also very evident.}
 \end{minipage}
 \end{figure}
 
@@ -370,7 +370,7 @@ An anomaly in the time distribution was the asymmetry between the tails, with th
 
 \subsection{Signal from neighbouring pads}\label{sec:multiple_peaks}
 
-As the momentum of the incident particles was fixed, and the distance between the MCP and the DUTs was not changed during the runs, the time of flight from MCP to DUTs should + at one point, not two, as shown in Figure~\ref{fig:time_cut_gauss+bg_fit}. 
+As the momentum of the incident particles was fixed, and the distance between the MCP and the DUTs was not changed during the runs, the time of flight from MCP to DUTs should peak at one point, not two, as shown in Figure~\ref{fig:time_cut_gauss+bg_fit}. 
 
 The nature of the second peak was investigated by checking the spatial characteristics of the associated events, i.e. selecting all the events inside this time window and checking the spatial projection of the tracks on the DUT. It was found that the main peak simply coincides with the DUT, and the second peak arises from events picked up by its neighbouring pad. Figure~\ref{fig:time_difference_multiple_peaks_highlight} is evidence of this. This second group of events was observed with a delay of the order of \qty{1}{\nano\second}.
 As further confirmation, this effect was only observed in DUTs which were part of LGAD arrays.
@@ -511,7 +511,7 @@ The following plots show the efficiency of the interpad region, as a function of
         \label{fig:IMEv3-W12-2x2_interpad_400V}}
     \vfill
 
-    \begin{minipage}[c]{.61\linewidth}
+    \begin{minipage}[c]{.62\linewidth}
         \subfloat[Interpad efficiency, \qty{450}{\volt}]{
             \includegraphics[width=.47\linewidth]{Images/detailed_analysis/interpad studies/1D_Efficiency_on_the_edges_IMEv3-W12-2x2-1.5E15_604_-450V_duts_1_2.png}
             \label{fig:IMEv3-W12-2x2_interpad_450V}}
@@ -521,8 +521,8 @@ The following plots show the efficiency of the interpad region, as a function of
             \label{fig:IMEv3-W12-2x2_interpad_490V}}
         \end{minipage}
         \hfill
-    \begin{minipage}[c]{.35\linewidth}
-        \captionof{figure}{The sensor IMEv3-W12-2x2-1.5E15 showed a significant improvement of the lowest efficiency in the gap, especially above \qty{-490}{\volt}. The regularly spaced decrease in efficiency, may have been caused by some physical element interfering with the beam, as this effect was observed in many sensors.}
+    \begin{minipage}[c]{.31\linewidth}
+        \captionof{figure}{The sensor IMEv3-W12-2x2-1.5E15 showed a significant improvement of the lowest efficiency in the gap, especially above \qty{-490}{\volt}. The regularly spaced dips in efficiency, may have been caused by some physical element interfering with the beam, as this effect was observed in many sensors.}
     \end{minipage}
 \end{figure}
 

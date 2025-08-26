@@ -24,7 +24,7 @@ Some batches (for example Figure~\ref{fig:hits_no_cuts}) presented an empty vert
 \section{Mislabeled sensor}\label{sec:mislabeled_sensor}
 
 One specific sensor had three channels connected to the readout board (IMEv3-W12-2x2-1.5E15, i.e. an array of 2x2 pads from IME, with fluence of \qty{1.5e15}{\neutroneq}), but, when plotting the outline of each pad, one of them did not match the expected configuration. Additionally, in the logbook of the test beam of May 2023, there was some contradicting information regarding the connected channels on the readout board. We suspect that the inconsistent sensor could actually be one of the pads of IMEv3-W12-\textbf{1x3}-1.5E15 but, for an unfortunate coincidence, that sensor had no useful batches. %% (most likely cut out of the FEi4 ROI).
-Therefore, it was not possible to confirm that two channels were simply swapped, and Channel4 of the IMEv3-W12-2x2-1.5E15 was excluded from the analysis.
+Therefore, it was not possible to confirm that the two channels were simply swapped, and Channel4 of the IMEv3-W12-2x2-1.5E15 was excluded from the analysis.
 
 
 \begin{figure}[h!tbp]
@@ -76,12 +76,12 @@ Therefore, it was not possible to confirm that two channels were simply swapped,
 \end{figure}
 
 
-\begin{figure}[h!tbp]
-    \centering
-    \includegraphics[width=0.7\linewidth]{Images/appendix/Charge_distribution_different_cuts_batch_401_S1_DUTs_3.png}
-    \caption{The different quality cuts applied and their individual effect on the charge distribution}
-    \label{fig:charge_plot_all_cuts}
-\end{figure}
+% \begin{figure}[h!tbp]
+%     \centering
+%     \includegraphics[width=0.7\linewidth]{Images/appendix/Charge_distribution_different_cuts_batch_401_S1_DUTs_3.png}
+%     \caption{The different quality cuts applied and their individual effect on the charge distribution}
+%     \label{fig:charge_plot_all_cuts}
+% \end{figure}
 
 
 % \begin{landscape}
@@ -116,9 +116,9 @@ Therefore, it was not possible to confirm that two channels were simply swapped,
 
 \FloatBarrier
 
-\section{Table of results}
+\section{Tables of results}
 
-Here are reported the tables containing all the results, divided by sensor. The column "Batch" indicates the batch number, the oscilloscope ('S1' or 'S2') and the channel number; multiple entries of a single batch number refer to multiple connected pads. The batch numbered \(5031\) was originally numbered \(503\), but it was divided in two batches because there was a significant shift in the position of the DUTs. \(5032\) was later removed due to the redundancy and higher noise.
+Here are reported the tables containing all the results, divided by sensor. The column "Batch" indicates the batch number, the oscilloscope ('S1' or 'S2') and the channel number; multiple entries of a single batch number refer to multiple connected pads. The batch numbered \(5031\) was originally numbered \(503\), but it was divided into two batches because there was a significant shift in the position of the DUTs. \(5032\) was later removed due to the redundancy and higher noise.
 
 %% All the tables with the results:
 %%% CNM-W4

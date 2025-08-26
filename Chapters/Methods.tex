@@ -58,7 +58,7 @@ The most straightforward trimming consisted in the exclusion of signals which ha
     P > b + 3\sigma \, .
 \end{equation*}
 
-Where \(P\) is the maximum of the pulse (pulse height), \(b\) is pedestal baseline and \(\sigma\) is the noise. Since the noise is approximately normally distributed, applying this cut ensures that events arising from noise fluctuations are excluded with high confidence.
+Where \(P\) is the maximum of the pulse (pulse height), \(b\) is pedestal baseline and \(\sigma\) is the noise. Since the noise is approximately normally distributed, applying this cut ensured that events arising from noise fluctuations were excluded with high confidence.
 
 \subsection{Pulse height cut}\label{subsec:pulseHeight_cut}
 
@@ -67,7 +67,7 @@ Where \(P\) is the maximum of the pulse (pulse height), \(b\) is pedestal baseli
     \centering
     \includegraphics[width=.5\linewidth]{Images/methods/2D_Sensors_401 S1 pulseHeight cut_pulse.png}
     \captionsetup{width=\captionwidth}
-    \caption{The pulse height cut was defined by the position of the local minimum between the two main peaks (identified as to noise and signal). The rightmost spike of events was caused by some erroneous oscilloscope settings, explained in Section~\ref{sec:pulse_clipping}.}
+    \caption{The pulse height cut was defined by the position of the local minimum between the two main peaks (identified as noise and signal). The rightmost spike of events was caused by some erroneous oscilloscope settings, explained in Section~\ref{sec:pulse_clipping}.}
     \label{fig:pulseHeight_cut}
 \end{figure}
 
@@ -115,7 +115,7 @@ Firstly, the distribution of \(\Delta t\) (\(t_{DUT}-t_{MCP}\), time of arrival 
     \centering
     \includegraphics[width=.9\linewidth]{Images/methods/time_difference_603_S2_gauss_fit_no_cuts_DUT2.png}
     \captionsetup{width=\captionwidth}
-    \caption{Time difference distribution (\(t_{DUT}-t_{MCP}\)) fit with a Gaussian + uniform background. The vertical dashed lines represent the boundary set as \textit{time cut}. The presence of the secondary peak was explained in Section~\ref{sec:multiple_peaks}.}
+    \caption{Time difference distribution (\(t_{DUT}-t_{MCP}\)) fit with a Gaussian + uniform background. The vertical dashed lines represent the boundary set as \textit{time cut}. The presence of the secondary peak is explained in Section~\ref{sec:multiple_peaks}.}
     \label{fig:time_cut_gauss+bg_fit}
 \end{figure}
 
@@ -139,7 +139,7 @@ Although, some peculiarities became apparent, namely the second peak shifted to 
 
 \subsubsection{Heavily radiated sensor case}\label{subsec:geometry_cut_w/pulse_cut}
 
-In some cases, typically for heavily radiated sensors, the noise in the pulse height distribution was too large (Figure~\ref{fig:pulseHeight_cut_failed}) to allow a \textit{pulse height cut} as in \ref{subsec:pulseHeight_cut}. This happened due to the pulse height decreasing and the noise peaks rising, so the separation between the two became less marked. In these situations it was possible to apply a \textit{time cut} instead and still get a satisfactory contour of the pad. The results of the two methods were very similar (Figure~\ref{fig:geometry_cut_comparison} in \nameref{chap:appendix}) so this seemed a good alternative.
+In some cases, typically for heavily radiated sensors, the noise in the pulse height distribution was too large (Figure~\ref{fig:pulseHeight_cut_failed}) to allow a \textit{pulse height cut} as in Section~\ref{subsec:pulseHeight_cut}. This happened due to the pulse height decreasing and the noise peaks rising, so the separation between the two became less marked. In these situations it was possible to apply a \textit{time cut} instead and still get a satisfactory contour of the pad. The results of the two methods were very similar (Figure~\ref{fig:geometry_cut_comparison} in \nameref{chap:appendix}) so this seemed a good alternative.
 
 \begin{figure}[h!tbp]
     \centering
@@ -164,7 +164,7 @@ The narrow selection of events in the right plot is very likely to be real signa
 
 \begin{figure}[h!tbp]
     \centering
-    \subfloat[Density plot of all the event without any cuts applied. The red line and the green line show where \textit{pulse height cut} and \textit{time cut} would be applied, respectively.]{
+    \subfloat[Density plot of all the events without any cuts applied.]{
         \includegraphics[width=.47\linewidth]{Images/methods/Time_pulseHeight_401S1_DUTs_3_(3,).png}
         \label{fig:time_pulseHeight_nocut}}
     \hfill
@@ -233,6 +233,7 @@ Finally, the total efficiency was also computed with different values of \textit
 \begin{figure}[h!tbp]
     \centering
     \includegraphics[width=0.5\linewidth]{Images/methods/efficiency_plots/Efficiency depending on threshold charge (with cuts) batch 401 S1.png}
+    \captionsetup{width=\captionwidth}
     \caption{Total efficiency when changing the threshold value, ensuring that there is a large plateau of high efficiency.}
     \label{fig:efficiency_depending_threshold}
 \end{figure}
